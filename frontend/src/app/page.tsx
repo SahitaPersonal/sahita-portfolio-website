@@ -6,14 +6,18 @@ import Hero from '@/components/sections/Hero'
 import About from '@/components/sections/About'
 import TechnologyShowcase from '@/components/sections/TechnologyShowcase'
 import Expertise from '@/components/sections/Expertise'
+import JourneyTimeline from '@/components/sections/JourneyTimeline'
+import Academic from '@/components/sections/Academic'
 import { apiClient } from '@/lib/api'
-import { PersonalInfo, SocialLink, Technology, TechCategory } from '@/types/api'
+import { PersonalInfo, SocialLink, Technology, TechCategory, Experience, Education } from '@/types/api'
 
 export default function Home() {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null)
   const [socialLinks, setSocialLinks] = useState<SocialLink[]>([])
   const [technologies, setTechnologies] = useState<Technology[]>([])
   const [techCategories, setTechCategories] = useState<TechCategory[]>([])
+  const [experiences, setExperiences] = useState<Experience[]>([])
+  const [education, setEducation] = useState<Education[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -31,6 +35,11 @@ export default function Home() {
         const technologiesData = await apiClient.getTechnologies()
         setTechnologies(technologiesData.technologies)
         setTechCategories(technologiesData.categories)
+        
+        // Fetch experience data
+        const experienceData = await apiClient.getExperience()
+        setExperiences(experienceData.experiences)
+        setEducation(experienceData.education)
         
       } catch (err) {
         console.error('Failed to fetch data:', err)
@@ -77,6 +86,83 @@ export default function Home() {
           { name: 'Tools', technologies: [] },
           { name: 'Cloud', technologies: [] },
         ])
+        
+        // Mock experience data
+        setExperiences([
+          {
+            id: 1,
+            company: 'Tech Solutions Inc.',
+            position: 'Senior Full-Stack Developer',
+            startDate: '2022-01-01',
+            endDate: undefined,
+            description: 'Leading development of scalable web applications using modern technologies. Responsible for architecture decisions and mentoring junior developers.',
+            achievements: [
+              'Improved application performance by 40% through optimization',
+              'Led migration to microservices architecture',
+              'Mentored 3 junior developers',
+              'Implemented CI/CD pipeline reducing deployment time by 60%'
+            ],
+            technologies: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Docker', 'AWS'],
+            displayOrder: 1
+          },
+          {
+            id: 2,
+            company: 'Digital Innovations Ltd.',
+            position: 'Full-Stack Developer',
+            startDate: '2020-03-01',
+            endDate: '2021-12-31',
+            description: 'Developed and maintained multiple client projects using React and Node.js. Collaborated with design and product teams to deliver high-quality solutions.',
+            achievements: [
+              'Delivered 8 successful client projects',
+              'Reduced bug reports by 35% through improved testing',
+              'Implemented responsive design patterns',
+              'Optimized database queries improving load times by 25%'
+            ],
+            technologies: ['React', 'Express', 'MongoDB', 'JavaScript', 'Tailwind CSS'],
+            displayOrder: 2
+          },
+          {
+            id: 3,
+            company: 'StartupCo',
+            position: 'Frontend Developer',
+            startDate: '2018-06-01',
+            endDate: '2020-02-28',
+            description: 'Built user interfaces for a fast-growing startup. Worked closely with UX designers to create intuitive and engaging user experiences.',
+            achievements: [
+              'Developed the company\'s main product interface',
+              'Increased user engagement by 50%',
+              'Implemented A/B testing framework',
+              'Created reusable component library'
+            ],
+            technologies: ['React', 'Redux', 'JavaScript', 'SCSS', 'Jest'],
+            displayOrder: 3
+          }
+        ])
+        
+        // Mock education data
+        setEducation([
+          {
+            id: 1,
+            institution: 'University of Technology',
+            degree: 'Bachelor of Science in Computer Science',
+            fieldOfStudy: 'Computer Science',
+            startDate: '2014-09-01',
+            endDate: '2018-05-31',
+            description: 'Focused on software engineering, algorithms, and data structures. Participated in various programming competitions and hackathons.',
+            gpa: '3.8',
+            displayOrder: 1
+          },
+          {
+            id: 2,
+            institution: 'Tech Institute',
+            degree: 'Certificate in Full-Stack Web Development',
+            fieldOfStudy: 'Web Development',
+            startDate: '2017-01-01',
+            endDate: '2017-06-30',
+            description: 'Intensive program covering modern web development technologies including React, Node.js, and database design.',
+            displayOrder: 2
+          }
+        ])
       } finally {
         setLoading(false)
       }
@@ -122,6 +208,8 @@ export default function Home() {
           <About personalInfo={personalInfo} />
           <TechnologyShowcase technologies={technologies} categories={techCategories} />
           <Expertise technologies={technologies} />
+          <JourneyTimeline experiences={experiences} />
+          <Academic education={education} />
         </>
       )}
     </Layout>
