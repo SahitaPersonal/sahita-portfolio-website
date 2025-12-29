@@ -57,7 +57,7 @@ app.use('/api/recommendations', recommendationsRoutes)
 app.use('/api/achievements', achievementsRoutes)
 
 // 404 handler
-app.use('*', (req, res) => {
+app.use((req, res) => {
   res.status(404).json({ 
     error: 'Not Found',
     message: `Route ${req.originalUrl} not found`,

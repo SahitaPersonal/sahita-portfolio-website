@@ -4,12 +4,16 @@ import { useEffect, useState } from 'react'
 import Layout from '@/components/Layout'
 import Hero from '@/components/sections/Hero'
 import About from '@/components/sections/About'
-import { api, getErrorMessage } from '@/lib/api'
-import { PersonalInfo, SocialLink } from '@/types/api'
+import TechnologyShowcase from '@/components/sections/TechnologyShowcase'
+import Expertise from '@/components/sections/Expertise'
+import { apiClient } from '@/lib/api'
+import { PersonalInfo, SocialLink, Technology, TechCategory } from '@/types/api'
 
 export default function Home() {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null)
   const [socialLinks, setSocialLinks] = useState<SocialLink[]>([])
+  const [technologies, setTechnologies] = useState<Technology[]>([])
+  const [techCategories, setTechCategories] = useState<TechCategory[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -17,12 +21,21 @@ export default function Home() {
     const fetchData = async () => {
       try {
         setLoading(true)
-        const profileData = await api.getProfile()
+        
+        // Fetch profile data
+        const profileData = await apiClient.getProfile()
         setPersonalInfo(profileData.personalInfo)
         setSocialLinks(profileData.socialLinks)
+        
+        // Fetch technologies data
+        const technologiesData = await apiClient.getTechnologies()
+        setTechnologies(technologiesData.technologies)
+        setTechCategories(technologiesData.categories)
+        
       } catch (err) {
-        console.error('Failed to fetch profile data:', err)
-        setError(getErrorMessage(err))
+        console.error('Failed to fetch data:', err)
+        const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred'
+        setError(errorMessage)
         
         // Fallback data for development
         setPersonalInfo({
@@ -34,9 +47,35 @@ export default function Home() {
           aboutText: 'With 6+ years of experience in full-stack development, I specialize in creating scalable web applications that deliver exceptional user experiences. My journey in technology has been driven by a passion for solving complex problems and building solutions that make a real impact.',
         })
         setSocialLinks([
-          { id: 1, platform: 'LinkedIn', url: 'https://linkedin.com', icon: 'linkedin', displayOrder: 1 },
-          { id: 2, platform: 'GitHub', url: 'https://github.com', icon: 'github', displayOrder: 2 },
-          { id: 3, platform: 'Email', url: 'mailto:contact@example.com', icon: 'email', displayOrder: 3 },
+          { id: 1, platform: 'LinkedIn', url: 'https://linkedin.com/in/sahita', icon: 'linkedin', displayOrder: 1 },
+          { id: 2, platform: 'GitHub', url: 'https://github.com/SahitaPersonal', icon: 'github', displayOrder: 2 },
+          { id: 3, platform: 'Email', url: 'mailto:contact@sahita.dev', icon: 'email', displayOrder: 3 },
+        ])
+        
+        // Mock technologies data
+        setTechnologies([
+          { id: 1, name: 'React', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: undefined, displayOrder: 1 },
+          { id: 2, name: 'TypeScript', category: 'Language', proficiency: 90, yearsUsed: 4, logoUrl: undefined, displayOrder: 2 },
+          { id: 3, name: 'Node.js', category: 'Backend', proficiency: 88, yearsUsed: 6, logoUrl: undefined, displayOrder: 3 },
+          { id: 4, name: 'Next.js', category: 'Frontend', proficiency: 92, yearsUsed: 3, logoUrl: undefined, displayOrder: 4 },
+          { id: 5, name: 'PostgreSQL', category: 'Database', proficiency: 85, yearsUsed: 5, logoUrl: undefined, displayOrder: 5 },
+          { id: 6, name: 'Express', category: 'Backend', proficiency: 87, yearsUsed: 5, logoUrl: undefined, displayOrder: 6 },
+          { id: 7, name: 'Tailwind CSS', category: 'Frontend', proficiency: 93, yearsUsed: 3, logoUrl: undefined, displayOrder: 7 },
+          { id: 8, name: 'Prisma', category: 'Database', proficiency: 82, yearsUsed: 2, logoUrl: undefined, displayOrder: 8 },
+          { id: 9, name: 'Docker', category: 'DevOps', proficiency: 78, yearsUsed: 4, logoUrl: undefined, displayOrder: 9 },
+          { id: 10, name: 'AWS', category: 'Cloud', proficiency: 75, yearsUsed: 3, logoUrl: undefined, displayOrder: 10 },
+          { id: 11, name: 'Git', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: undefined, displayOrder: 11 },
+          { id: 12, name: 'JavaScript', category: 'Language', proficiency: 94, yearsUsed: 6, logoUrl: undefined, displayOrder: 12 },
+        ])
+        
+        setTechCategories([
+          { name: 'Frontend', technologies: [] },
+          { name: 'Backend', technologies: [] },
+          { name: 'Database', technologies: [] },
+          { name: 'DevOps', technologies: [] },
+          { name: 'Language', technologies: [] },
+          { name: 'Tools', technologies: [] },
+          { name: 'Cloud', technologies: [] },
         ])
       } finally {
         setLoading(false)
@@ -81,6 +120,8 @@ export default function Home() {
         <>
           <Hero personalInfo={personalInfo} />
           <About personalInfo={personalInfo} />
+          <TechnologyShowcase technologies={technologies} categories={techCategories} />
+          <Expertise technologies={technologies} />
         </>
       )}
     </Layout>
