@@ -1,21 +1,29 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X, Github, Linkedin, Mail, ExternalLink } from 'lucide-react'
 import { SocialLink } from '@/types/api'
 
 interface NavigationProps {
   socialLinks?: SocialLink[]
 }
 
+const iconMap = {
+  github: Github,
+  linkedin: Linkedin,
+  mail: Mail,
+  email: Mail,
+} as const
+
 export default function Navigation({ socialLinks = [] }: NavigationProps) {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setScrolled(window.scrollY > 50)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -23,167 +31,170 @@ export default function Navigation({ socialLinks = [] }: NavigationProps) {
   }, [])
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { href: '#about', label: 'About' },
+    { href: '#technologies', label: 'Technologies' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#recommendations', label: 'Recommendations' },
+    { href: '#achievements', label: 'Achievements' },
+    { href: '#contact', label: 'Contact' },
   ]
 
-  const getSocialIcon = (platform: string) => {
-    const icons: Record<string, string> = {
-      linkedin: '💼',
-      github: '🐙',
-      twitter: '🐦',
-      email: '📧',
-      instagram: '📷',
+  const handleNavClick = (href: string) => {
+    setIsOpen(false)
+    
+    // Smooth scroll to section
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
     }
-    return icons[platform.toLowerCase()] || '🔗'
+  }
+
+  const getSocialIcon = (platform: string, iconName?: string) => {
+    const key = (iconName || platform).toLowerCase() as keyof typeof iconMap
+    const IconComponent = iconMap[key] || ExternalLink
+    return IconComponent
   }
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center"
-          >
-            <Link
-              href="/"
-              className="text-2xl font-bold text-neutral-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled 
+            ? 'bg-black/80 backdrop-blur-md border-b border-white/10' 
+            : 'bg-transparent'
+        }`}
+      >
+        <div className="container-custom">
+          <div className="flex items-center justify-between h-16 px-4">
+            {/* Logo */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 }}
             >
-              Portfolio
-            </Link>
-          </motion.div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                whileHover={{ y: -2 }}
-                className="text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
+              <Link 
+                href="#home" 
+                className="text-xl font-bold gradient-text hover:scale-105 transition-transform"
+                onClick={() => handleNavClick('#home')}
               >
-                {item.name}
-              </motion.a>
-            ))}
-          </div>
+                Portfolio
+              </Link>
+            </motion.div>
 
-          {/* Social Links & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
-            {/* Social Links */}
-            <div className="hidden sm:flex items-center space-x-3">
-              {socialLinks.slice(0, 3).map((link) => (
-                <motion.a
-                  key={link.id}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300"
-                  title={`Visit ${link.platform}`}
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.1 }}
                 >
-                  <span className="text-lg">{getSocialIcon(link.platform)}</span>
-                </motion.a>
+                  <button
+                    onClick={() => handleNavClick(item.href)}
+                    className="text-gray-300 hover:text-white transition-colors duration-200 font-medium"
+                  >
+                    {item.label}
+                  </button>
+                </motion.div>
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden w-10 h-10 flex items-center justify-center text-neutral-700 dark:text-neutral-300"
-              aria-label="Toggle mobile menu"
-            >
-              <motion.div
-                animate={isMobileMenuOpen ? "open" : "closed"}
-                className="w-6 h-6 flex flex-col justify-center items-center"
-              >
-                <motion.span
-                  variants={{
-                    closed: { rotate: 0, y: 0 },
-                    open: { rotate: 45, y: 6 }
-                  }}
-                  className="w-6 h-0.5 bg-current block mb-1.5 origin-center transition-all"
-                />
-                <motion.span
-                  variants={{
-                    closed: { opacity: 1 },
-                    open: { opacity: 0 }
-                  }}
-                  className="w-6 h-0.5 bg-current block mb-1.5 transition-all"
-                />
-                <motion.span
-                  variants={{
-                    closed: { rotate: 0, y: 0 },
-                    open: { rotate: -45, y: -6 }
-                  }}
-                  className="w-6 h-0.5 bg-current block origin-center transition-all"
-                />
-              </motion.div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-700"
-          >
-            <div className="container mx-auto px-6 py-4">
-              <div className="flex flex-col space-y-4">
-                {navItems.map((item) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    whileHover={{ x: 10 }}
-                    className="text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium py-2 transition-colors"
+            {/* Social Links */}
+            <div className="hidden md:flex items-center space-x-4">
+              {socialLinks.map((link, index) => {
+                const IconComponent = getSocialIcon(link.platform, link.icon)
+                return (
+                  <motion.div
+                    key={link.id}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
                   >
-                    {item.name}
-                  </motion.a>
-                ))}
-                
-                {/* Mobile Social Links */}
-                <div className="flex items-center space-x-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
-                  {socialLinks.map((link) => (
-                    <motion.a
-                      key={link.id}
+                    <a
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-10 h-10 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300"
-                      title={`Visit ${link.platform}`}
+                      className="text-gray-400 hover:text-white transition-colors duration-200 p-2 hover:bg-white/10 rounded-lg"
+                      aria-label={`Visit ${link.platform} profile`}
                     >
-                      <span className="text-lg">{getSocialIcon(link.platform)}</span>
-                    </motion.a>
+                      <IconComponent size={20} />
+                    </a>
+                  </motion.div>
+                )
+              })}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden text-gray-300 hover:text-white transition-colors p-2"
+              aria-label="Toggle mobile menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-black/95 backdrop-blur-md border-t border-white/10"
+            >
+              <div className="container-custom px-4 py-6">
+                <div className="flex flex-col space-y-4">
+                  {navItems.map((item, index) => (
+                    <motion.button
+                      key={item.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      onClick={() => handleNavClick(item.href)}
+                      className="text-gray-300 hover:text-white transition-colors duration-200 font-medium text-left py-2"
+                    >
+                      {item.label}
+                    </motion.button>
                   ))}
+                  
+                  {/* Mobile Social Links */}
+                  <div className="flex items-center space-x-4 pt-4 border-t border-white/10">
+                    {socialLinks.map((link, index) => {
+                      const IconComponent = getSocialIcon(link.platform, link.icon)
+                      return (
+                        <motion.a
+                          key={link.id}
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.3 + index * 0.1 }}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-white transition-colors duration-200 p-2 hover:bg-white/10 rounded-lg"
+                          aria-label={`Visit ${link.platform} profile`}
+                        >
+                          <IconComponent size={20} />
+                        </motion.a>
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
+
+      {/* Spacer to prevent content from hiding behind fixed nav */}
+      <div className="h-16" />
+    </>
   )
 }
