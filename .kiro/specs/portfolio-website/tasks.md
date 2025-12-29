@@ -60,14 +60,14 @@ This implementation plan creates a modern, visually striking portfolio website u
 - [ ] 4. Checkpoint - Ensure backend tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 5. Create frontend project structure and core components
-  - [ ] 5.1 Set up Next.js project with TypeScript and Tailwind
+- [x] 5. Create frontend project structure and core components
+  - [x] 5.1 Set up Next.js project with TypeScript and Tailwind
     - Configure Next.js with App Router
     - Set up Tailwind CSS with custom design system
     - Create component directory structure
     - _Requirements: 6.1, 6.2, 6.3_
 
-  - [ ] 5.2 Create core layout components
+  - [x] 5.2 Create core layout components
     - Build Navigation component with social links
     - Create responsive layout wrapper
     - Implement footer component
