@@ -12,3 +12,136 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// Seed configuration
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Seed script configuration
+// Run with: npm run prisma:seed
+
+model Profile {
+  id               Int      @id @default(autoincrement())
+  name             String   @db.VarChar(100)
+  title            String   @db.VarChar(200)
+  yearsExperience  Int      @map("years_experience")
+  tagline          String?
+  aboutText        String?  @map("about_text") @db.Text
+  profileImageUrl  String?  @map("profile_image_url") @db.VarChar(500)
+  resumeUrl        String?  @map("resume_url") @db.VarChar(500)
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  socialLinks SocialLink[]
+
+  @@map("profiles")
+}
+
+model SocialLink {
+  id           Int     @id @default(autoincrement())
+  profileId    Int     @map("profile_id")
+  platform     String  @db.VarChar(50)
+  url          String  @db.VarChar(500)
+  icon         String? @db.VarChar(100)
+  displayOrder Int     @default(0) @map("display_order")
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@map("social_links")
+}
+
+model Technology {
+  id           Int     @id @default(autoincrement())
+  name         String  @db.VarChar(100)
+  category     String  @db.VarChar(50)
+  proficiency  Int     @db.SmallInt // 1-100
+  yearsUsed    Int?    @map("years_used")
+  logoUrl      String? @map("logo_url") @db.VarChar(500)
+  displayOrder Int     @default(0) @map("display_order")
+
+  @@map("technologies")
+}
+
+model Experience {
+  id           Int       @id @default(autoincrement())
+  company      String    @db.VarChar(200)
+  position     String    @db.VarChar(200)
+  startDate    DateTime  @map("start_date") @db.Date
+  endDate      DateTime? @map("end_date") @db.Date
+  description  String?   @db.Text
+  achievements String[]
+  technologies String[]
+  displayOrder Int       @default(0) @map("display_order")
+
+  @@map("experiences")
+}
+
+model Education {
+  id           Int       @id @default(autoincrement())
+  institution  String    @db.VarChar(200)
+  degree       String    @db.VarChar(200)
+  fieldOfStudy String?   @map("field_of_study") @db.VarChar(200)
+  startDate    DateTime  @map("start_date") @db.Date
+  endDate      DateTime? @map("end_date") @db.Date
+  description  String?   @db.Text
+  gpa          String?   @db.VarChar(10)
+  displayOrder Int       @default(0) @map("display_order")
+
+  @@map("education")
+}
+
+model Recommendation {
+  id                 Int      @id @default(autoincrement())
+  recommenderName    String   @map("recommender_name") @db.VarChar(200)
+  recommenderTitle   String?  @map("recommender_title") @db.VarChar(200)
+  recommenderCompany String?  @map("recommender_company") @db.VarChar(200)
+  relationship       String?  @db.VarChar(100)
+  recommendationText String   @map("recommendation_text") @db.Text
+  linkedinUrl        String?  @map("linkedin_url") @db.VarChar(500)
+  addedDate          DateTime @default(now()) @map("added_date")
+  isFeatured         Boolean  @default(false) @map("is_featured")
+
+  @@map("recommendations")
+}
+
+model Certification {
+  id              Int       @id @default(autoincrement())
+  name            String    @db.VarChar(200)
+  issuer          String    @db.VarChar(200)
+  issueDate       DateTime  @map("issue_date") @db.Date
+  expiryDate      DateTime? @map("expiry_date") @db.Date
+  credentialId    String?   @map("credential_id") @db.VarChar(200)
+  verificationUrl String?   @map("verification_url") @db.VarChar(500)
+  logoUrl         String?   @map("logo_url") @db.VarChar(500)
+  category        String?   @db.VarChar(100)
+
+  @@map("certifications")
+}
+
+model Award {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(200)
+  issuer      String   @db.VarChar(200)
+  dateAwarded DateTime @map("date_awarded") @db.Date
+  description String?  @db.Text
+  category    String?  @db.VarChar(100)
+  logoUrl     String?  @map("logo_url") @db.VarChar(500)
+
+  @@map("awards")
+}
+
+model ProjectHighlight {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(200)
+  description String   @db.Text
+  technologies String[]
+  projectUrl  String?  @map("project_url") @db.VarChar(500)
+  githubUrl   String?  @map("github_url") @db.VarChar(500)
+  imageUrl    String?  @map("image_url") @db.VarChar(500)
+  startDate   DateTime @map("start_date") @db.Date
+  endDate     DateTime? @map("end_date") @db.Date
+  isFeatured  Boolean  @default(false) @map("is_featured")
+
+  @@map("project_highlights")
+}
