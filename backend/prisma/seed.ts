@@ -97,13 +97,13 @@ async function main() {
       startDate: new Date('2022-01-01'),
       endDate: null,
       description: 'Leading development of scalable web applications using React, Node.js, and AWS.',
-      achievements: [
+      achievements: JSON.stringify([
         'Architected and built a microservices platform serving 100k+ users',
         'Reduced application load time by 40% through performance optimization',
         'Mentored 3 junior developers and established code review processes',
         'Implemented CI/CD pipelines reducing deployment time by 60%'
-      ],
-      technologies: ['React', 'Node.js', 'TypeScript', 'AWS', 'PostgreSQL', 'Docker'],
+      ]),
+      technologies: JSON.stringify(['React', 'Node.js', 'TypeScript', 'AWS', 'PostgreSQL', 'Docker']),
       displayOrder: 1,
     },
     {
@@ -112,13 +112,13 @@ async function main() {
       startDate: new Date('2020-03-01'),
       endDate: new Date('2021-12-31'),
       description: 'Developed and maintained multiple client-facing web applications.',
-      achievements: [
+      achievements: JSON.stringify([
         'Built 5+ responsive web applications from scratch',
         'Integrated third-party APIs and payment systems',
         'Improved application security implementing OAuth 2.0',
         'Collaborated with design team to implement pixel-perfect UIs'
-      ],
-      technologies: ['Vue.js', 'Express.js', 'MongoDB', 'JavaScript', 'CSS3'],
+      ]),
+      technologies: JSON.stringify(['Vue.js', 'Express.js', 'MongoDB', 'JavaScript', 'CSS3']),
       displayOrder: 2,
     },
     {
@@ -127,13 +127,13 @@ async function main() {
       startDate: new Date('2019-01-01'),
       endDate: new Date('2020-02-28'),
       description: 'Focused on creating exceptional user experiences for early-stage startup.',
-      achievements: [
+      achievements: JSON.stringify([
         'Developed responsive SPA with React and Redux',
         'Implemented real-time features using WebSocket',
         'Optimized bundle size reducing initial load by 50%',
         'Created reusable component library'
-      ],
-      technologies: ['React', 'Redux', 'JavaScript', 'SCSS', 'Webpack'],
+      ]),
+      technologies: JSON.stringify(['React', 'Redux', 'JavaScript', 'SCSS', 'Webpack']),
       displayOrder: 3,
     },
   ]
@@ -260,7 +260,7 @@ async function main() {
     {
       title: 'E-commerce Platform',
       description: 'Full-stack e-commerce platform with real-time inventory management, payment processing, and admin dashboard.',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe API', 'AWS'],
+      technologies: JSON.stringify(['React', 'Node.js', 'PostgreSQL', 'Stripe API', 'AWS']),
       projectUrl: 'https://ecommerce-demo.com',
       githubUrl: 'https://github.com/sahitadev/ecommerce-platform',
       imageUrl: '/images/projects/ecommerce.jpg',
@@ -271,7 +271,7 @@ async function main() {
     {
       title: 'Task Management App',
       description: 'Collaborative task management application with real-time updates, team collaboration features, and analytics dashboard.',
-      technologies: ['Vue.js', 'Express.js', 'MongoDB', 'Socket.io', 'Docker'],
+      technologies: JSON.stringify(['Vue.js', 'Express.js', 'MongoDB', 'Socket.io', 'Docker']),
       projectUrl: 'https://taskmanager-demo.com',
       githubUrl: 'https://github.com/sahitadev/task-manager',
       imageUrl: '/images/projects/taskmanager.jpg',

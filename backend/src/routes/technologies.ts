@@ -72,10 +72,7 @@ router.get('/category/:category', async (req, res) => {
 
     const technologies = await prisma.technology.findMany({
       where: {
-        category: {
-          equals: category,
-          mode: 'insensitive' as const
-        }
+        category: category
       },
       orderBy: [
         { proficiency: 'desc' },

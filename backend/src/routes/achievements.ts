@@ -56,7 +56,7 @@ router.get('/', async (req, res) => {
       id: project.id,
       title: project.title,
       description: project.description,
-      technologies: project.technologies,
+      technologies: JSON.parse(project.technologies || '[]'),
       projectUrl: project.projectUrl || undefined,
       githubUrl: project.githubUrl || undefined,
       imageUrl: project.imageUrl || undefined,
@@ -90,10 +90,7 @@ router.get('/certifications', async (req, res) => {
     // Build where clause
     const where: any = {}
     if (category) {
-      where.category = {
-        equals: category,
-        mode: 'insensitive' as const
-      }
+      where.category = category
     }
     if (active) {
       where.OR = [
@@ -135,10 +132,7 @@ router.get('/awards', async (req, res) => {
     const category = req.query.category as string
 
     const where = category ? {
-      category: {
-        equals: category,
-        mode: 'insensitive' as const
-      }
+      category: category
     } : {}
 
     const awards = await prisma.award.findMany({
@@ -187,7 +181,7 @@ router.get('/projects', async (req, res) => {
       id: project.id,
       title: project.title,
       description: project.description,
-      technologies: project.technologies,
+      technologies: JSON.parse(project.technologies || '[]'),
       projectUrl: project.projectUrl || undefined,
       githubUrl: project.githubUrl || undefined,
       imageUrl: project.imageUrl || undefined,

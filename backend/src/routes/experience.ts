@@ -29,8 +29,8 @@ router.get('/', async (req, res) => {
       startDate: exp.startDate.toISOString().split('T')[0], // Format as YYYY-MM-DD
       endDate: exp.endDate ? exp.endDate.toISOString().split('T')[0] : undefined,
       description: exp.description || undefined,
-      achievements: exp.achievements,
-      technologies: exp.technologies,
+      achievements: JSON.parse(exp.achievements || '[]'),
+      technologies: JSON.parse(exp.technologies || '[]'),
       displayOrder: exp.displayOrder
     }))
 
@@ -76,8 +76,8 @@ router.get('/work', async (req, res) => {
       startDate: exp.startDate.toISOString().split('T')[0],
       endDate: exp.endDate ? exp.endDate.toISOString().split('T')[0] : undefined,
       description: exp.description || undefined,
-      achievements: exp.achievements,
-      technologies: exp.technologies,
+      achievements: JSON.parse(exp.achievements || '[]'),
+      technologies: JSON.parse(exp.technologies || '[]'),
       displayOrder: exp.displayOrder
     }))
 
@@ -137,8 +137,8 @@ router.get('/timeline', async (req, res) => {
         endDate: exp.endDate ? exp.endDate.toISOString().split('T')[0] : undefined,
         description: exp.description,
         details: {
-          achievements: exp.achievements,
-          technologies: exp.technologies
+          achievements: JSON.parse(exp.achievements || '[]'),
+          technologies: JSON.parse(exp.technologies || '[]')
         }
       })),
       ...education.map(edu => ({
