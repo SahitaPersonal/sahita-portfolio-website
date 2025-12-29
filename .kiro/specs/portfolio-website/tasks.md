@@ -29,13 +29,13 @@ This implementation plan creates a modern, visually striking portfolio website u
     - Create seed data for development and testing
     - _Requirements: 7.2_
 
-- [ ] 3. Build backend API foundation
-  - [ ] 3.1 Set up Express server with TypeScript configuration
+- [x] 3. Build backend API foundation
+  - [x] 3.1 Set up Express server with TypeScript configuration
     - Configure middleware for CORS, JSON parsing, and error handling
     - Set up route structure for portfolio endpoints
     - _Requirements: 7.1, 7.5_
 
-  - [ ] 3.2 Implement core API endpoints
+  - [x] 3.2 Implement core API endpoints
     - Create GET /api/profile endpoint
     - Create GET /api/technologies endpoint
     - Create GET /api/experience endpoint
@@ -48,7 +48,7 @@ This implementation plan creates a modern, visually striking portfolio website u
     - **Property 14: API Error Handling**
     - **Validates: Requirements 7.3, 7.5**
 
-  - [ ] 3.4 Implement file serving for resume and images
+  - [x] 3.4 Implement file serving for resume and images
     - Set up static file serving middleware
     - Create secure file access endpoints
     - _Requirements: 2.4, 7.1_
