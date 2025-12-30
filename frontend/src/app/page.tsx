@@ -10,6 +10,7 @@ import JourneyTimeline from '@/components/sections/JourneyTimeline'
 import Academic from '@/components/sections/Academic'
 import Recommendations from '@/components/sections/Recommendations'
 import Achievements from '@/components/sections/Achievements'
+import ResumeViewer from '@/components/sections/ResumeViewer'
 import { apiClient } from '@/lib/api'
 import { PersonalInfo, SocialLink, Technology, TechCategory, Experience, Education, Recommendation, Certification, Award, ProjectHighlight } from '@/types/api'
 
@@ -24,6 +25,8 @@ export default function Home() {
   const [certifications, setCertifications] = useState<Certification[]>([])
   const [awards, setAwards] = useState<Award[]>([])
   const [projects, setProjects] = useState<ProjectHighlight[]>([])
+  const [resumeUrl, setResumeUrl] = useState<string | undefined>(undefined)
+  const [resumeAvailable, setResumeAvailable] = useState(false)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -40,6 +43,8 @@ export default function Home() {
         console.log('Profile data received:', profileData)
         setPersonalInfo(profileData.personalInfo)
         setSocialLinks(profileData.socialLinks)
+        setResumeUrl(profileData.resume?.url)
+        setResumeAvailable(profileData.resume?.available || false)
         
         // Fetch technologies data
         const technologiesData = await apiClient.getTechnologies()
@@ -85,6 +90,10 @@ export default function Home() {
           { id: 2, platform: 'GitHub', url: 'https://github.com/SahitaPersonal', icon: 'github', displayOrder: 2 },
           { id: 3, platform: 'Email', url: 'mailto:contact@sahita.dev', icon: 'email', displayOrder: 3 },
         ])
+        
+        // Mock resume data
+        setResumeUrl('/api/files/resume/Sahita_Resume.pdf')
+        setResumeAvailable(true)
         
         // Mock technologies data
         setTechnologies([
@@ -430,6 +439,10 @@ export default function Home() {
             certifications={certifications}
             awards={awards}
             projects={projects}
+          />
+          <ResumeViewer 
+            resumeUrl={resumeUrl}
+            available={resumeAvailable}
           />
         </>
       )}
