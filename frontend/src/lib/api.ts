@@ -12,6 +12,15 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'
 class ApiClient {
   private async request<T>(endpoint: string): Promise<T> {
     try {
+      // Validate inputs
+      if (!endpoint) {
+        throw new Error('Endpoint is required')
+      }
+      
+      if (!API_BASE_URL) {
+        throw new Error('API_BASE_URL is not configured')
+      }
+
       // Ensure endpoint starts with /
       const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`
       const url = `${API_BASE_URL}${normalizedEndpoint}`
@@ -42,7 +51,8 @@ class ApiClient {
       console.error(`API request failed for ${endpoint}:`, error)
       // Re-throw with more context
       if (error instanceof TypeError) {
-        throw new Error(`Network error: Failed to fetch from ${API_BASE_URL}${endpoint}. ${error.message}`)
+        const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`
+        throw new Error(`Network error: Failed to fetch from ${API_BASE_URL}${normalizedEndpoint}. ${error.message}`)
       }
       throw error
     }
