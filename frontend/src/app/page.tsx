@@ -44,7 +44,15 @@ export default function Home() {
         console.log('Profile data received:', profileData)
         setPersonalInfo(profileData.personalInfo)
         setSocialLinks(profileData.socialLinks)
-        setResumeUrl(profileData.resume?.url)
+        
+        // Fix resume URL if it's relative
+        const resumeUrl = profileData.resume?.url
+        if (resumeUrl) {
+          const fullResumeUrl = resumeUrl.startsWith('http') 
+            ? resumeUrl 
+            : `http://localhost:3001${resumeUrl}`
+          setResumeUrl(fullResumeUrl)
+        }
         setResumeAvailable(profileData.resume?.available || false)
         
         // Fetch technologies data
@@ -93,8 +101,9 @@ export default function Home() {
           { id: 3, platform: 'Email', url: 'mailto:contact@sahita.dev', icon: 'email', displayOrder: 3 },
         ])
         
-        // Mock resume data
-        setResumeUrl('/api/files/resume/Sahita_Resume.pdf')
+        // Mock resume data - Fixed URL
+        const backendUrl = 'http://localhost:3001'
+        setResumeUrl(`${backendUrl}/files/resume.pdf`)
         setResumeAvailable(true)
         
         // Mock technologies data

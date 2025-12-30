@@ -43,7 +43,7 @@ router.get('/', async (req, res) => {
         displayOrder: link.displayOrder
       })),
       resume: {
-        url: profile.resumeUrl || undefined,
+        url: profile.resumeUrl ? `http://localhost:3001${profile.resumeUrl}` : undefined,
         available: !!profile.resumeUrl
       }
     }

@@ -19,8 +19,9 @@ export default function Hero({ personalInfo }: HeroProps) {
   }
 
   const handleDownloadResume = () => {
-    // This will be connected to the resume functionality
-    console.log('Download resume clicked')
+    // Download resume from the backend
+    const resumeUrl = 'http://localhost:3001/files/resume.pdf'
+    window.open(resumeUrl, '_blank')
   }
 
   return (

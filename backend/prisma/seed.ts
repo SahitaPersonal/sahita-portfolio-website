@@ -10,13 +10,14 @@ async function main() {
     where: { id: 1 },
     update: {},
     create: {
-      name: 'Sahita Dev',
-      title: 'Full Stack Engineer',
-      yearsExperience: 6,
-      tagline: 'Building scalable web applications with modern technologies',
-      aboutText: `Passionate full-stack engineer with 6+ years of experience building scalable web applications. 
-      I specialize in React, Node.js, and cloud technologies, with a focus on creating exceptional user experiences 
-      and robust backend systems. I love solving complex problems and continuously learning new technologies.`,
+      name: 'Sahita M',
+      title: 'Full Stack Developer',
+      yearsExperience: 4,
+      tagline: 'Passionate about building scalable web applications with modern technologies',
+      aboutText: `Experienced full-stack developer with 4+ years of expertise in building scalable web applications. 
+      I specialize in React, Node.js, and cloud technologies, with a strong focus on creating exceptional user experiences 
+      and robust backend systems. I'm passionate about solving complex problems, writing clean code, and continuously 
+      learning new technologies to deliver innovative solutions.`,
       profileImageUrl: '/images/profile.jpg',
       resumeUrl: '/files/resume.pdf',
     },
@@ -41,7 +42,7 @@ async function main() {
     {
       profileId: profile.id,
       platform: 'Email',
-      url: 'mailto:sahita@example.com',
+      url: 'mailto:sahitam.dev@gmail.com',
       icon: 'mail',
       displayOrder: 3,
     },
@@ -92,48 +93,48 @@ async function main() {
   // Create experiences
   const experiences = [
     {
-      company: 'Tech Solutions Inc.',
-      position: 'Senior Full Stack Engineer',
-      startDate: new Date('2022-01-01'),
+      company: 'TechCorp Solutions',
+      position: 'Full Stack Developer',
+      startDate: new Date('2022-06-01'),
       endDate: null,
-      description: 'Leading development of scalable web applications using React, Node.js, and AWS.',
+      description: 'Developing and maintaining scalable web applications using modern technologies and best practices.',
       achievements: JSON.stringify([
-        'Architected and built a microservices platform serving 100k+ users',
-        'Reduced application load time by 40% through performance optimization',
-        'Mentored 3 junior developers and established code review processes',
-        'Implemented CI/CD pipelines reducing deployment time by 60%'
+        'Built responsive web applications serving 10k+ users daily',
+        'Implemented RESTful APIs and database optimization strategies',
+        'Collaborated with cross-functional teams to deliver projects on time',
+        'Improved application performance by 35% through code optimization'
       ]),
-      technologies: JSON.stringify(['React', 'Node.js', 'TypeScript', 'AWS', 'PostgreSQL', 'Docker']),
+      technologies: JSON.stringify(['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS', 'Docker']),
       displayOrder: 1,
     },
     {
-      company: 'Digital Innovations Ltd.',
-      position: 'Full Stack Developer',
-      startDate: new Date('2020-03-01'),
-      endDate: new Date('2021-12-31'),
-      description: 'Developed and maintained multiple client-facing web applications.',
+      company: 'Digital Solutions Ltd.',
+      position: 'Frontend Developer',
+      startDate: new Date('2021-01-01'),
+      endDate: new Date('2022-05-31'),
+      description: 'Focused on creating exceptional user interfaces and user experiences for web applications.',
       achievements: JSON.stringify([
-        'Built 5+ responsive web applications from scratch',
-        'Integrated third-party APIs and payment systems',
-        'Improved application security implementing OAuth 2.0',
-        'Collaborated with design team to implement pixel-perfect UIs'
+        'Developed 8+ responsive web applications using React and Vue.js',
+        'Implemented modern UI/UX designs with pixel-perfect accuracy',
+        'Integrated third-party APIs and services',
+        'Mentored junior developers on frontend best practices'
       ]),
-      technologies: JSON.stringify(['Vue.js', 'Express.js', 'MongoDB', 'JavaScript', 'CSS3']),
+      technologies: JSON.stringify(['React', 'Vue.js', 'JavaScript', 'CSS3', 'SASS', 'Webpack']),
       displayOrder: 2,
     },
     {
-      company: 'StartupXYZ',
-      position: 'Frontend Developer',
-      startDate: new Date('2019-01-01'),
-      endDate: new Date('2020-02-28'),
-      description: 'Focused on creating exceptional user experiences for early-stage startup.',
+      company: 'StartupHub',
+      position: 'Junior Web Developer',
+      startDate: new Date('2020-08-01'),
+      endDate: new Date('2020-12-31'),
+      description: 'Contributed to various web development projects and learned modern development practices.',
       achievements: JSON.stringify([
-        'Developed responsive SPA with React and Redux',
-        'Implemented real-time features using WebSocket',
-        'Optimized bundle size reducing initial load by 50%',
-        'Created reusable component library'
+        'Assisted in developing company website and internal tools',
+        'Learned React, Node.js, and database management',
+        'Participated in code reviews and agile development processes',
+        'Created documentation for development workflows'
       ]),
-      technologies: JSON.stringify(['React', 'Redux', 'JavaScript', 'SCSS', 'Webpack']),
+      technologies: JSON.stringify(['HTML5', 'CSS3', 'JavaScript', 'React', 'Node.js', 'MySQL']),
       displayOrder: 3,
     },
   ]
@@ -149,13 +150,13 @@ async function main() {
   // Create education
   const education = [
     {
-      institution: 'University of Technology',
-      degree: 'Bachelor of Science',
-      fieldOfStudy: 'Computer Science',
-      startDate: new Date('2015-09-01'),
-      endDate: new Date('2019-05-31'),
-      description: 'Focused on software engineering, algorithms, and data structures.',
-      gpa: '3.8/4.0',
+      institution: 'University of Engineering & Technology',
+      degree: 'Bachelor of Technology',
+      fieldOfStudy: 'Computer Science & Engineering',
+      startDate: new Date('2016-08-01'),
+      endDate: new Date('2020-06-30'),
+      description: 'Focused on software engineering, data structures, algorithms, and web technologies.',
+      gpa: '8.2/10.0',
       displayOrder: 1,
     },
   ]
@@ -171,25 +172,37 @@ async function main() {
   // Create recommendations
   const recommendations = [
     {
-      recommenderName: 'John Smith',
-      recommenderTitle: 'Engineering Manager',
-      recommenderCompany: 'Tech Solutions Inc.',
+      recommenderName: 'Rajesh Kumar',
+      recommenderTitle: 'Senior Engineering Manager',
+      recommenderCompany: 'TechCorp Solutions',
       relationship: 'Direct Manager',
-      recommendationText: `Sahita is an exceptional full-stack engineer who consistently delivers high-quality solutions. 
-      Her technical expertise in React and Node.js, combined with her problem-solving abilities, makes her invaluable to any team. 
-      She has a great eye for detail and always considers the user experience in her implementations.`,
+      recommendationText: `Sahita is an outstanding full-stack developer who consistently delivers high-quality solutions. 
+      Her technical expertise in React and Node.js, combined with her problem-solving abilities, makes her a valuable team member. 
+      She has excellent attention to detail and always considers the user experience in her implementations. I highly recommend her for any development role.`,
       linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
       isFeatured: true,
     },
     {
-      recommenderName: 'Sarah Johnson',
-      recommenderTitle: 'Senior Frontend Developer',
-      recommenderCompany: 'Digital Innovations Ltd.',
-      relationship: 'Colleague',
-      recommendationText: `Working with Sahita was a pleasure. She brings both technical excellence and collaborative spirit to every project. 
-      Her ability to translate complex requirements into elegant solutions is remarkable. I would highly recommend her for any full-stack role.`,
+      recommenderName: 'Priya Sharma',
+      recommenderTitle: 'Lead Frontend Developer',
+      recommenderCompany: 'Digital Solutions Ltd.',
+      relationship: 'Team Lead',
+      recommendationText: `Working with Sahita was a great experience. She brings both technical excellence and collaborative spirit to every project. 
+      Her ability to translate complex requirements into elegant solutions is impressive. She's always eager to learn and share knowledge with the team. 
+      I would definitely recommend her for any full-stack development position.`,
       linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
       isFeatured: true,
+    },
+    {
+      recommenderName: 'Amit Patel',
+      recommenderTitle: 'Senior Developer',
+      recommenderCompany: 'StartupHub',
+      relationship: 'Mentor',
+      recommendationText: `Sahita showed exceptional learning ability and dedication during her time with us. 
+      She quickly grasped new concepts and technologies, and her enthusiasm for web development was evident in every project. 
+      She has strong fundamentals and the right attitude to succeed in any development role.`,
+      linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
+      isFeatured: false,
     },
   ]
 
@@ -202,24 +215,54 @@ async function main() {
   // Create certifications
   const certifications = [
     {
-      name: 'AWS Certified Solutions Architect',
+      name: 'AWS Certified Cloud Practitioner',
       issuer: 'Amazon Web Services',
-      issueDate: new Date('2023-06-15'),
-      expiryDate: new Date('2026-06-15'),
-      credentialId: 'AWS-SAA-123456',
-      verificationUrl: 'https://aws.amazon.com/verification/123456',
-      logoUrl: '/images/certs/aws-saa.png',
+      issueDate: new Date('2023-03-15'),
+      expiryDate: new Date('2026-03-15'),
+      credentialId: 'AWS-CCP-456789',
+      verificationUrl: 'https://aws.amazon.com/verification/456789',
+      logoUrl: '/images/certs/aws-ccp.png',
       category: 'Cloud',
     },
     {
-      name: 'React Developer Certification',
+      name: 'React Developer Professional Certificate',
       issuer: 'Meta',
-      issueDate: new Date('2022-11-20'),
+      issueDate: new Date('2022-09-20'),
       expiryDate: null,
-      credentialId: 'META-REACT-789',
-      verificationUrl: 'https://coursera.org/verify/123456',
+      credentialId: 'META-REACT-567',
+      verificationUrl: 'https://coursera.org/verify/567890',
       logoUrl: '/images/certs/meta-react.png',
       category: 'Frontend',
+    },
+    {
+      name: 'JavaScript Algorithms and Data Structures',
+      issuer: 'freeCodeCamp',
+      issueDate: new Date('2021-12-10'),
+      expiryDate: null,
+      credentialId: 'FCC-JS-789',
+      verificationUrl: 'https://freecodecamp.org/certification/sahita/javascript-algorithms-and-data-structures',
+      logoUrl: '/images/certs/freecodecamp.png',
+      category: 'Programming',
+    },
+    {
+      name: 'Full Stack Web Development',
+      issuer: 'Coursera',
+      issueDate: new Date('2021-06-15'),
+      expiryDate: null,
+      credentialId: 'COURSERA-FULLSTACK-123',
+      verificationUrl: 'https://coursera.org/verify/123456',
+      logoUrl: '/images/certs/coursera.png',
+      category: 'Development',
+    },
+    {
+      name: 'MongoDB Developer Certification',
+      issuer: 'MongoDB University',
+      issueDate: new Date('2022-11-05'),
+      expiryDate: new Date('2025-11-05'),
+      credentialId: 'MONGO-DEV-345',
+      verificationUrl: 'https://university.mongodb.com/verify/345678',
+      logoUrl: '/images/certs/mongodb.png',
+      category: 'Database',
     },
   ]
 
@@ -232,20 +275,36 @@ async function main() {
   // Create awards
   const awards = [
     {
-      title: 'Employee of the Year',
-      issuer: 'Tech Solutions Inc.',
+      title: 'Best Performer Award',
+      issuer: 'TechCorp Solutions',
       dateAwarded: new Date('2023-12-01'),
-      description: 'Recognized for outstanding technical contributions and leadership.',
+      description: 'Recognized for exceptional performance and dedication to delivering high-quality solutions.',
       category: 'Professional',
-      logoUrl: '/images/awards/employee-year.png',
+      logoUrl: '/images/awards/best-performer.png',
     },
     {
-      title: 'Best Innovation Award',
-      issuer: 'Digital Innovations Ltd.',
-      dateAwarded: new Date('2021-08-15'),
-      description: 'Awarded for developing an innovative solution that improved client satisfaction by 30%.',
+      title: 'Innovation Excellence Award',
+      issuer: 'Digital Solutions Ltd.',
+      dateAwarded: new Date('2022-03-15'),
+      description: 'Awarded for developing innovative frontend solutions that improved user engagement by 25%.',
       category: 'Innovation',
       logoUrl: '/images/awards/innovation.png',
+    },
+    {
+      title: 'Academic Excellence Award',
+      issuer: 'University of Engineering & Technology',
+      dateAwarded: new Date('2020-06-30'),
+      description: 'Graduated with distinction for maintaining excellent academic performance throughout the program.',
+      category: 'Academic',
+      logoUrl: '/images/awards/academic.png',
+    },
+    {
+      title: 'Hackathon Winner',
+      issuer: 'TechFest 2021',
+      dateAwarded: new Date('2021-10-20'),
+      description: 'First place winner in web development category for building an innovative e-learning platform.',
+      category: 'Competition',
+      logoUrl: '/images/awards/hackathon.png',
     },
   ]
 
@@ -258,26 +317,48 @@ async function main() {
   // Create project highlights
   const projects = [
     {
-      title: 'E-commerce Platform',
-      description: 'Full-stack e-commerce platform with real-time inventory management, payment processing, and admin dashboard.',
-      technologies: JSON.stringify(['React', 'Node.js', 'PostgreSQL', 'Stripe API', 'AWS']),
-      projectUrl: 'https://ecommerce-demo.com',
-      githubUrl: 'https://github.com/SahitaPersonal/ecommerce-platform',
-      imageUrl: '/images/projects/ecommerce.jpg',
-      startDate: new Date('2023-01-01'),
-      endDate: new Date('2023-06-30'),
+      title: 'Portfolio Website',
+      description: 'Modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features include dark mode, animations, and a comprehensive showcase of skills and projects.',
+      technologies: JSON.stringify(['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Prisma', 'PostgreSQL']),
+      projectUrl: 'https://sahita-portfolio.vercel.app',
+      githubUrl: 'https://github.com/SahitaPersonal/sahita-portfolio-website',
+      imageUrl: '/images/projects/portfolio.jpg',
+      startDate: new Date('2024-01-01'),
+      endDate: new Date('2024-02-15'),
       isFeatured: true,
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative task management application with real-time updates, team collaboration features, and analytics dashboard.',
-      technologies: JSON.stringify(['Vue.js', 'Express.js', 'MongoDB', 'Socket.io', 'Docker']),
-      projectUrl: 'https://taskmanager-demo.com',
-      githubUrl: 'https://github.com/SahitaPersonal/task-manager',
+      title: 'Task Management Dashboard',
+      description: 'Full-stack task management application with real-time updates, team collaboration features, drag-and-drop functionality, and comprehensive analytics dashboard.',
+      technologies: JSON.stringify(['React', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'Material-UI']),
+      projectUrl: 'https://taskmanager-demo.netlify.app',
+      githubUrl: 'https://github.com/SahitaPersonal/task-manager-app',
       imageUrl: '/images/projects/taskmanager.jpg',
-      startDate: new Date('2022-08-01'),
-      endDate: new Date('2022-12-31'),
+      startDate: new Date('2023-08-01'),
+      endDate: new Date('2023-11-30'),
       isFeatured: true,
+    },
+    {
+      title: 'E-Learning Platform',
+      description: 'Interactive e-learning platform with course management, video streaming, progress tracking, and quiz functionality. Built for educational institutions.',
+      technologies: JSON.stringify(['Vue.js', 'Nuxt.js', 'Node.js', 'PostgreSQL', 'AWS S3', 'Stripe API']),
+      projectUrl: 'https://elearning-platform-demo.com',
+      githubUrl: 'https://github.com/SahitaPersonal/elearning-platform',
+      imageUrl: '/images/projects/elearning.jpg',
+      startDate: new Date('2023-03-01'),
+      endDate: new Date('2023-07-31'),
+      isFeatured: true,
+    },
+    {
+      title: 'Weather App',
+      description: 'Responsive weather application with location-based forecasts, interactive maps, and detailed weather analytics. Features clean UI and smooth animations.',
+      technologies: JSON.stringify(['React', 'TypeScript', 'OpenWeather API', 'Chart.js', 'CSS Modules']),
+      projectUrl: 'https://weather-app-sahita.netlify.app',
+      githubUrl: 'https://github.com/SahitaPersonal/weather-app',
+      imageUrl: '/images/projects/weather.jpg',
+      startDate: new Date('2022-12-01'),
+      endDate: new Date('2023-01-15'),
+      isFeatured: false,
     },
   ]
 

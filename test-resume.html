@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Test</title>
+</head>
+<body>
+    <h1>Resume Download Test</h1>
+    
+    <h2>Direct Link Test:</h2>
+    <a href="http://localhost:3001/files/resume.pdf" target="_blank">
+        View Resume (Direct Link)
+    </a>
+    
+    <h2>Download Test:</h2>
+    <button onclick="downloadResume()">Download Resume</button>
+    
+    <h2>API Test:</h2>
+    <button onclick="testAPI()">Test API Response</button>
+    <div id="api-result"></div>
+    
+    <script>
+        function downloadResume() {
+            const link = document.createElement('a');
+            link.href = 'http://localhost:3001/files/resume.pdf';
+            link.download = 'Sahita_Resume.pdf';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        async function testAPI() {
+            try {
+                const response = await fetch('http://localhost:3001/api/profile');
+                const data = await response.json();
+                document.getElementById('api-result').innerHTML = 
+                    '<pre>' + JSON.stringify(data.data.resume, null, 2) + '</pre>';
+            } catch (error) {
+                document.getElementById('api-result').innerHTML = 
+                    '<p style="color: red;">Error: ' + error.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

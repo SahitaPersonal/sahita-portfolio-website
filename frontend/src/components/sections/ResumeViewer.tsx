@@ -33,27 +33,15 @@ export default function ResumeViewer({ resumeUrl, available }: ResumeViewerProps
   }
 
   // Handle resume download
-  const handleDownload = async () => {
+  const handleDownload = () => {
     if (!resumeUrl || !available) return
 
     try {
       setIsLoading(true)
       setError(null)
 
-      const response = await fetch(resumeUrl)
-      if (!response.ok) {
-        throw new Error(`Failed to download resume: ${response.statusText}`)
-      }
-
-      const blob = await response.blob()
-      const url = window.URL.createObjectURL(blob)
-      const link = document.createElement('a')
-      link.href = url
-      link.download = 'Sahita_Resume.pdf'
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      window.URL.revokeObjectURL(url)
+      // Open in new tab which will trigger download
+      window.open(resumeUrl, '_blank')
     } catch (err) {
       console.error('Download failed:', err)
       setError(err instanceof Error ? err.message : 'Download failed')
