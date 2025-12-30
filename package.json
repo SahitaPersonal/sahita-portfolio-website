@@ -1,26 +1,16 @@
 {
   "name": "sahita-portfolio-website",
   "version": "1.0.0",
-  "description": "Modern portfolio website for a full-stack engineer",
+  "private": true,
   "scripts": {
-    "dev:backend": "cd backend && npm run dev",
-    "dev:frontend": "cd frontend && npm run dev",
-    "dev:all": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "setup": "cd backend && npm install && cd ../frontend && npm install",
-    "setup:db": "cd backend && npx prisma generate && npx prisma migrate dev --name init && npx prisma db seed",
-    "build": "cd backend && npm run build && cd ../frontend && npm run build",
-    "start": "cd backend && npm start"
+    "build": "cd frontend && npm run build",
+    "dev": "cd frontend && npm run dev",
+    "start": "cd frontend && npm run start",
+    "install-frontend": "cd frontend && npm install",
+    "install-backend": "cd backend && npm install"
   },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
-  },
-  "keywords": [
-    "portfolio",
-    "nextjs",
-    "nodejs",
-    "typescript",
-    "prisma"
-  ],
-  "author": "Sahita",
-  "license": "MIT"
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
 }
