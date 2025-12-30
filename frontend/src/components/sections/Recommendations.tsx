@@ -75,7 +75,7 @@ export default function Recommendations({ recommendations = [] }: Recommendation
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900">
+    <section id="recommendations" className="py-20 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900">
       <div className="container mx-auto px-6">
         <motion.div
           variants={containerVariants}

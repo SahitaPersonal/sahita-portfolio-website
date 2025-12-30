@@ -38,7 +38,7 @@ export default function Connect({ linkedinUrl, email }: ConnectProps) {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl" />

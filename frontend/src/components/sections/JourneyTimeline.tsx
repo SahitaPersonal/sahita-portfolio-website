@@ -76,7 +76,7 @@ export default function JourneyTimeline({ experiences = [] }: JourneyTimelinePro
   }
 
   return (
-    <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
+    <section id="experience" className="py-20 bg-neutral-50 dark:bg-neutral-900">
       <div className="container mx-auto px-6">
         <motion.div
           variants={containerVariants}

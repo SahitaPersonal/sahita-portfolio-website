@@ -99,7 +99,7 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
   }, {} as Record<string, Technology[]>)
 
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section id="technologies" className="section-padding relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <BinaryRain className="opacity-30" />
