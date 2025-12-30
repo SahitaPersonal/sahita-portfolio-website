@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,12 +12,16 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export const metadata: Metadata = {
   title: "Sahita - Full-Stack Engineer Portfolio",
   description: "Full-stack engineer with 6+ years of experience building scalable web applications. Explore my projects, skills, and professional journey.",
   keywords: ["full-stack developer", "web developer", "React", "Node.js", "TypeScript", "portfolio"],
   authors: [{ name: "Sahita" }],
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "Sahita - Full-Stack Engineer Portfolio",
