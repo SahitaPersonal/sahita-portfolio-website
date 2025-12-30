@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Technology, TechCategory } from '@/types/api'
+import { BinaryRain, GeometricShapes, FloatingIcons } from '@/components/ui/CoderGraphics'
 
 interface TechnologyShowcaseProps {
   technologies: Technology[]
@@ -106,8 +107,40 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
   }, {} as Record<string, Technology[]>)
 
   return (
-    <section className="py-20 bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900">
-      <div className="container mx-auto px-6">
+    <section className="section-padding relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <BinaryRain className="opacity-30" />
+        <FloatingIcons />
+        
+        {/* Animated gradient orbs */}
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{ 
+            duration: 20, 
+            repeat: Infinity, 
+            ease: "linear" 
+          }}
+          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-primary rounded-full blur-3xl opacity-10"
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            x: [-50, 50, -50],
+          }}
+          transition={{ 
+            duration: 25, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-secondary rounded-full blur-3xl opacity-15"
+        />
+      </div>
+
+      <div className="container-custom relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -115,18 +148,19 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
           viewport={{ once: true, margin: "-100px" }}
           className="max-w-6xl mx-auto"
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium mb-4">
+          {/* Enhanced Section Header */}
+          <motion.div variants={itemVariants} className="text-center mb-20">
+            <span className="inline-flex items-center gap-2 px-4 py-2 glass-card text-primary-300 rounded-full text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-primary-400 rounded-full animate-pulse" />
               Technologies & Skills
             </span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+            <h2 className="text-responsive-lg font-bold text-white mb-6">
               My Technical
-              <span className="block text-transparent bg-clip-text bg-gradient-primary">
+              <span className="block gradient-text">
                 Arsenal
               </span>
             </h2>
-            <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+            <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
               A comprehensive overview of the technologies, frameworks, and tools I use to build exceptional digital experiences.
             </p>
           </motion.div>
@@ -139,13 +173,15 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
                 variants={itemVariants}
                 className="space-y-6"
               >
-                {/* Category Header */}
-                <div className="flex items-center gap-4">
+                {/* Enhanced Category Header */}
+                <div className="flex items-center gap-4 mb-6">
                   <div className={`w-1 h-8 bg-gradient-to-b ${getCategoryColor(categoryName)} rounded-full`} />
-                  <h3 className="text-2xl font-bold text-neutral-900 dark:text-white capitalize">
+                  <h3 className="text-2xl font-bold text-white capitalize">
                     {categoryName}
                   </h3>
-                  <div className="flex-1 h-px bg-gradient-to-r from-neutral-300 to-transparent dark:from-neutral-600" />
+                  <div className="flex-1 h-px bg-gradient-to-r from-neutral-600 to-transparent" />
+                  {/* Geometric shapes decoration */}
+                  <GeometricShapes variant="inline" size="sm" />
                 </div>
 
                 {/* Technology Cards */}
@@ -165,7 +201,7 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
                           transition: { duration: 0.2 }
                         }}
                         whileTap={{ scale: 0.95 }}
-                        className="group relative bg-white dark:bg-neutral-800 rounded-xl p-4 shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300 cursor-pointer"
+                        className="group relative card-modern p-6 transition-all duration-300 cursor-pointer overflow-hidden"
                       >
                         {/* Technology Icon */}
                         <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -181,21 +217,21 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
                         </div>
 
                         {/* Technology Name */}
-                        <h4 className="font-semibold text-neutral-900 dark:text-white mb-2 text-sm">
+                        <h4 className="font-semibold text-white mb-3 text-sm relative z-10">
                           {tech.name}
                         </h4>
 
-                        {/* Proficiency Bar */}
-                        <div className="space-y-2">
+                        {/* Enhanced Proficiency Bar */}
+                        <div className="space-y-2 relative z-10">
                           <div className="flex justify-between items-center text-xs">
-                            <span className="text-neutral-600 dark:text-neutral-400">
+                            <span className="text-neutral-400">
                               Proficiency
                             </span>
-                            <span className="font-medium text-neutral-900 dark:text-white">
+                            <span className="font-medium text-white">
                               {tech.proficiency}%
                             </span>
                           </div>
-                          <div className="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2">
+                          <div className="w-full bg-neutral-700 rounded-full h-2">
                             <motion.div
                               initial={{ width: 0 }}
                               whileInView={{ width: `${tech.proficiency}%` }}
@@ -207,12 +243,21 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
 
                         {/* Years of Experience */}
                         {tech.yearsUsed && (
-                          <div className="mt-3 text-xs text-neutral-500 dark:text-neutral-400">
+                          <div className="mt-3 text-xs text-neutral-400 relative z-10">
                             {tech.yearsUsed} year{tech.yearsUsed !== 1 ? 's' : ''} experience
                           </div>
                         )}
 
-                        {/* Hover Effect Overlay */}
+                        {/* Code symbol decoration */}
+                        <div className="absolute top-2 right-2 text-primary-400/20 font-mono text-sm">
+                          {categoryName === 'frontend' && '</>'}
+                          {categoryName === 'backend' && '{ }'}
+                          {categoryName === 'database' && '[ ]'}
+                          {categoryName === 'devops' && '( )'}
+                          {!['frontend', 'backend', 'database', 'devops'].includes(categoryName) && '=>'}
+                        </div>
+
+                        {/* Enhanced Hover Effect Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-secondary-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </motion.div>
                     ))}
@@ -221,43 +266,55 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
             ))}
           </div>
 
-          {/* Summary Stats */}
+          {/* Enhanced Summary Stats */}
           <motion.div
             variants={itemVariants}
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
           >
-            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+            <div className="text-center card-modern p-6 relative overflow-hidden">
+              <div className="absolute top-2 right-2 text-primary-400/20 font-mono text-xs">
+                ++
+              </div>
+              <div className="text-3xl font-bold gradient-text mb-2 relative z-10">
                 {technologies.length}
               </div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="text-sm text-neutral-400 relative z-10">
                 Technologies
               </div>
             </div>
             
-            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
-              <div className="text-3xl font-bold text-secondary-600 dark:text-secondary-400 mb-2">
+            <div className="text-center card-modern p-6 relative overflow-hidden">
+              <div className="absolute top-2 right-2 text-secondary-400/20 font-mono text-xs">
+                { }
+              </div>
+              <div className="text-3xl font-bold gradient-text mb-2 relative z-10">
                 {Object.keys(groupedTechnologies).length}
               </div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="text-sm text-neutral-400 relative z-10">
                 Categories
               </div>
             </div>
             
-            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
-              <div className="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-2">
+            <div className="text-center card-modern p-6 relative overflow-hidden">
+              <div className="absolute top-2 right-2 text-accent-400/20 font-mono text-xs">
+                %
+              </div>
+              <div className="text-3xl font-bold gradient-text mb-2 relative z-10">
                 {Math.round(technologies.reduce((sum, tech) => sum + tech.proficiency, 0) / technologies.length)}%
               </div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="text-sm text-neutral-400 relative z-10">
                 Avg Proficiency
               </div>
             </div>
             
-            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
+            <div className="text-center card-modern p-6 relative overflow-hidden">
+              <div className="absolute top-2 right-2 text-green-400/20 font-mono text-xs">
+                ★
+              </div>
+              <div className="text-3xl font-bold gradient-text mb-2 relative z-10">
                 {technologies.filter(tech => tech.proficiency >= 80).length}
               </div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="text-sm text-neutral-400 relative z-10">
                 Expert Level
               </div>
             </div>

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { PersonalInfo } from '@/types/api'
+import { CodeStructure, GeometricShapes, FloatingIcons } from '@/components/ui/CoderGraphics'
 
 interface AboutProps {
   personalInfo: PersonalInfo
@@ -28,6 +29,9 @@ export default function About({ personalInfo }: AboutProps) {
     <section id="about" className="section-padding relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
+        {/* Floating code symbols */}
+        <FloatingIcons />
+        
         <motion.div 
           animate={{ 
             scale: [1, 1.1, 1],
@@ -83,9 +87,14 @@ export default function About({ personalInfo }: AboutProps) {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Main About Text */}
             <motion.div variants={itemVariants} className="space-y-8">
-              <div className="card-modern p-8 space-y-6">
-                <h3 className="text-2xl font-semibold text-white mb-4">My Journey</h3>
-                <div className="space-y-4 text-neutral-300 leading-relaxed">
+              <div className="card-modern p-8 space-y-6 relative overflow-hidden">
+                {/* Code structure visualization */}
+                <div className="absolute -top-4 -right-4 opacity-20">
+                  <CodeStructure className="w-32 h-32" />
+                </div>
+                
+                <h3 className="text-2xl font-semibold text-white mb-4 relative z-10">My Journey</h3>
+                <div className="space-y-4 text-neutral-300 leading-relaxed relative z-10">
                   <p>
                     {personalInfo.aboutText || `With ${personalInfo.yearsExperience}+ years of experience in full-stack development, I specialize in creating scalable web applications that deliver exceptional user experiences. My journey in technology has been driven by a passion for solving complex problems and building solutions that make a real impact.`}
                   </p>
@@ -100,23 +109,31 @@ export default function About({ personalInfo }: AboutProps) {
               <div className="grid grid-cols-2 gap-4">
                 <motion.div 
                   whileHover={{ scale: 1.05 }}
-                  className="card-modern p-6 text-center"
+                  className="card-modern p-6 text-center relative overflow-hidden"
                 >
-                  <div className="text-3xl font-bold gradient-text mb-2">
+                  {/* Geometric shapes decoration */}
+                  <div className="absolute -top-2 -right-2">
+                    <GeometricShapes variant="inline" size="sm" />
+                  </div>
+                  <div className="text-3xl font-bold gradient-text mb-2 relative z-10">
                     {personalInfo.yearsExperience}+
                   </div>
-                  <div className="text-sm text-neutral-400">
+                  <div className="text-sm text-neutral-400 relative z-10">
                     Years Experience
                   </div>
                 </motion.div>
                 <motion.div 
                   whileHover={{ scale: 1.05 }}
-                  className="card-modern p-6 text-center"
+                  className="card-modern p-6 text-center relative overflow-hidden"
                 >
-                  <div className="text-3xl font-bold gradient-text mb-2">
+                  {/* Code symbols decoration */}
+                  <div className="absolute top-2 right-2 text-primary-400/20 font-mono text-lg">
+                    &lt;/&gt;
+                  </div>
+                  <div className="text-3xl font-bold gradient-text mb-2 relative z-10">
                     Full-Stack
                   </div>
-                  <div className="text-sm text-neutral-400">
+                  <div className="text-sm text-neutral-400 relative z-10">
                     Development
                   </div>
                 </motion.div>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { PersonalInfo } from '@/types/api'
 import { ArrowDownIcon, DownloadIcon, EyeIcon } from 'lucide-react'
+import { CodeBlock, TerminalWindow, GeometricShapes, FloatingIcons } from '@/components/ui/CoderGraphics'
 
 interface HeroProps {
   personalInfo: PersonalInfo
@@ -26,6 +27,9 @@ export default function Hero({ personalInfo }: HeroProps) {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
+        {/* Floating Icons Background */}
+        <FloatingIcons />
+        
         {/* Animated gradient orbs */}
         <motion.div 
           animate={{ 
@@ -63,6 +67,9 @@ export default function Hero({ personalInfo }: HeroProps) {
           }}
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-accent rounded-full blur-4xl opacity-10"
         />
+        
+        {/* Circuit board pattern overlay */}
+        <div className="absolute inset-0 circuit-pattern opacity-5" />
       </div>
       
       <div className="container-custom relative z-10">
@@ -166,9 +173,19 @@ export default function Hero({ personalInfo }: HeroProps) {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end relative"
           >
-            <div className="relative">
+            {/* Code Block Background */}
+            <div className="absolute -top-20 -left-20 hidden lg:block">
+              <CodeBlock className="w-80 opacity-80" />
+            </div>
+            
+            {/* Terminal Window */}
+            <div className="absolute -bottom-16 -right-16 hidden lg:block">
+              <TerminalWindow className="w-72 opacity-90" />
+            </div>
+            
+            <div className="relative z-10">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-30 scale-110 animate-pulse-slow" />
               
@@ -196,7 +213,7 @@ export default function Hero({ personalInfo }: HeroProps) {
                 </div>
               </div>
               
-              {/* Enhanced Floating Elements */}
+              {/* Enhanced Floating Elements with Coder Theme */}
               <motion.div
                 animate={{ 
                   y: [-10, 10, -10],
@@ -209,7 +226,7 @@ export default function Hero({ personalInfo }: HeroProps) {
                 }}
                 className="absolute -top-6 -right-6 w-20 h-20 glass-card rounded-2xl flex items-center justify-center"
               >
-                <div className="w-8 h-8 bg-gradient-secondary rounded-lg" />
+                <span className="text-secondary-300 font-mono text-lg">&lt;/&gt;</span>
               </motion.div>
               
               <motion.div
@@ -224,7 +241,7 @@ export default function Hero({ personalInfo }: HeroProps) {
                 }}
                 className="absolute -bottom-6 -left-6 w-16 h-16 glass-card rounded-xl flex items-center justify-center"
               >
-                <div className="w-6 h-6 bg-gradient-accent rounded-md" />
+                <span className="text-accent-300 font-mono text-sm">{ }</span>
               </motion.div>
               
               <motion.div
@@ -239,8 +256,13 @@ export default function Hero({ personalInfo }: HeroProps) {
                 }}
                 className="absolute top-1/2 -right-8 w-12 h-12 glass-card rounded-lg flex items-center justify-center"
               >
-                <div className="w-4 h-4 bg-gradient-primary rounded-sm" />
+                <span className="text-primary-300 font-mono text-xs">=&gt;</span>
               </motion.div>
+              
+              {/* Geometric Shapes */}
+              <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+                <GeometricShapes variant="floating" size="sm" />
+              </div>
             </div>
           </motion.div>
         </div>

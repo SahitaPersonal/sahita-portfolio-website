@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLinkIcon, CalendarIcon, AwardIcon, FileTextIcon, FolderIcon, GithubIcon, LinkIcon } from 'lucide-react'
 import { Certification, Award, ProjectHighlight } from '@/types/api'
+import { GeometricShapes, FloatingIcons, BinaryRain } from '@/components/ui/CoderGraphics'
 
 interface AchievementsProps {
   certifications: Certification[]
@@ -79,8 +80,40 @@ export default function Achievements({ certifications = [], awards = [], project
   ] as const
 
   return (
-    <section className="py-20 bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900">
-      <div className="container mx-auto px-6">
+    <section id="achievements" className="section-padding relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <BinaryRain className="opacity-20" />
+        <FloatingIcons />
+        
+        {/* Animated gradient orbs */}
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.3, 1],
+            rotate: [0, 360],
+          }}
+          transition={{ 
+            duration: 30, 
+            repeat: Infinity, 
+            ease: "linear" 
+          }}
+          className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-accent rounded-full blur-3xl opacity-10"
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            y: [-30, 30, -30],
+          }}
+          transition={{ 
+            duration: 20, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-primary rounded-full blur-3xl opacity-15"
+        />
+      </div>
+
+      <div className="container-custom relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -88,25 +121,30 @@ export default function Achievements({ certifications = [], awards = [], project
           viewport={{ once: true, margin: "-100px" }}
           className="max-w-6xl mx-auto"
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium mb-4">
+          {/* Enhanced Section Header */}
+          <motion.div variants={itemVariants} className="text-center mb-20">
+            <span className="inline-flex items-center gap-2 px-4 py-2 glass-card text-primary-300 rounded-full text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-primary-400 rounded-full animate-pulse" />
               Professional Achievements
             </span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+            <h2 className="text-responsive-lg font-bold text-white mb-6">
               Certifications &
-              <span className="block text-transparent bg-clip-text bg-gradient-primary">
+              <span className="block gradient-text">
                 Accomplishments
               </span>
             </h2>
-            <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+            <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
               A showcase of my professional certifications, awards, and notable projects that demonstrate my expertise and commitment to excellence.
             </p>
           </motion.div>
 
-          {/* Tab Navigation */}
+          {/* Enhanced Tab Navigation */}
           <motion.div variants={itemVariants} className="flex justify-center mb-12">
-            <div className="flex bg-neutral-200 dark:bg-neutral-800 rounded-xl p-1">
+            <div className="flex glass-card rounded-xl p-1 relative">
+              {/* Geometric shapes decoration */}
+              <div className="absolute -top-3 -right-3">
+                <GeometricShapes variant="inline" size="sm" />
+              </div>
               {tabs.map((tab) => {
                 const Icon = tab.icon
                 return (
