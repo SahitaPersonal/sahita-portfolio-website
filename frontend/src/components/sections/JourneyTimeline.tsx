@@ -8,7 +8,7 @@ interface JourneyTimelineProps {
   experiences: Experience[]
 }
 
-export default function JourneyTimeline({ experiences }: JourneyTimelineProps) {
+export default function JourneyTimeline({ experiences = [] }: JourneyTimelineProps) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

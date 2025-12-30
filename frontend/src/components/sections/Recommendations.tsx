@@ -9,7 +9,7 @@ interface RecommendationsProps {
   recommendations: Recommendation[]
 }
 
-export default function Recommendations({ recommendations }: RecommendationsProps) {
+export default function Recommendations({ recommendations = [] }: RecommendationsProps) {
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 3
   const totalPages = Math.ceil(recommendations.length / itemsPerPage)

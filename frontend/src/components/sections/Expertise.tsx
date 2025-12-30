@@ -15,7 +15,7 @@ interface SkillCategory {
   skills: Technology[]
 }
 
-export default function Expertise({ technologies }: ExpertiseProps) {
+export default function Expertise({ technologies = [] }: ExpertiseProps) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

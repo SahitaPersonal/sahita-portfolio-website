@@ -8,7 +8,7 @@ interface TechnologyShowcaseProps {
   categories: TechCategory[]
 }
 
-export default function TechnologyShowcase({ technologies, categories }: TechnologyShowcaseProps) {
+export default function TechnologyShowcase({ technologies = [], categories = [] }: TechnologyShowcaseProps) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -97,7 +97,7 @@ export default function TechnologyShowcase({ technologies, categories }: Technol
   }
 
   // Group technologies by category
-  const groupedTechnologies = technologies.reduce((acc, tech) => {
+  const groupedTechnologies = (technologies || []).reduce((acc, tech) => {
     if (!acc[tech.category]) {
       acc[tech.category] = []
     }

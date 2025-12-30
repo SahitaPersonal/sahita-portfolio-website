@@ -11,7 +11,7 @@ interface AchievementsProps {
   projects: ProjectHighlight[]
 }
 
-export default function Achievements({ certifications, awards, projects }: AchievementsProps) {
+export default function Achievements({ certifications = [], awards = [], projects = [] }: AchievementsProps) {
   const [activeTab, setActiveTab] = useState<'certifications' | 'awards' | 'projects'>('certifications')
 
   const containerVariants = {

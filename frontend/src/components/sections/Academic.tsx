@@ -8,7 +8,7 @@ interface AcademicProps {
   education: Education[]
 }
 
-export default function Academic({ education }: AcademicProps) {
+export default function Academic({ education = [] }: AcademicProps) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
