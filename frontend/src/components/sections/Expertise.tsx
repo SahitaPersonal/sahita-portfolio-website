@@ -29,26 +29,12 @@ export default function Expertise({ technologies }: ExpertiseProps) {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94] // easeOutQuart
-      }
-    }
+    visible: { opacity: 1, y: 0 }
   }
 
   const skillVariants = {
     hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94] // easeOutQuart
-      }
-    }
+    visible: { opacity: 1, x: 0 }
   }
 
   // Categorize technologies into skill areas
