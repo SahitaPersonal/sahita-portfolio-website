@@ -8,8 +8,9 @@ import TechnologyShowcase from '@/components/sections/TechnologyShowcase'
 import Expertise from '@/components/sections/Expertise'
 import JourneyTimeline from '@/components/sections/JourneyTimeline'
 import Academic from '@/components/sections/Academic'
+import Recommendations from '@/components/sections/Recommendations'
 import { apiClient } from '@/lib/api'
-import { PersonalInfo, SocialLink, Technology, TechCategory, Experience, Education } from '@/types/api'
+import { PersonalInfo, SocialLink, Technology, TechCategory, Experience, Education, Recommendation } from '@/types/api'
 
 export default function Home() {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null)
@@ -18,6 +19,7 @@ export default function Home() {
   const [techCategories, setTechCategories] = useState<TechCategory[]>([])
   const [experiences, setExperiences] = useState<Experience[]>([])
   const [education, setEducation] = useState<Education[]>([])
+  const [recommendations, setRecommendations] = useState<Recommendation[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -46,6 +48,11 @@ export default function Home() {
         console.log('Experience data received:', experienceData)
         setExperiences(experienceData.experiences)
         setEducation(experienceData.education)
+        
+        // Fetch recommendations data
+        const recommendationsData = await apiClient.getRecommendations()
+        console.log('Recommendations data received:', recommendationsData)
+        setRecommendations(recommendationsData.recommendations)
         
       } catch (err) {
         console.error('Failed to fetch data:', err)
@@ -146,6 +153,63 @@ export default function Home() {
           }
         ])
         
+        // Mock recommendations data
+        setRecommendations([
+          {
+            id: 1,
+            recommenderName: 'Sarah Johnson',
+            recommenderTitle: 'Senior Product Manager',
+            recommenderCompany: 'Tech Solutions Inc.',
+            relationship: 'Worked directly with Sahita',
+            recommendationText: 'Sahita is an exceptional full-stack developer who consistently delivers high-quality solutions. Their technical expertise in React and Node.js, combined with strong problem-solving skills, made them invaluable to our team. They have a unique ability to translate complex requirements into elegant, scalable code.',
+            linkedinUrl: 'https://linkedin.com/in/sarah-johnson',
+            addedDate: '2023-08-15',
+            isFeatured: true
+          },
+          {
+            id: 2,
+            recommenderName: 'Michael Chen',
+            recommenderTitle: 'Lead Software Engineer',
+            recommenderCompany: 'Digital Innovations Ltd.',
+            relationship: 'Managed Sahita directly',
+            recommendationText: 'I had the pleasure of working with Sahita for over two years. Their dedication to writing clean, maintainable code and their collaborative approach made them a standout team member. Sahita consistently went above and beyond to ensure project success and was always willing to mentor junior developers.',
+            linkedinUrl: 'https://linkedin.com/in/michael-chen-dev',
+            addedDate: '2022-01-20',
+            isFeatured: true
+          },
+          {
+            id: 3,
+            recommenderName: 'Emily Rodriguez',
+            recommenderTitle: 'UX Designer',
+            recommenderCompany: 'StartupCo',
+            relationship: 'Collaborated with Sahita',
+            recommendationText: 'Sahita has an excellent eye for detail and user experience. Working with them on multiple projects was always a pleasure - they understood design requirements perfectly and implemented them with pixel-perfect precision. Their frontend skills are truly impressive.',
+            addedDate: '2021-11-10',
+            isFeatured: false
+          },
+          {
+            id: 4,
+            recommenderName: 'David Park',
+            recommenderTitle: 'CTO',
+            recommenderCompany: 'InnovateTech',
+            relationship: 'Sahita reported to David',
+            recommendationText: 'Sahita is a talented developer with strong technical skills and excellent communication abilities. They played a key role in several critical projects and consistently delivered results on time. I would highly recommend Sahita for any full-stack development role.',
+            linkedinUrl: 'https://linkedin.com/in/david-park-cto',
+            addedDate: '2023-03-05',
+            isFeatured: false
+          },
+          {
+            id: 5,
+            recommenderName: 'Lisa Thompson',
+            recommenderTitle: 'Project Manager',
+            recommenderCompany: 'Tech Solutions Inc.',
+            relationship: 'Worked with Sahita on multiple projects',
+            recommendationText: 'Sahita is not only technically proficient but also an excellent team player. Their ability to break down complex problems and communicate solutions clearly made project management much smoother. They are reliable, professional, and always deliver quality work.',
+            addedDate: '2023-06-18',
+            isFeatured: true
+          }
+        ])
+        
         // Mock education data
         setEducation([
           {
@@ -208,7 +272,7 @@ export default function Home() {
   }
 
   return (
-    <Layout>
+    <Layout socialLinks={socialLinks}>
       {personalInfo && (
         <>
           <Hero personalInfo={personalInfo} />
@@ -217,6 +281,7 @@ export default function Home() {
           <Expertise technologies={technologies} />
           <JourneyTimeline experiences={experiences} />
           <Academic education={education} />
+          <Recommendations recommendations={recommendations} />
         </>
       )}
     </Layout>
