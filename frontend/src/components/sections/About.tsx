@@ -25,122 +25,193 @@ export default function About({ personalInfo }: AboutProps) {
   }
 
   return (
-    <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
-      <div className="container mx-auto px-6">
+    <section id="about" className="section-padding relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.1, 1],
+            x: [-50, 50, -50],
+          }}
+          transition={{ 
+            duration: 20, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute top-20 right-20 w-64 h-64 bg-gradient-secondary rounded-full blur-3xl opacity-10"
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1.1, 1, 1.1],
+            y: [-30, 30, -30],
+          }}
+          transition={{ 
+            duration: 25, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-accent rounded-full blur-4xl opacity-8"
+        />
+      </div>
+
+      <div className="container-custom relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium mb-4">
+          {/* Enhanced Section Header */}
+          <motion.div variants={itemVariants} className="text-center mb-20">
+            <span className="inline-flex items-center gap-2 px-4 py-2 glass-card text-primary-300 rounded-full text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-primary-400 rounded-full animate-pulse" />
               About Me
             </span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+            <h2 className="text-responsive-lg font-bold text-white mb-6">
               Passionate About Building
-              <span className="block text-transparent bg-clip-text bg-gradient-primary">
+              <span className="block gradient-text">
                 Digital Experiences
               </span>
             </h2>
+            <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
+              Crafting innovative solutions with modern technologies and user-centered design principles.
+            </p>
           </motion.div>
 
-          {/* About Content */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Enhanced About Content */}
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Main About Text */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <div className="prose prose-lg dark:prose-invert max-w-none">
-                <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                  {personalInfo.aboutText || `With ${personalInfo.yearsExperience}+ years of experience in full-stack development, I specialize in creating scalable web applications that deliver exceptional user experiences. My journey in technology has been driven by a passion for solving complex problems and building solutions that make a real impact.`}
-                </p>
-                
-                <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                  I believe in writing clean, maintainable code and staying current with the latest technologies and best practices. My approach combines technical expertise with strong communication skills, enabling me to work effectively with cross-functional teams and deliver projects that exceed expectations.
-                </p>
+            <motion.div variants={itemVariants} className="space-y-8">
+              <div className="card-modern p-8 space-y-6">
+                <h3 className="text-2xl font-semibold text-white mb-4">My Journey</h3>
+                <div className="space-y-4 text-neutral-300 leading-relaxed">
+                  <p>
+                    {personalInfo.aboutText || `With ${personalInfo.yearsExperience}+ years of experience in full-stack development, I specialize in creating scalable web applications that deliver exceptional user experiences. My journey in technology has been driven by a passion for solving complex problems and building solutions that make a real impact.`}
+                  </p>
+                  
+                  <p>
+                    I believe in writing clean, maintainable code and staying current with the latest technologies and best practices. My approach combines technical expertise with strong communication skills, enabling me to work effectively with cross-functional teams and deliver projects that exceed expectations.
+                  </p>
+                </div>
               </div>
 
-              {/* Key Highlights */}
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                <div className="p-4 bg-white dark:bg-neutral-800 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700">
-                  <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1">
+              {/* Enhanced Key Highlights */}
+              <div className="grid grid-cols-2 gap-4">
+                <motion.div 
+                  whileHover={{ scale: 1.05 }}
+                  className="card-modern p-6 text-center"
+                >
+                  <div className="text-3xl font-bold gradient-text mb-2">
                     {personalInfo.yearsExperience}+
                   </div>
-                  <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                  <div className="text-sm text-neutral-400">
                     Years Experience
                   </div>
-                </div>
-                <div className="p-4 bg-white dark:bg-neutral-800 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700">
-                  <div className="text-2xl font-bold text-secondary-600 dark:text-secondary-400 mb-1">
+                </motion.div>
+                <motion.div 
+                  whileHover={{ scale: 1.05 }}
+                  className="card-modern p-6 text-center"
+                >
+                  <div className="text-3xl font-bold gradient-text mb-2">
                     Full-Stack
                   </div>
-                  <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                  <div className="text-sm text-neutral-400">
                     Development
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
 
-            {/* Skills & Values */}
+            {/* Enhanced Skills & Values */}
             <motion.div variants={itemVariants} className="space-y-8">
               {/* Core Values */}
-              <div className="bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-card border border-neutral-200 dark:border-neutral-700">
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-4">
+              <div className="card-modern p-8">
+                <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                    <div className="w-4 h-4 bg-white rounded-sm" />
+                  </div>
                   Core Values
                 </h3>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-primary-500 rounded-full" />
-                    <span className="text-neutral-600 dark:text-neutral-300">
-                      Clean, maintainable code
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-secondary-500 rounded-full" />
-                    <span className="text-neutral-600 dark:text-neutral-300">
-                      User-centered design
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-accent-500 rounded-full" />
-                    <span className="text-neutral-600 dark:text-neutral-300">
-                      Continuous learning
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-primary-500 rounded-full" />
-                    <span className="text-neutral-600 dark:text-neutral-300">
-                      Team collaboration
-                    </span>
-                  </div>
+                <div className="space-y-4">
+                  {[
+                    { label: 'Clean, maintainable code', color: 'bg-primary-500' },
+                    { label: 'User-centered design', color: 'bg-secondary-500' },
+                    { label: 'Continuous learning', color: 'bg-accent-500' },
+                    { label: 'Team collaboration', color: 'bg-primary-500' }
+                  ].map((value, index) => (
+                    <motion.div 
+                      key={value.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="flex items-center gap-4 group"
+                    >
+                      <div className={`w-3 h-3 ${value.color} rounded-full group-hover:scale-125 transition-transform`} />
+                      <span className="text-neutral-300 group-hover:text-white transition-colors">
+                        {value.label}
+                      </span>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
 
               {/* Current Focus */}
-              <div className="bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20 rounded-xl p-6 border border-primary-200 dark:border-primary-800">
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-4">
-                  Current Focus
-                </h3>
-                <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                  Exploring modern web technologies, cloud architecture, and AI integration to build next-generation applications that solve real-world problems.
-                </p>
+              <div className="relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-primary opacity-10 rounded-2xl" />
+                <div className="card-modern p-8 relative">
+                  <h3 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                    <div className="w-8 h-8 bg-gradient-secondary rounded-lg flex items-center justify-center">
+                      <div className="w-4 h-4 bg-white rounded-full animate-pulse" />
+                    </div>
+                    Current Focus
+                  </h3>
+                  <p className="text-neutral-300 leading-relaxed">
+                    Exploring modern web technologies, cloud architecture, and AI integration to build next-generation applications that solve real-world problems.
+                  </p>
+                  
+                  {/* Tech Stack Preview */}
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {['React', 'TypeScript', 'Node.js', 'AWS', 'AI/ML'].map((tech) => (
+                      <span 
+                        key={tech}
+                        className="px-3 py-1 glass-card text-xs text-neutral-300 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Call to Action */}
+          {/* Enhanced Call to Action */}
           <motion.div
             variants={itemVariants}
-            className="text-center mt-16"
+            className="text-center mt-20"
           >
-            <div className="inline-flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-4 bg-gradient-primary text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
-                Let's Work Together
-              </button>
-              <button className="px-8 py-4 border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all duration-300">
-                View My Projects
-              </button>
+            <div className="card-modern p-8 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-semibold text-white mb-4">
+                Ready to collaborate?
+              </h3>
+              <p className="text-neutral-400 mb-8">
+                Let's discuss how we can bring your ideas to life with cutting-edge technology and exceptional design.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="btn-modern flex items-center gap-2 justify-center">
+                  <span>Let's Work Together</span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    →
+                  </motion.div>
+                </button>
+                <button className="glass-button px-8 py-4 text-white rounded-xl font-semibold">
+                  View My Projects
+                </button>
+              </div>
             </div>
           </motion.div>
         </motion.div>
