@@ -158,7 +158,7 @@ This implementation plan creates a modern, visually striking portfolio website u
     - **Validates: Requirements 9.1, 9.2, 9.3, 9.4**
 
 - [ ] 10. Implement resume functionality
-  - [ ] 10.1 Create Resume Viewer component
+  - [x] 10.1 Create Resume Viewer component
     - Build modal or new tab display for resume
     - Add download functionality
     - Implement error handling for missing files
@@ -170,7 +170,7 @@ This implementation plan creates a modern, visually striking portfolio website u
     - _Requirements: 2.1, 2.2, 2.3, 2.5_
 
 - [ ] 11. Add LinkedIn connection and call-to-action features
-  - [ ] 11.1 Create Connect section component
+  - [x] 11.1 Create Connect section component
     - Display engaging call-to-action message
     - Add prominent LinkedIn connection button
     - Make connection options visible across sections

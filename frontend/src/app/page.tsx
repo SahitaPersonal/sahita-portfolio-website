@@ -11,6 +11,7 @@ import Academic from '@/components/sections/Academic'
 import Recommendations from '@/components/sections/Recommendations'
 import Achievements from '@/components/sections/Achievements'
 import ResumeViewer from '@/components/sections/ResumeViewer'
+import Connect from '@/components/sections/Connect'
 import { apiClient } from '@/lib/api'
 import { PersonalInfo, SocialLink, Technology, TechCategory, Experience, Education, Recommendation, Certification, Award, ProjectHighlight } from '@/types/api'
 
@@ -87,7 +88,7 @@ export default function Home() {
           profileImageUrl: '/images/profile.svg'
         })
         setSocialLinks([
-          { id: 1, platform: 'LinkedIn', url: 'https://linkedin.com/in/sahita', icon: 'linkedin', displayOrder: 1 },
+          { id: 1, platform: 'LinkedIn', url: 'https://www.linkedin.com/in/sahita-m-b01956213/', icon: 'linkedin', displayOrder: 1 },
           { id: 2, platform: 'GitHub', url: 'https://github.com/SahitaPersonal', icon: 'github', displayOrder: 2 },
           { id: 3, platform: 'Email', url: 'mailto:contact@sahita.dev', icon: 'email', displayOrder: 3 },
         ])
@@ -183,7 +184,7 @@ export default function Home() {
             recommenderCompany: 'Tech Solutions Inc.',
             relationship: 'Worked directly with Sahita',
             recommendationText: 'Sahita is an exceptional full-stack developer who consistently delivers high-quality solutions. Their technical expertise in React and Node.js, combined with strong problem-solving skills, made them invaluable to our team. They have a unique ability to translate complex requirements into elegant, scalable code.',
-            linkedinUrl: 'https://linkedin.com/in/sarah-johnson',
+            linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
             addedDate: '2023-08-15',
             isFeatured: true
           },
@@ -194,7 +195,7 @@ export default function Home() {
             recommenderCompany: 'Digital Innovations Ltd.',
             relationship: 'Managed Sahita directly',
             recommendationText: 'I had the pleasure of working with Sahita for over two years. Their dedication to writing clean, maintainable code and their collaborative approach made them a standout team member. Sahita consistently went above and beyond to ensure project success and was always willing to mentor junior developers.',
-            linkedinUrl: 'https://linkedin.com/in/michael-chen-dev',
+            linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
             addedDate: '2022-01-20',
             isFeatured: true
           },
@@ -215,7 +216,7 @@ export default function Home() {
             recommenderCompany: 'InnovateTech',
             relationship: 'Sahita reported to David',
             recommendationText: 'Sahita is a talented developer with strong technical skills and excellent communication abilities. They played a key role in several critical projects and consistently delivered results on time. I would highly recommend Sahita for any full-stack development role.',
-            linkedinUrl: 'https://linkedin.com/in/david-park-cto',
+            linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
             addedDate: '2023-03-05',
             isFeatured: false
           },
@@ -444,6 +445,10 @@ export default function Home() {
           <ResumeViewer 
             resumeUrl={resumeUrl}
             available={resumeAvailable}
+          />
+          <Connect 
+            linkedinUrl="https://www.linkedin.com/in/sahita-m-b01956213/"
+            email="contact@sahita.dev"
           />
         </>
       )}

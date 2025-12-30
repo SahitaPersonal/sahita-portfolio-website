@@ -27,7 +27,7 @@ async function main() {
     {
       profileId: profile.id,
       platform: 'LinkedIn',
-      url: 'https://linkedin.com/in/sahitadev',
+      url: 'https://www.linkedin.com/in/sahita-m-b01956213/',
       icon: 'linkedin',
       displayOrder: 1,
     },
@@ -178,7 +178,7 @@ async function main() {
       recommendationText: `Sahita is an exceptional full-stack engineer who consistently delivers high-quality solutions. 
       Her technical expertise in React and Node.js, combined with her problem-solving abilities, makes her invaluable to any team. 
       She has a great eye for detail and always considers the user experience in her implementations.`,
-      linkedinUrl: 'https://linkedin.com/in/johnsmith',
+      linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
       isFeatured: true,
     },
     {
@@ -188,7 +188,7 @@ async function main() {
       relationship: 'Colleague',
       recommendationText: `Working with Sahita was a pleasure. She brings both technical excellence and collaborative spirit to every project. 
       Her ability to translate complex requirements into elegant solutions is remarkable. I would highly recommend her for any full-stack role.`,
-      linkedinUrl: 'https://linkedin.com/in/sarahjohnson',
+      linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
       isFeatured: true,
     },
   ]
@@ -262,7 +262,7 @@ async function main() {
       description: 'Full-stack e-commerce platform with real-time inventory management, payment processing, and admin dashboard.',
       technologies: JSON.stringify(['React', 'Node.js', 'PostgreSQL', 'Stripe API', 'AWS']),
       projectUrl: 'https://ecommerce-demo.com',
-      githubUrl: 'https://github.com/sahitadev/ecommerce-platform',
+      githubUrl: 'https://github.com/SahitaPersonal/ecommerce-platform',
       imageUrl: '/images/projects/ecommerce.jpg',
       startDate: new Date('2023-01-01'),
       endDate: new Date('2023-06-30'),
@@ -273,7 +273,7 @@ async function main() {
       description: 'Collaborative task management application with real-time updates, team collaboration features, and analytics dashboard.',
       technologies: JSON.stringify(['Vue.js', 'Express.js', 'MongoDB', 'Socket.io', 'Docker']),
       projectUrl: 'https://taskmanager-demo.com',
-      githubUrl: 'https://github.com/sahitadev/task-manager',
+      githubUrl: 'https://github.com/SahitaPersonal/task-manager',
       imageUrl: '/images/projects/taskmanager.jpg',
       startDate: new Date('2022-08-01'),
       endDate: new Date('2022-12-31'),
