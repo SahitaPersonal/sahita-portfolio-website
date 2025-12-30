@@ -70,7 +70,7 @@ export default function Home() {
         // Fetch recommendations data
         const recommendationsData = await apiClient.getRecommendations(1, 100)
         console.log('Recommendations data received:', recommendationsData)
-        setRecommendations(recommendationsData)
+        setRecommendations(recommendationsData || [])
         
         // Fetch achievements data
         const achievementsData = await apiClient.getAchievements()
@@ -103,8 +103,6 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
           { id: 1, platform: 'LinkedIn', url: 'https://www.linkedin.com/in/sahita-m-b01956213/', icon: 'linkedin', displayOrder: 1 },
           { id: 2, platform: 'GitHub', url: 'https://github.com/SahitaPersonal', icon: 'github', displayOrder: 2 },
           { id: 3, platform: 'Email', url: 'mailto:sahitairl98@gmail.com', icon: 'email', displayOrder: 3 },
-          { id: 4, platform: 'Phone', url: 'tel:+353894192524', icon: 'phone', displayOrder: 4 },
-          { id: 5, platform: 'Location', url: 'https://maps.google.com/?q=Dublin,Ireland', icon: 'location', displayOrder: 5 },
         ])
         
         // Mock resume data - Fixed URL
@@ -243,7 +241,7 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
             id: 1,
             recommenderName: 'Savitha Gollamudi',
             recommenderTitle: 'SSE',
-            recommenderCompany: 'Experian',
+            recommenderCompany: 'Lloyds Technology Centre',
             relationship: 'Worked on different teams',
             recommendationText: `I've had the pleasure of working closely with Sahita at Lloyds Technology Centre, where she serves as a Lead Full Stack Developer. She consistently brings a high level of ownership and dedication to her work. Whether it's taking responsibility for critical deliverables, working through tight deadlines, or addressing high-priority issues, Sahita is someone you can always rely on to get things done.
 
@@ -332,33 +330,63 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
         setCertifications([
           {
             id: 1,
-            name: 'Azure AZ-900',
-            issuer: 'Microsoft',
-            issueDate: '2023-05-15',
+            name: 'Google Cloud Associate',
+            issuer: 'Google',
+            issueDate: '2024-12-01',
             expiryDate: undefined,
-            credentialId: 'AZ-900-2023-001',
-            verificationUrl: 'https://learn.microsoft.com/en-us/certifications/azure-fundamentals/',
+            credentialId: undefined,
+            verificationUrl: undefined,
             category: 'Cloud'
           },
           {
             id: 2,
-            name: 'Google Cloud Platform – Associate Cloud Engineer',
-            issuer: 'Google Cloud',
-            issueDate: '2023-03-20',
-            expiryDate: '2026-03-20',
-            credentialId: 'GCP-ACE-2023-002',
-            verificationUrl: 'https://cloud.google.com/certification/cloud-engineer',
+            name: 'Azure AZ-900',
+            issuer: 'Microsoft',
+            issueDate: '2021-05-01',
+            expiryDate: undefined,
+            credentialId: undefined,
+            verificationUrl: undefined,
             category: 'Cloud'
           },
           {
             id: 3,
-            name: 'NPTEL Python Data Structures & Algorithms',
-            issuer: 'NPTEL (IIT)',
-            issueDate: '2022-12-10',
+            name: 'Certified Senior System Architect',
+            issuer: 'Pega',
+            issueDate: '2019-06-01',
             expiryDate: undefined,
-            credentialId: 'NPTEL-PYTHON-2022-003',
-            verificationUrl: 'https://nptel.ac.in/courses/106/106/106106145/',
-            category: 'Programming'
+            credentialId: undefined,
+            verificationUrl: undefined,
+            category: 'Pega'
+          },
+          {
+            id: 4,
+            name: 'Certified System Architect',
+            issuer: 'Pega',
+            issueDate: '2018-11-01',
+            expiryDate: undefined,
+            credentialId: undefined,
+            verificationUrl: undefined,
+            category: 'Pega'
+          },
+          {
+            id: 5,
+            name: 'Data Structures using Python',
+            issuer: 'NPTEL',
+            issueDate: '2017-12-01',
+            expiryDate: undefined,
+            credentialId: undefined,
+            verificationUrl: undefined,
+            category: 'NPTEL'
+          },
+          {
+            id: 6,
+            name: 'British Council certification for English',
+            issuer: 'British Council',
+            issueDate: '2017-09-01',
+            expiryDate: undefined,
+            credentialId: undefined,
+            verificationUrl: undefined,
+            category: 'British Council'
           }
         ])
         

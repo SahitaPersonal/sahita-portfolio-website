@@ -101,18 +101,16 @@ export default function Recommendations({ recommendations = [] }: Recommendation
           </motion.div>
 
           {/* Recommendations Grid */}
-          <motion.div
-            variants={containerVariants}
+          <div
+            key={`recommendations-page-${currentPage}`}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
           >
             {currentRecommendations.map((recommendation, index) => (
               <motion.div
-                key={recommendation.id}
-                variants={cardVariants}
-                whileHover={{ 
-                  y: -5,
-                  transition: { duration: 0.2 }
-                }}
+                key={`${recommendation.id}-${currentPage}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
                 className="group relative bg-neutral-800/50 backdrop-blur-sm rounded-xl p-6 border border-neutral-700/50 hover:border-primary-500/30 transition-all duration-300"
               >
                 {/* Quote Icon */}
@@ -188,7 +186,7 @@ export default function Recommendations({ recommendations = [] }: Recommendation
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Pagination */}
           {totalPages > 1 && (
