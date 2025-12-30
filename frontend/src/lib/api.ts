@@ -102,8 +102,9 @@ class ApiClient {
   }
 
   // Recommendations endpoints
-  async getRecommendations(page: number = 1, limit: number = 10): Promise<RecommendationsResponse> {
-    return this.request<RecommendationsResponse>(`/api/recommendations?page=${page}&limit=${limit}`)
+  async getRecommendations(page: number = 1, limit: number = 100): Promise<any[]> {
+    const response = await this.request<any>(`/api/recommendations?page=${page}&limit=${limit}`)
+    return response // The backend returns the array directly in the data field
   }
 
   async getFeaturedRecommendations(limit: number = 5): Promise<any[]> {
