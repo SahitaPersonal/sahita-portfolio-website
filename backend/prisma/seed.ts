@@ -8,13 +8,25 @@ async function main() {
   // Create profile
   const profile = await prisma.profile.upsert({
     where: { id: 1 },
-    update: {},
-    create: {
-      name: 'Sahita M',
+    update: {
+      name: 'Sahita',
       title: 'Lead Software Engineer',
-      yearsExperience: 5,
+      yearsExperience: 6,
       tagline: 'Leading high-performance teams to deliver scalable web applications for 1M+ users',
-      aboutText: `Experienced Lead Software Engineer with 5+ years of expertise in full-stack development, currently leading an 8-member team at Lloyds Technology Centre. I specialize in Open Banking, Payment Initiation Services, and building secure, scalable applications using React, Node.js, and modern cloud technologies. 
+      aboutText: `Experienced Lead Software Engineer with 6+ years of expertise in full-stack development, currently leading an 8-member team at Lloyds Technology Centre. I specialize in Open Banking, Payment Initiation Services, and building secure, scalable applications using React, Node.js, and modern cloud technologies. 
+
+My journey spans from mobile app development with React Native and Xamarin to leading critical financial services initiatives. I'm passionate about delivering high-quality solutions, mentoring teams, and driving technical excellence in fast-paced, regulated environments.
+
+Based in Dublin, Ireland, I bring a unique combination of technical leadership, hands-on development skills, and experience across diverse industries including fintech, edtech, and hospitality.`,
+      profileImageUrl: '/images/profile.jpg',
+      resumeUrl: '/files/resume.pdf',
+    },
+    create: {
+      name: 'Sahita',
+      title: 'Lead Software Engineer',
+      yearsExperience: 6,
+      tagline: 'Leading high-performance teams to deliver scalable web applications for 1M+ users',
+      aboutText: `Experienced Lead Software Engineer with 6+ years of expertise in full-stack development, currently leading an 8-member team at Lloyds Technology Centre. I specialize in Open Banking, Payment Initiation Services, and building secure, scalable applications using React, Node.js, and modern cloud technologies. 
 
 My journey spans from mobile app development with React Native and Xamarin to leading critical financial services initiatives. I'm passionate about delivering high-quality solutions, mentoring teams, and driving technical excellence in fast-paced, regulated environments.
 
@@ -47,6 +59,20 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
       icon: 'mail',
       displayOrder: 3,
     },
+    {
+      profileId: profile.id,
+      platform: 'Phone',
+      url: 'tel:+353894192524',
+      icon: 'phone',
+      displayOrder: 4,
+    },
+    {
+      profileId: profile.id,
+      platform: 'Location',
+      url: 'https://maps.google.com/?q=Dublin,Ireland',
+      icon: 'location',
+      displayOrder: 5,
+    },
   ]
 
   for (const link of socialLinks) {
@@ -57,50 +83,41 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
     })
   }
 
-  // Create technologies
+  // Create technologies with actual proficiency and experience
   const technologies = [
     // Frontend
     { name: 'React', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/react.svg', displayOrder: 1 },
-    { name: 'Next.js', category: 'Frontend', proficiency: 90, yearsUsed: 3, logoUrl: '/images/tech/nextjs.svg', displayOrder: 2 },
-    { name: 'TypeScript', category: 'Frontend', proficiency: 90, yearsUsed: 4, logoUrl: '/images/tech/typescript.svg', displayOrder: 3 },
-    { name: 'JavaScript', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/javascript.svg', displayOrder: 4 },
-    { name: 'HTML5', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/html5.svg', displayOrder: 5 },
-    { name: 'CSS3', category: 'Frontend', proficiency: 90, yearsUsed: 5, logoUrl: '/images/tech/css3.svg', displayOrder: 6 },
-    { name: 'Tailwind CSS', category: 'Frontend', proficiency: 85, yearsUsed: 3, logoUrl: '/images/tech/tailwind.svg', displayOrder: 7 },
-    { name: 'Vue.js', category: 'Frontend', proficiency: 80, yearsUsed: 2, logoUrl: '/images/tech/vue.svg', displayOrder: 8 },
+    { name: 'JavaScript', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: '/images/tech/javascript.svg', displayOrder: 2 },
+    { name: 'TypeScript', category: 'Frontend', proficiency: 90, yearsUsed: 3, logoUrl: '/images/tech/typescript.svg', displayOrder: 3 },
+    { name: 'HTML5', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: '/images/tech/html5.svg', displayOrder: 4 },
+    { name: 'CSS3', category: 'Frontend', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/css3.svg', displayOrder: 5 },
+    { name: 'Redux', category: 'Frontend', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/redux.svg', displayOrder: 6 },
     
     // Backend
-    { name: 'Node.js', category: 'Backend', proficiency: 90, yearsUsed: 5, logoUrl: '/images/tech/nodejs.svg', displayOrder: 9 },
-    { name: 'Express.js', category: 'Backend', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/express.svg', displayOrder: 10 },
-    { name: 'Python', category: 'Backend', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/python.svg', displayOrder: 11 },
-    { name: 'Java', category: 'Backend', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/java.svg', displayOrder: 12 },
-    { name: 'C#', category: 'Backend', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/csharp.svg', displayOrder: 13 },
-    { name: '.NET', category: 'Backend', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/dotnet.svg', displayOrder: 14 },
-    { name: 'Spring Boot', category: 'Backend', proficiency: 65, yearsUsed: 1, logoUrl: '/images/tech/spring.svg', displayOrder: 15 },
-    
-    // Database
-    { name: 'PostgreSQL', category: 'Database', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/postgresql.svg', displayOrder: 16 },
-    { name: 'MongoDB', category: 'Database', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/mongodb.svg', displayOrder: 17 },
-    { name: 'MySQL', category: 'Database', proficiency: 80, yearsUsed: 4, logoUrl: '/images/tech/mysql.svg', displayOrder: 18 },
-    { name: 'SQL Server', category: 'Database', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/sqlserver.svg', displayOrder: 19 },
-    { name: 'Redis', category: 'Database', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/redis.svg', displayOrder: 20 },
+    { name: 'Node.js', category: 'Backend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/nodejs.svg', displayOrder: 7 },
+    { name: 'Express.js', category: 'Backend', proficiency: 90, yearsUsed: 4, logoUrl: '/images/tech/express.svg', displayOrder: 8 },
+    { name: 'C#', category: 'Backend', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/csharp.svg', displayOrder: 9 },
     
     // Mobile
-    { name: 'React Native', category: 'Mobile', proficiency: 80, yearsUsed: 2, logoUrl: '/images/tech/react-native.svg', displayOrder: 21 },
-    { name: 'Xamarin', category: 'Mobile', proficiency: 70, yearsUsed: 1, logoUrl: '/images/tech/xamarin.svg', displayOrder: 22 },
+    { name: 'React Native', category: 'Mobile', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/react-native.svg', displayOrder: 10 },
+    { name: 'Xamarin', category: 'Mobile', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/xamarin.svg', displayOrder: 11 },
+    
+    // Database
+    { name: 'MySQL', category: 'Database', proficiency: 80, yearsUsed: 4, logoUrl: '/images/tech/mysql.svg', displayOrder: 12 },
     
     // DevOps & Cloud
-    { name: 'AWS', category: 'DevOps', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/aws.svg', displayOrder: 23 },
-    { name: 'Google Cloud', category: 'DevOps', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/gcp.svg', displayOrder: 24 },
-    { name: 'Azure', category: 'DevOps', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/azure.svg', displayOrder: 25 },
-    { name: 'Docker', category: 'DevOps', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/docker.svg', displayOrder: 26 },
-    { name: 'Kubernetes', category: 'DevOps', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/kubernetes.svg', displayOrder: 27 },
+    { name: 'Google Cloud', category: 'DevOps', proficiency: 80, yearsUsed: 2, logoUrl: '/images/tech/gcp.svg', displayOrder: 13 },
+    { name: 'Docker', category: 'DevOps', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/docker.svg', displayOrder: 14 },
+    { name: 'Azure', category: 'DevOps', proficiency: 70, yearsUsed: 1, logoUrl: '/images/tech/azure.svg', displayOrder: 15 },
     
-    // Tools & Others
-    { name: 'Git', category: 'Tools', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/git.svg', displayOrder: 28 },
-    { name: 'GitHub', category: 'Tools', proficiency: 90, yearsUsed: 5, logoUrl: '/images/tech/github.svg', displayOrder: 29 },
-    { name: 'Jira', category: 'Tools', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/jira.svg', displayOrder: 30 },
-    { name: 'Confluence', category: 'Tools', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/confluence.svg', displayOrder: 31 },
+    // Testing
+    { name: 'Jest', category: 'Testing', proficiency: 85, yearsUsed: 3, logoUrl: '/images/tech/jest.svg', displayOrder: 16 },
+    { name: 'NUnit', category: 'Testing', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/nunit.svg', displayOrder: 17 },
+    
+    // Tools
+    { name: 'Git', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/git.svg', displayOrder: 18 },
+    { name: 'GitHub', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/github.svg', displayOrder: 19 },
+    { name: 'Jira', category: 'Tools', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/jira.svg', displayOrder: 20 },
   ]
 
   for (const tech of technologies) {
@@ -111,71 +128,92 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
     })
   }
 
-  // Create experiences
+  // Create actual work experiences
   const experiences = [
     {
       company: 'Lloyds Technology Centre',
       position: 'Lead Software Engineer',
-      startDate: new Date('2022-01-01'),
+      startDate: new Date('2024-03-01'),
       endDate: null,
-      description: 'Leading an 8-member development team in building secure, scalable applications for Open Banking and Payment Initiation Services. Responsible for technical architecture decisions, code reviews, and mentoring team members.',
+      description: 'Leading an 8-member team in developing Open Banking Payment Initiation Services. Responsible for API migration to Open Banking v4 standards, ensuring PSD2 compliance, and delivering scalable solutions for 1M+ users.',
       achievements: JSON.stringify([
-        'Led development of Open Banking APIs serving 1M+ users daily',
-        'Implemented Payment Initiation Services with 99.9% uptime',
-        'Mentored 8 team members and improved code quality by 40%',
-        'Architected microservices infrastructure reducing deployment time by 60%',
-        'Delivered critical financial services features on time and within budget'
+        'Lead 8-member team to deliver web app to 1M+ users',
+        'Contributed to API migration to Open Banking v4 standards by redesigning service interfaces',
+        'Developed scalable, secure APIs and backend services in Node.js for real-time payment flows',
+        'Designed responsive, accessible React front-end components for PISP features',
+        'Served as Release SPOC, triaging bugs and managing releases',
+        'Identified and remediated Nexus and SonarQube vulnerabilities',
+        'Authored Swagger API definitions and enhanced technical documentation',
+        'Implemented unit test cases in Node.js using Jest'
       ]),
-      technologies: JSON.stringify(['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS', 'Docker', 'Kubernetes', 'Open Banking APIs']),
+      technologies: JSON.stringify(['React', 'Node.js', 'TypeScript', 'Open Banking APIs', 'Jest', 'Swagger', 'PSD2']),
       displayOrder: 1,
     },
     {
       company: 'LeaderJam LLC',
-      position: 'Senior Full Stack Developer',
-      startDate: new Date('2020-06-01'),
-      endDate: new Date('2021-12-31'),
-      description: 'Developed and maintained full-stack web applications for educational technology platform. Focused on creating engaging user experiences and scalable backend systems.',
+      position: 'Senior Software Developer',
+      startDate: new Date('2022-09-01'),
+      endDate: new Date('2024-03-01'),
+      description: 'Developed interactive learning platform utilizing ReactJS and NodeJS. Built Udemy-like course management system, event management system, and various core features for the on-demand learning network.',
       achievements: JSON.stringify([
-        'Built responsive web applications using React and Node.js',
-        'Implemented real-time collaboration features for educational platform',
-        'Optimized database queries improving application performance by 35%',
-        'Integrated third-party APIs for enhanced functionality',
-        'Collaborated with cross-functional teams to deliver user-centric solutions'
+        'Developed interactive learning platform with ReactJS and NodeJS',
+        'Implemented itineraries functionalities for coaching sessions',
+        'Developed Udemy-like course management system and course player',
+        'Built Event management system for coaching companies',
+        'Contributed to Analytics, Help guides, and learning content features',
+        'Managed WordPress site with custom forms and interfaces'
       ]),
-      technologies: JSON.stringify(['React', 'Node.js', 'JavaScript', 'MongoDB', 'Express.js', 'Socket.io']),
+      technologies: JSON.stringify(['React', 'Node.js', 'JavaScript', 'RESTful APIs', 'WordPress']),
       displayOrder: 2,
     },
     {
-      company: 'NFS Hospitality',
-      position: 'Software Developer',
-      startDate: new Date('2019-03-01'),
-      endDate: new Date('2020-05-31'),
-      description: 'Developed mobile and web applications for hospitality management system. Worked on both frontend and backend components to deliver comprehensive solutions.',
+      company: 'ValueLabs Solutions (NFS Hospitality)',
+      position: 'Senior Software Engineer',
+      startDate: new Date('2019-05-01'),
+      endDate: new Date('2022-09-01'),
+      description: 'Developed mobile and web applications for hospitality management solutions. Worked on cross-platform mobile applications using Xamarin and React Native, implemented authentication systems, and deployed apps to app stores.',
       achievements: JSON.stringify([
-        'Developed mobile applications using React Native and Xamarin',
-        'Created web-based management dashboard for hospitality operations',
-        'Implemented booking and reservation system with real-time updates',
-        'Integrated payment processing and notification systems',
-        'Improved user experience through responsive design and optimization'
+        'Developed mobile app screens and integrated RESTful APIs',
+        'Added test cases for Xamarin applications using NUnit',
+        'Provided support for cross-platform mobile applications (Android and iOS)',
+        'Implemented token-based and SAML authentication for mobile app',
+        'Worked on code obfuscation using Babel and AppDome',
+        'Integrated React JS web application inside Xamarin Mobile App',
+        'Deployed mobile applications to Google Play Store and Apple Store',
+        'Worked with MDM platforms: AirWatch, Intune, and MobileIron'
       ]),
-      technologies: JSON.stringify(['React Native', 'Xamarin', 'React', 'C#', '.NET', 'SQL Server']),
+      technologies: JSON.stringify(['Xamarin', 'React Native', 'React', 'C#', '.NET', 'NUnit', 'SAML', 'MDM']),
       displayOrder: 3,
     },
     {
-      company: 'Inter IKEA',
-      position: 'Junior Software Developer',
+      company: 'Inter IKEA Systems B.V.',
+      position: 'Software Developer',
       startDate: new Date('2018-08-01'),
-      endDate: new Date('2019-02-28'),
-      description: 'Started career as junior developer working on internal tools and customer-facing applications. Gained experience in software development lifecycle and agile methodologies.',
+      endDate: new Date('2019-05-01'),
+      description: 'Worked as IT Partner for Inter-IKEA Systems B.V., managing app deployments and providing technology solutions. Engaged with clients and generated comprehensive reports on app status.',
       achievements: JSON.stringify([
-        'Contributed to development of internal management tools',
-        'Assisted in building customer-facing web applications',
-        'Learned modern development practices and frameworks',
-        'Participated in code reviews and agile development processes',
-        'Gained experience in retail technology solutions'
+        'Managed app deployments on Google and Apple App Stores',
+        'Engaged with clients addressing inquiries on app deployment',
+        'Generated Monthly and Quarterly reports on app status',
+        'Provided comprehensive technology solutions and services'
       ]),
-      technologies: JSON.stringify(['JavaScript', 'HTML5', 'CSS3', 'Java', 'Spring Boot', 'MySQL']),
+      technologies: JSON.stringify(['Mobile App Deployment', 'Client Management', 'Reporting']),
       displayOrder: 4,
+    },
+    {
+      company: 'Nyfiken (IKEA)',
+      position: 'Junior Software Developer',
+      startDate: new Date('2018-01-01'),
+      endDate: new Date('2018-08-01'),
+      description: 'Developed internal news and business updates application for IKEA Range & Supply Internal Communication. Quickly learned React Native and became vital part of product development team.',
+      achievements: JSON.stringify([
+        'Learned JavaScript and React Native quickly',
+        'Designed and implemented UI screens for mobile application',
+        'Worked on fixing existing bugs',
+        'Developed custom reusable components and responsive UI'
+      ]),
+      technologies: JSON.stringify(['React Native', 'JavaScript', 'Mobile UI Development']),
+      displayOrder: 5,
     },
   ]
 
@@ -187,17 +225,37 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
     })
   }
 
-  // Create education
+  // Create actual education
   const education = [
     {
-      institution: 'Jawaharlal Nehru Technological University',
+      institution: 'Vishnu Institute of Technology',
       degree: 'Bachelor of Technology',
-      fieldOfStudy: 'Computer Science & Engineering',
-      startDate: new Date('2014-08-01'),
-      endDate: new Date('2018-06-30'),
-      description: 'Focused on software engineering, data structures, algorithms, and web technologies. Achieved excellent academic performance with strong foundation in computer science principles.',
+      fieldOfStudy: 'Computer Science and Engineering',
+      startDate: new Date('2015-08-01'),
+      endDate: new Date('2019-06-30'),
+      description: 'Comprehensive computer science education with focus on software engineering, data structures, algorithms, and modern web technologies. Achieved excellent academic performance with strong foundation in programming and system design.',
       gpa: '87.7%',
       displayOrder: 1,
+    },
+    {
+      institution: 'Aditya Junior College',
+      degree: 'Board of Intermediate Education',
+      fieldOfStudy: 'MPC (Mathematics, Physics, Chemistry)',
+      startDate: new Date('2013-06-01'),
+      endDate: new Date('2015-05-31'),
+      description: 'Pre-university education with focus on Mathematics, Physics, and Chemistry. Achieved outstanding academic performance.',
+      gpa: '96.6%',
+      displayOrder: 2,
+    },
+    {
+      institution: 'Aditya Public School',
+      degree: 'Board of Secondary Education',
+      fieldOfStudy: 'Secondary Education',
+      startDate: new Date('2012-06-01'),
+      endDate: new Date('2013-05-31'),
+      description: 'Secondary education with comprehensive curriculum. Achieved excellent academic performance.',
+      gpa: '9.8/10',
+      displayOrder: 3,
     },
   ]
 
@@ -212,11 +270,19 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
   // Create recommendations
   const recommendations = [
     {
-      recommenderName: 'James Wilson',
-      recommenderTitle: 'Engineering Manager',
+      recommenderName: 'Savitha Gollamudi',
+      recommenderTitle: 'Software Engineer II',
       recommenderCompany: 'Lloyds Technology Centre',
-      relationship: 'Direct Manager',
-      recommendationText: `Sahita is an exceptional Lead Software Engineer who has consistently delivered outstanding results while leading our 8-member development team. Her expertise in Open Banking and Payment Initiation Services has been instrumental in serving our 1M+ users with 99.9% uptime. She combines strong technical skills with excellent leadership abilities, making her an invaluable asset to our organization.`,
+      relationship: 'Same Team',
+      recommendationText: `I've had the pleasure of working closely with Sahita at Lloyds Technology Centre, where she serves as a Lead Full Stack Developer. She consistently brings a high level of ownership and dedication to her work. Whether it's taking responsibility for critical deliverables, working through tight deadlines, or addressing high-priority issues, Sahita is someone you can always rely on to get things done.
+
+One of her standout contributions was designing and developing a solution for V4 impact analysis and redirection errors. She also collaborated with cross-functional teams to implement a common, scalable solution—demonstrating both strong technical skills and the ability to work across team boundaries. In addition, she successfully handled Open Banking certificate renewals, further showcasing her versatility.
+
+She played a key leadership role in migrating On-Prem services to GCP for the PISP team, which was a complex and business-critical initiative.
+
+Her approach to code quality is excellent—she consistently performs effective PR reviews, follows best coding practices, and helps maintain high standards across the team. Moreover, she actively mentors junior team members, fostering a collaborative and supportive environment.
+
+What really sets Sahita apart is her determination to continuously learn and take on new challenges. She is an asset to any team and a great person to work with. I highly recommend her for full stack development roles.`,
       linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
       isFeatured: true,
     },
@@ -246,10 +312,10 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
     })
   }
 
-  // Create certifications
+  // Create actual certifications
   const certifications = [
     {
-      name: 'Microsoft Azure Fundamentals (AZ-900)',
+      name: 'Azure AZ-900',
       issuer: 'Microsoft',
       issueDate: new Date('2023-05-15'),
       expiryDate: null,
@@ -259,7 +325,7 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
       category: 'Cloud',
     },
     {
-      name: 'Google Cloud Associate Cloud Engineer',
+      name: 'Google Cloud Platform – Associate Cloud Engineer',
       issuer: 'Google Cloud',
       issueDate: new Date('2023-03-20'),
       expiryDate: new Date('2026-03-20'),
@@ -269,8 +335,8 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
       category: 'Cloud',
     },
     {
-      name: 'Programming, Data Structures and Algorithms using Python',
-      issuer: 'NPTEL (IIT Madras)',
+      name: 'NPTEL Python Data Structures & Algorithms',
+      issuer: 'NPTEL (IIT)',
       issueDate: new Date('2022-12-10'),
       expiryDate: null,
       credentialId: 'NPTEL-PYTHON-2022-003',
@@ -286,39 +352,39 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
     })
   }
 
-  // Create awards
+  // Create actual awards and achievements
   const awards = [
     {
-      title: 'Outstanding Performance Award',
-      issuer: 'Lloyds Technology Centre',
-      dateAwarded: new Date('2023-12-01'),
-      description: 'Recognized for exceptional leadership in delivering critical Open Banking features and maintaining 99.9% system uptime while leading an 8-member development team.',
+      title: 'STAR Performer of the Quarter - 2022',
+      issuer: 'ValueLabs Solutions',
+      dateAwarded: new Date('2022-12-01'),
+      description: 'Recognized as STAR performer for outstanding contributions to development, issue resolution, and process improvements in mobile and web application development.',
       category: 'Professional',
-      logoUrl: '/images/awards/performance.png',
+      logoUrl: '/images/awards/star-performer.png',
     },
     {
-      title: 'Innovation Excellence Award',
-      issuer: 'LeaderJam LLC',
-      dateAwarded: new Date('2021-08-15'),
-      description: 'Awarded for developing innovative educational technology solutions that improved user engagement and platform scalability.',
-      category: 'Innovation',
-      logoUrl: '/images/awards/innovation.png',
+      title: 'STAR Performer of the Quarter - 2020',
+      issuer: 'ValueLabs Solutions',
+      dateAwarded: new Date('2020-12-01'),
+      description: 'Awarded STAR performer recognition for exceptional performance in software development and team collaboration.',
+      category: 'Professional',
+      logoUrl: '/images/awards/star-performer.png',
     },
     {
-      title: 'Academic Excellence Award',
-      issuer: 'Jawaharlal Nehru Technological University',
-      dateAwarded: new Date('2018-06-30'),
-      description: 'Graduated with distinction achieving 87.7% in Bachelor of Technology - Computer Science & Engineering program.',
-      category: 'Academic',
-      logoUrl: '/images/awards/academic.png',
+      title: 'Outstanding Contribution Award',
+      issuer: 'Lloyds Technology Centre',
+      dateAwarded: new Date('2024-06-01'),
+      description: 'Received recognition twice within six months from both manager and product owner for outstanding contributions to development, issue resolution, and process improvements.',
+      category: 'Professional',
+      logoUrl: '/images/awards/outstanding-contribution.png',
     },
     {
-      title: 'Best Team Player Award',
-      issuer: 'NFS Hospitality',
-      dateAwarded: new Date('2020-03-20'),
-      description: 'Recognized for exceptional collaboration and contribution to successful delivery of mobile and web applications for hospitality management.',
-      category: 'Teamwork',
-      logoUrl: '/images/awards/teamwork.png',
+      title: 'Leadership Excellence - Promotion to Team Lead',
+      issuer: 'Lloyds Technology Centre',
+      dateAwarded: new Date('2024-09-01'),
+      description: 'Promoted from Engineer to Team Lead within one year, leading a team of 8 engineers and successfully delivering critical initiatives.',
+      category: 'Leadership',
+      logoUrl: '/images/awards/leadership.png',
     },
   ]
 

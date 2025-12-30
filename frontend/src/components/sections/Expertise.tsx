@@ -48,8 +48,6 @@ export default function Expertise({ technologies = [] }: ExpertiseProps) {
         ['frontend', 'ui', 'css', 'styling'].some(keyword => 
           tech.category.toLowerCase().includes(keyword) ||
           tech.name.toLowerCase().includes('react') ||
-          tech.name.toLowerCase().includes('vue') ||
-          tech.name.toLowerCase().includes('angular') ||
           tech.name.toLowerCase().includes('next') ||
           tech.name.toLowerCase().includes('tailwind') ||
           tech.name.toLowerCase().includes('sass') ||
@@ -67,10 +65,7 @@ export default function Expertise({ technologies = [] }: ExpertiseProps) {
           tech.category.toLowerCase().includes(keyword) ||
           tech.name.toLowerCase().includes('node') ||
           tech.name.toLowerCase().includes('express') ||
-          tech.name.toLowerCase().includes('nest') ||
-          tech.name.toLowerCase().includes('python') ||
-          tech.name.toLowerCase().includes('java') ||
-          tech.name.toLowerCase().includes('spring')
+          tech.name.toLowerCase().includes('nest')
         )
       )
     },
@@ -82,11 +77,7 @@ export default function Expertise({ technologies = [] }: ExpertiseProps) {
       skills: technologies.filter(tech => 
         ['database', 'storage', 'data'].some(keyword => 
           tech.category.toLowerCase().includes(keyword) ||
-          tech.name.toLowerCase().includes('postgres') ||
-          tech.name.toLowerCase().includes('mysql') ||
-          tech.name.toLowerCase().includes('mongo') ||
-          tech.name.toLowerCase().includes('redis') ||
-          tech.name.toLowerCase().includes('prisma')
+          tech.name.toLowerCase().includes('mysql')
         )
       )
     },
@@ -114,16 +105,8 @@ export default function Expertise({ technologies = [] }: ExpertiseProps) {
     .filter(category => category.skills.length > 0)
     .map(category => ({
       ...category,
-      skills: category.skills.sort((a, b) => b.proficiency - a.proficiency)
+      skills: category.skills
     }))
-
-  const getSkillLevel = (proficiency: number) => {
-    if (proficiency >= 90) return { label: 'Expert', color: 'text-green-600 dark:text-green-400' }
-    if (proficiency >= 80) return { label: 'Advanced', color: 'text-blue-600 dark:text-blue-400' }
-    if (proficiency >= 70) return { label: 'Proficient', color: 'text-yellow-600 dark:text-yellow-400' }
-    if (proficiency >= 60) return { label: 'Intermediate', color: 'text-purple-600 dark:text-purple-400' }
-    return { label: 'Learning', color: 'text-gray-600 dark:text-gray-400' }
-  }
 
   return (
     <section className="py-20 bg-white dark:bg-neutral-900">
@@ -178,7 +161,6 @@ export default function Expertise({ technologies = [] }: ExpertiseProps) {
                   {/* Skills List */}
                   <div className="space-y-4">
                     {category.skills.slice(0, 6).map((skill, skillIndex) => {
-                      const skillLevel = getSkillLevel(skill.proficiency)
                       return (
                         <motion.div
                           key={skill.id}
@@ -190,28 +172,6 @@ export default function Expertise({ technologies = [] }: ExpertiseProps) {
                             <span className="font-medium text-neutral-900 dark:text-white">
                               {skill.name}
                             </span>
-                          </div>
-                          
-                          <div className="flex items-center gap-3">
-                            <span className={`text-xs font-medium ${skillLevel.color}`}>
-                              {skillLevel.label}
-                            </span>
-                            <div className="flex items-center gap-1">
-                              <div className="w-16 bg-neutral-200 dark:bg-neutral-600 rounded-full h-1.5">
-                                <motion.div
-                                  initial={{ width: 0 }}
-                                  whileInView={{ width: `${skill.proficiency}%` }}
-                                  transition={{ 
-                                    duration: 1, 
-                                    delay: categoryIndex * 0.2 + skillIndex * 0.1 
-                                  }}
-                                  className={`h-1.5 bg-gradient-to-r ${category.color} rounded-full`}
-                                />
-                              </div>
-                              <span className="text-xs text-neutral-500 dark:text-neutral-400 min-w-[2rem] text-right">
-                                {skill.proficiency}%
-                              </span>
-                            </div>
                           </div>
                         </motion.div>
                       )
@@ -228,21 +188,13 @@ export default function Expertise({ technologies = [] }: ExpertiseProps) {
 
                   {/* Category Stats */}
                   <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-600">
-                    <div className="grid grid-cols-2 gap-4 text-center">
+                    <div className="text-center">
                       <div>
                         <div className="text-lg font-bold text-neutral-900 dark:text-white">
                           {category.skills.length}
                         </div>
                         <div className="text-xs text-neutral-500 dark:text-neutral-400">
                           Technologies
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-lg font-bold text-neutral-900 dark:text-white">
-                          {Math.round(category.skills.reduce((sum, skill) => sum + skill.proficiency, 0) / category.skills.length)}%
-                        </div>
-                        <div className="text-xs text-neutral-500 dark:text-neutral-400">
-                          Avg Proficiency
                         </div>
                       </div>
                     </div>
@@ -265,23 +217,7 @@ export default function Expertise({ technologies = [] }: ExpertiseProps) {
                 With comprehensive knowledge across all layers of modern web development, I can architect and build complete solutions from database design to user interface implementation.
               </p>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1">
-                    {technologies.filter(tech => tech.proficiency >= 90).length}
-                  </div>
-                  <div className="text-sm text-neutral-600 dark:text-neutral-400">
-                    Expert Skills
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-secondary-600 dark:text-secondary-400 mb-1">
-                    {technologies.filter(tech => tech.proficiency >= 80).length}
-                  </div>
-                  <div className="text-sm text-neutral-600 dark:text-neutral-400">
-                    Advanced Skills
-                  </div>
-                </div>
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-accent-600 dark:text-accent-400 mb-1">
                     {validCategories.length}

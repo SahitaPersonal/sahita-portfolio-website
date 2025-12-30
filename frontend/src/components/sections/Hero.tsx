@@ -159,7 +159,7 @@ export default function Hero({ personalInfo }: HeroProps) {
                 <div className="text-sm text-neutral-400 mt-1">Years Experience</div>
               </div>
               <div className="glass-card p-4 text-center lg:text-left rounded-2xl">
-                <div className="text-3xl font-bold gradient-text">50+</div>
+                <div className="text-3xl font-bold gradient-text">10+</div>
                 <div className="text-sm text-neutral-400 mt-1">Projects</div>
               </div>
               <div className="glass-card p-4 text-center lg:text-left rounded-2xl">

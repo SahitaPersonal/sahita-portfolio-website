@@ -189,7 +189,7 @@ export default function About({ personalInfo }: AboutProps) {
                   
                   {/* Tech Stack Preview */}
                   <div className="mt-6 flex flex-wrap gap-2">
-                    {['React', 'TypeScript', 'Node.js', 'AWS', 'AI/ML'].map((tech) => (
+                    {['React', 'TypeScript', 'Node.js', 'GCP'].map((tech) => (
                       <span 
                         key={tech}
                         className="px-3 py-1 glass-card text-xs text-neutral-300 rounded-full"
@@ -202,35 +202,6 @@ export default function About({ personalInfo }: AboutProps) {
               </div>
             </motion.div>
           </div>
-
-          {/* Enhanced Call to Action */}
-          <motion.div
-            variants={itemVariants}
-            className="text-center mt-20"
-          >
-            <div className="card-modern p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-semibold text-white mb-4">
-                Ready to collaborate?
-              </h3>
-              <p className="text-neutral-400 mb-8">
-                Let's discuss how we can bring your ideas to life with cutting-edge technology and exceptional design.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="btn-modern flex items-center gap-2 justify-center">
-                  <span>Let's Work Together</span>
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    →
-                  </motion.div>
-                </button>
-                <button className="glass-button px-8 py-4 text-white rounded-xl font-semibold">
-                  View My Projects
-                </button>
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

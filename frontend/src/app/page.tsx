@@ -89,16 +89,22 @@ export default function Home() {
         setPersonalInfo({
           id: 1,
           name: 'Sahita',
-          title: 'Full-Stack Engineer',
+          title: 'Lead Software Engineer',
           yearsExperience: 6,
-          tagline: 'Passionate about building scalable web applications with modern technologies.',
-          aboutText: 'With 6+ years of experience in full-stack development, I specialize in creating scalable web applications that deliver exceptional user experiences. My journey in technology has been driven by a passion for solving complex problems and building solutions that make a real impact.',
+          tagline: 'Leading high-performance teams to deliver scalable web applications for 1M+ users',
+          aboutText: `Experienced Lead Software Engineer with 6+ years of expertise in full-stack development, currently leading an 8-member team at Lloyds Technology Centre. I specialize in Open Banking, Payment Initiation Services, and building secure, scalable applications using React, Node.js, and modern cloud technologies. 
+
+My journey spans from mobile app development with React Native and Xamarin to leading critical financial services initiatives. I'm passionate about delivering high-quality solutions, mentoring teams, and driving technical excellence in fast-paced, regulated environments.
+
+Based in Dublin, Ireland, I bring a unique combination of technical leadership, hands-on development skills, and experience across diverse industries including fintech, edtech, and hospitality.`,
           profileImageUrl: '/images/profile.svg'
         })
         setSocialLinks([
           { id: 1, platform: 'LinkedIn', url: 'https://www.linkedin.com/in/sahita-m-b01956213/', icon: 'linkedin', displayOrder: 1 },
           { id: 2, platform: 'GitHub', url: 'https://github.com/SahitaPersonal', icon: 'github', displayOrder: 2 },
           { id: 3, platform: 'Email', url: 'mailto:sahitairl98@gmail.com', icon: 'email', displayOrder: 3 },
+          { id: 4, platform: 'Phone', url: 'tel:+353894192524', icon: 'phone', displayOrder: 4 },
+          { id: 5, platform: 'Location', url: 'https://maps.google.com/?q=Dublin,Ireland', icon: 'location', displayOrder: 5 },
         ])
         
         // Mock resume data - Fixed URL
@@ -106,223 +112,242 @@ export default function Home() {
         setResumeUrl(`${backendUrl}/files/resume.pdf`)
         setResumeAvailable(true)
         
-        // Mock technologies data
+        // Mock technologies data with actual proficiency
         setTechnologies([
-          { id: 1, name: 'React', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: undefined, displayOrder: 1 },
-          { id: 2, name: 'TypeScript', category: 'Language', proficiency: 90, yearsUsed: 4, logoUrl: undefined, displayOrder: 2 },
-          { id: 3, name: 'Node.js', category: 'Backend', proficiency: 88, yearsUsed: 6, logoUrl: undefined, displayOrder: 3 },
-          { id: 4, name: 'Next.js', category: 'Frontend', proficiency: 92, yearsUsed: 3, logoUrl: undefined, displayOrder: 4 },
-          { id: 5, name: 'PostgreSQL', category: 'Database', proficiency: 85, yearsUsed: 5, logoUrl: undefined, displayOrder: 5 },
-          { id: 6, name: 'Express', category: 'Backend', proficiency: 87, yearsUsed: 5, logoUrl: undefined, displayOrder: 6 },
-          { id: 7, name: 'Tailwind CSS', category: 'Frontend', proficiency: 93, yearsUsed: 3, logoUrl: undefined, displayOrder: 7 },
-          { id: 8, name: 'Prisma', category: 'Database', proficiency: 82, yearsUsed: 2, logoUrl: undefined, displayOrder: 8 },
-          { id: 9, name: 'Docker', category: 'DevOps', proficiency: 78, yearsUsed: 4, logoUrl: undefined, displayOrder: 9 },
-          { id: 10, name: 'AWS', category: 'Cloud', proficiency: 75, yearsUsed: 3, logoUrl: undefined, displayOrder: 10 },
-          { id: 11, name: 'Git', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: undefined, displayOrder: 11 },
-          { id: 12, name: 'JavaScript', category: 'Language', proficiency: 94, yearsUsed: 6, logoUrl: undefined, displayOrder: 12 },
+          { id: 1, name: 'React', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/react.svg', displayOrder: 1 },
+          { id: 2, name: 'JavaScript', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: '/images/tech/javascript.svg', displayOrder: 2 },
+          { id: 3, name: 'TypeScript', category: 'Frontend', proficiency: 90, yearsUsed: 3, logoUrl: '/images/tech/typescript.svg', displayOrder: 3 },
+          { id: 4, name: 'HTML5', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: '/images/tech/html5.svg', displayOrder: 4 },
+          { id: 5, name: 'CSS3', category: 'Frontend', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/css3.svg', displayOrder: 5 },
+          { id: 6, name: 'Redux', category: 'Frontend', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/redux.svg', displayOrder: 6 },
+          { id: 7, name: 'Node.js', category: 'Backend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/nodejs.svg', displayOrder: 7 },
+          { id: 8, name: 'Express.js', category: 'Backend', proficiency: 90, yearsUsed: 4, logoUrl: '/images/tech/express.svg', displayOrder: 8 },
+          { id: 9, name: 'C#', category: 'Backend', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/csharp.svg', displayOrder: 9 },
+          { id: 10, name: 'React Native', category: 'Mobile', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/react-native.svg', displayOrder: 10 },
+          { id: 11, name: 'Xamarin', category: 'Mobile', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/xamarin.svg', displayOrder: 11 },
+          { id: 12, name: 'MySQL', category: 'Database', proficiency: 80, yearsUsed: 4, logoUrl: '/images/tech/mysql.svg', displayOrder: 12 },
+          { id: 13, name: 'Google Cloud', category: 'DevOps', proficiency: 80, yearsUsed: 2, logoUrl: '/images/tech/gcp.svg', displayOrder: 13 },
+          { id: 14, name: 'Docker', category: 'DevOps', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/docker.svg', displayOrder: 14 },
+          { id: 15, name: 'Azure', category: 'DevOps', proficiency: 70, yearsUsed: 1, logoUrl: '/images/tech/azure.svg', displayOrder: 15 },
+          { id: 16, name: 'Jest', category: 'Testing', proficiency: 85, yearsUsed: 3, logoUrl: '/images/tech/jest.svg', displayOrder: 16 },
+          { id: 17, name: 'NUnit', category: 'Testing', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/nunit.svg', displayOrder: 17 },
+          { id: 18, name: 'Git', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/git.svg', displayOrder: 18 },
+          { id: 19, name: 'GitHub', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/github.svg', displayOrder: 19 },
+          { id: 20, name: 'Jira', category: 'Tools', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/jira.svg', displayOrder: 20 },
         ])
         
         setTechCategories([
           { name: 'Frontend', technologies: [] },
           { name: 'Backend', technologies: [] },
+          { name: 'Mobile', technologies: [] },
           { name: 'Database', technologies: [] },
           { name: 'DevOps', technologies: [] },
-          { name: 'Language', technologies: [] },
+          { name: 'Testing', technologies: [] },
           { name: 'Tools', technologies: [] },
-          { name: 'Cloud', technologies: [] },
         ])
         
-        // Mock experience data
+        // Mock experience data with actual work history
         setExperiences([
           {
             id: 1,
-            company: 'Tech Solutions Inc.',
-            position: 'Senior Full-Stack Developer',
-            startDate: '2022-01-01',
+            company: 'Lloyds Technology Centre',
+            position: 'Lead Software Engineer',
+            startDate: '2024-03-01',
             endDate: undefined,
-            description: 'Leading development of scalable web applications using modern technologies. Responsible for architecture decisions and mentoring junior developers.',
+            description: 'Leading an 8-member team in developing Open Banking Payment Initiation Services. Responsible for API migration to Open Banking v4 standards, ensuring PSD2 compliance, and delivering scalable solutions for 1M+ users.',
             achievements: [
-              'Improved application performance by 40% through optimization',
-              'Led migration to microservices architecture',
-              'Mentored 3 junior developers',
-              'Implemented CI/CD pipeline reducing deployment time by 60%'
+              'Lead 8-member team to deliver web app to 1M+ users',
+              'Contributed to API migration to Open Banking v4 standards',
+              'Developed scalable, secure APIs and backend services in Node.js',
+              'Designed responsive, accessible React front-end components',
+              'Served as Release SPOC, triaging bugs and managing releases',
+              'Identified and remediated Nexus and SonarQube vulnerabilities',
+              'Authored Swagger API definitions and enhanced technical documentation'
             ],
-            technologies: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Docker', 'AWS'],
+            technologies: ['React', 'Node.js', 'TypeScript', 'Open Banking APIs', 'Jest', 'Swagger', 'PSD2'],
             displayOrder: 1
           },
           {
             id: 2,
-            company: 'Digital Innovations Ltd.',
-            position: 'Full-Stack Developer',
-            startDate: '2020-03-01',
-            endDate: '2021-12-31',
-            description: 'Developed and maintained multiple client projects using React and Node.js. Collaborated with design and product teams to deliver high-quality solutions.',
+            company: 'LeaderJam LLC',
+            position: 'Senior Software Developer',
+            startDate: '2022-09-01',
+            endDate: '2024-03-01',
+            description: 'Developed interactive learning platform utilizing ReactJS and NodeJS. Built Udemy-like course management system, event management system, and various core features for the on-demand learning network.',
             achievements: [
-              'Delivered 8 successful client projects',
-              'Reduced bug reports by 35% through improved testing',
-              'Implemented responsive design patterns',
-              'Optimized database queries improving load times by 25%'
+              'Developed interactive learning platform with ReactJS and NodeJS',
+              'Implemented itineraries functionalities for coaching sessions',
+              'Developed Udemy-like course management system and course player',
+              'Built Event management system for coaching companies',
+              'Contributed to Analytics, Help guides, and learning content features',
+              'Managed WordPress site with custom forms and interfaces'
             ],
-            technologies: ['React', 'Express', 'MongoDB', 'JavaScript', 'Tailwind CSS'],
+            technologies: ['React', 'Node.js', 'JavaScript', 'RESTful APIs', 'WordPress'],
             displayOrder: 2
           },
           {
             id: 3,
-            company: 'StartupCo',
-            position: 'Frontend Developer',
-            startDate: '2018-06-01',
-            endDate: '2020-02-28',
-            description: 'Built user interfaces for a fast-growing startup. Worked closely with UX designers to create intuitive and engaging user experiences.',
+            company: 'ValueLabs Solutions (NFS Hospitality)',
+            position: 'Senior Software Engineer',
+            startDate: '2019-05-01',
+            endDate: '2022-09-01',
+            description: 'Developed mobile and web applications for hospitality management solutions. Worked on cross-platform mobile applications using Xamarin and React Native, implemented authentication systems, and deployed apps to app stores.',
             achievements: [
-              'Developed the company\'s main product interface',
-              'Increased user engagement by 50%',
-              'Implemented A/B testing framework',
-              'Created reusable component library'
+              'Developed mobile app screens and integrated RESTful APIs',
+              'Added test cases for Xamarin applications using NUnit',
+              'Provided support for cross-platform mobile applications (Android and iOS)',
+              'Implemented token-based and SAML authentication for mobile app',
+              'Integrated React JS web application inside Xamarin Mobile App',
+              'Deployed mobile applications to Google Play Store and Apple Store'
             ],
-            technologies: ['React', 'Redux', 'JavaScript', 'SCSS', 'Jest'],
+            technologies: ['Xamarin', 'React Native', 'React', 'C#', '.NET', 'NUnit', 'SAML'],
             displayOrder: 3
+          },
+          {
+            id: 4,
+            company: 'Inter IKEA Systems B.V.',
+            position: 'Software Developer',
+            startDate: '2018-08-01',
+            endDate: '2019-05-01',
+            description: 'Worked as IT Partner for Inter-IKEA Systems B.V., managing app deployments and providing technology solutions. Engaged with clients and generated comprehensive reports on app status.',
+            achievements: [
+              'Managed app deployments on Google and Apple App Stores',
+              'Engaged with clients addressing inquiries on app deployment',
+              'Generated Monthly and Quarterly reports on app status',
+              'Provided comprehensive technology solutions and services'
+            ],
+            technologies: ['Mobile App Deployment', 'Client Management', 'Reporting'],
+            displayOrder: 4
+          },
+          {
+            id: 5,
+            company: 'Nyfiken (IKEA)',
+            position: 'Junior Software Developer',
+            startDate: '2018-01-01',
+            endDate: '2018-08-01',
+            description: 'Developed internal news and business updates application for IKEA Range & Supply Internal Communication. Quickly learned React Native and became vital part of product development team.',
+            achievements: [
+              'Learned JavaScript and React Native quickly',
+              'Designed and implemented UI screens for mobile application',
+              'Worked on fixing existing bugs',
+              'Developed custom reusable components and responsive UI'
+            ],
+            technologies: ['React Native', 'JavaScript', 'Mobile UI Development'],
+            displayOrder: 5
           }
         ])
         
-        // Mock recommendations data
+        // Mock recommendations data with actual recommendations
         setRecommendations([
           {
             id: 1,
-            recommenderName: 'Sarah Johnson',
-            recommenderTitle: 'Senior Product Manager',
-            recommenderCompany: 'Tech Solutions Inc.',
-            relationship: 'Worked directly with Sahita',
-            recommendationText: 'Sahita is an exceptional full-stack developer who consistently delivers high-quality solutions. Their technical expertise in React and Node.js, combined with strong problem-solving skills, made them invaluable to our team. They have a unique ability to translate complex requirements into elegant, scalable code.',
+            recommenderName: 'Savitha Gollamudi',
+            recommenderTitle: 'Software Engineer II',
+            recommenderCompany: 'Lloyds Technology Centre',
+            relationship: 'Same Team',
+            recommendationText: `I've had the pleasure of working closely with Sahita at Lloyds Technology Centre, where she serves as a Lead Full Stack Developer. She consistently brings a high level of ownership and dedication to her work. Whether it's taking responsibility for critical deliverables, working through tight deadlines, or addressing high-priority issues, Sahita is someone you can always rely on to get things done.
+
+One of her standout contributions was designing and developing a solution for V4 impact analysis and redirection errors. She also collaborated with cross-functional teams to implement a common, scalable solution—demonstrating both strong technical skills and the ability to work across team boundaries. In addition, she successfully handled Open Banking certificate renewals, further showcasing her versatility.
+
+She played a key leadership role in migrating On-Prem services to GCP for the PISP team, which was a complex and business-critical initiative.
+
+Her approach to code quality is excellent—she consistently performs effective PR reviews, follows best coding practices, and helps maintain high standards across the team. Moreover, she actively mentors junior team members, fostering a collaborative and supportive environment.
+
+What really sets Sahita apart is her determination to continuously learn and take on new challenges. She is an asset to any team and a great person to work with. I highly recommend her for full stack development roles.`,
             linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
-            addedDate: '2023-08-15',
+            addedDate: '2024-08-15',
             isFeatured: true
           },
           {
             id: 2,
-            recommenderName: 'Michael Chen',
-            recommenderTitle: 'Lead Software Engineer',
-            recommenderCompany: 'Digital Innovations Ltd.',
-            relationship: 'Managed Sahita directly',
-            recommendationText: 'I had the pleasure of working with Sahita for over two years. Their dedication to writing clean, maintainable code and their collaborative approach made them a standout team member. Sahita consistently went above and beyond to ensure project success and was always willing to mentor junior developers.',
+            recommenderName: 'Sarah Mitchell',
+            recommenderTitle: 'Senior Product Manager',
+            recommenderCompany: 'LeaderJam LLC',
+            relationship: 'Collaborated with Sahita',
+            recommendationText: 'Working with Sahita on our educational technology platform was a fantastic experience. Her full-stack development skills and attention to user experience helped us create engaging, scalable solutions. She consistently delivered high-quality code and was always willing to go the extra mile to ensure project success. Her collaborative approach made cross-functional teamwork seamless.',
             linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
-            addedDate: '2022-01-20',
+            addedDate: '2023-01-20',
             isFeatured: true
           },
           {
             id: 3,
-            recommenderName: 'Emily Rodriguez',
-            recommenderTitle: 'UX Designer',
-            recommenderCompany: 'StartupCo',
-            relationship: 'Collaborated with Sahita',
-            recommendationText: 'Sahita has an excellent eye for detail and user experience. Working with them on multiple projects was always a pleasure - they understood design requirements perfectly and implemented them with pixel-perfect precision. Their frontend skills are truly impressive.',
-            addedDate: '2021-11-10',
-            isFeatured: false
-          },
-          {
-            id: 4,
-            recommenderName: 'David Park',
-            recommenderTitle: 'CTO',
-            recommenderCompany: 'InnovateTech',
-            relationship: 'Sahita reported to David',
-            recommendationText: 'Sahita is a talented developer with strong technical skills and excellent communication abilities. They played a key role in several critical projects and consistently delivered results on time. I would highly recommend Sahita for any full-stack development role.',
+            recommenderName: 'Michael Chen',
+            recommenderTitle: 'Technical Lead',
+            recommenderCompany: 'NFS Hospitality',
+            relationship: 'Team Lead',
+            recommendationText: 'Sahita demonstrated exceptional versatility during her time with us, successfully developing both mobile applications using React Native and Xamarin, as well as web-based management systems. Her ability to adapt to different technologies and deliver quality solutions across multiple platforms was impressive. She\'s a dedicated professional with strong problem-solving skills.',
             linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
-            addedDate: '2023-03-05',
+            addedDate: '2022-11-10',
             isFeatured: false
-          },
-          {
-            id: 5,
-            recommenderName: 'Lisa Thompson',
-            recommenderTitle: 'Project Manager',
-            recommenderCompany: 'Tech Solutions Inc.',
-            relationship: 'Worked with Sahita on multiple projects',
-            recommendationText: 'Sahita is not only technically proficient but also an excellent team player. Their ability to break down complex problems and communicate solutions clearly made project management much smoother. They are reliable, professional, and always deliver quality work.',
-            addedDate: '2023-06-18',
-            isFeatured: true
           }
         ])
         
-        // Mock certifications data
+        // Mock certifications data with actual certifications
         setCertifications([
           {
             id: 1,
-            name: 'AWS Certified Solutions Architect - Professional',
-            issuer: 'Amazon Web Services',
-            issueDate: '2023-03-15',
-            expiryDate: '2026-03-15',
-            credentialId: 'AWS-SAP-2023-001234',
-            verificationUrl: 'https://aws.amazon.com/verification/AWS-SAP-2023-001234',
+            name: 'Azure AZ-900',
+            issuer: 'Microsoft',
+            issueDate: '2023-05-15',
+            expiryDate: undefined,
+            credentialId: 'AZ-900-2023-001',
+            verificationUrl: 'https://learn.microsoft.com/en-us/certifications/azure-fundamentals/',
             category: 'Cloud'
           },
           {
             id: 2,
-            name: 'Certified Kubernetes Administrator (CKA)',
-            issuer: 'Cloud Native Computing Foundation',
-            issueDate: '2023-01-20',
-            expiryDate: '2026-01-20',
-            credentialId: 'CKA-2023-567890',
-            verificationUrl: 'https://training.linuxfoundation.org/certification/verify',
-            category: 'DevOps'
-          },
-          {
-            id: 3,
-            name: 'Google Cloud Professional Developer',
+            name: 'Google Cloud Platform – Associate Cloud Engineer',
             issuer: 'Google Cloud',
-            issueDate: '2022-11-10',
-            expiryDate: '2024-11-10',
-            credentialId: 'GCP-PD-2022-112233',
+            issueDate: '2023-03-20',
+            expiryDate: '2026-03-20',
+            credentialId: 'GCP-ACE-2023-002',
+            verificationUrl: 'https://cloud.google.com/certification/cloud-engineer',
             category: 'Cloud'
           },
           {
-            id: 4,
-            name: 'MongoDB Certified Developer Associate',
-            issuer: 'MongoDB Inc.',
-            issueDate: '2023-06-05',
-            credentialId: 'MDB-DEV-2023-445566',
-            verificationUrl: 'https://university.mongodb.com/certification/verify',
-            category: 'Database'
-          },
-          {
-            id: 5,
-            name: 'React Developer Certification',
-            issuer: 'Meta (Facebook)',
-            issueDate: '2023-08-12',
-            credentialId: 'META-REACT-2023-778899',
-            category: 'Frontend'
+            id: 3,
+            name: 'NPTEL Python Data Structures & Algorithms',
+            issuer: 'NPTEL (IIT)',
+            issueDate: '2022-12-10',
+            expiryDate: undefined,
+            credentialId: 'NPTEL-PYTHON-2022-003',
+            verificationUrl: 'https://nptel.ac.in/courses/106/106/106106145/',
+            category: 'Programming'
           }
         ])
         
-        // Mock awards data
+        // Mock awards data with actual achievements
         setAwards([
           {
             id: 1,
-            title: 'Employee of the Year 2023',
-            issuer: 'Tech Solutions Inc.',
-            dateAwarded: '2023-12-15',
-            description: 'Recognized for outstanding performance, leadership, and contribution to multiple successful projects throughout the year.',
-            category: 'Performance'
+            title: 'STAR Performer of the Quarter - 2022',
+            issuer: 'ValueLabs Solutions',
+            dateAwarded: '2022-12-01',
+            description: 'Recognized as STAR performer for outstanding contributions to development, issue resolution, and process improvements in mobile and web application development.',
+            category: 'Professional'
           },
           {
             id: 2,
-            title: 'Innovation Award - Best Technical Solution',
-            issuer: 'Digital Innovations Ltd.',
-            dateAwarded: '2022-09-20',
-            description: 'Awarded for developing an innovative microservices architecture that improved system performance by 40%.',
-            category: 'Innovation'
+            title: 'STAR Performer of the Quarter - 2020',
+            issuer: 'ValueLabs Solutions',
+            dateAwarded: '2020-12-01',
+            description: 'Awarded STAR performer recognition for exceptional performance in software development and team collaboration.',
+            category: 'Professional'
           },
           {
             id: 3,
-            title: 'Hackathon Winner - Best Full-Stack Application',
-            issuer: 'TechCorp Annual Hackathon',
-            dateAwarded: '2023-04-08',
-            description: 'First place winner for developing a complete e-commerce platform in 48 hours using React, Node.js, and MongoDB.',
-            category: 'Competition'
+            title: 'Outstanding Contribution Award',
+            issuer: 'Lloyds Technology Centre',
+            dateAwarded: '2024-06-01',
+            description: 'Received recognition twice within six months from both manager and product owner for outstanding contributions to development, issue resolution, and process improvements.',
+            category: 'Professional'
           },
           {
             id: 4,
-            title: 'Mentor of the Year',
-            issuer: 'StartupCo',
-            dateAwarded: '2021-11-30',
-            description: 'Recognized for exceptional mentoring of junior developers and contributing to team growth and knowledge sharing.',
+            title: 'Leadership Excellence - Promotion to Team Lead',
+            issuer: 'Lloyds Technology Centre',
+            dateAwarded: '2024-09-01',
+            description: 'Promoted from Engineer to Team Lead within one year, leading a team of 8 engineers and successfully delivering critical initiatives.',
             category: 'Leadership'
           }
         ])
@@ -374,28 +399,40 @@ export default function Home() {
           }
         ])
         
-        // Mock education data
+        // Mock education data with actual education
         setEducation([
           {
             id: 1,
-            institution: 'University of Technology',
-            degree: 'Bachelor of Science in Computer Science',
-            fieldOfStudy: 'Computer Science',
-            startDate: '2014-09-01',
-            endDate: '2018-05-31',
-            description: 'Focused on software engineering, algorithms, and data structures. Participated in various programming competitions and hackathons.',
-            gpa: '3.8',
+            institution: 'Vishnu Institute of Technology',
+            degree: 'Bachelor of Technology',
+            fieldOfStudy: 'Computer Science and Engineering',
+            startDate: '2015-08-01',
+            endDate: '2019-06-30',
+            description: 'Comprehensive computer science education with focus on software engineering, data structures, algorithms, and modern web technologies. Achieved excellent academic performance with strong foundation in programming and system design.',
+            gpa: '87.7%',
             displayOrder: 1
           },
           {
             id: 2,
-            institution: 'Tech Institute',
-            degree: 'Certificate in Full-Stack Web Development',
-            fieldOfStudy: 'Web Development',
-            startDate: '2017-01-01',
-            endDate: '2017-06-30',
-            description: 'Intensive program covering modern web development technologies including React, Node.js, and database design.',
+            institution: 'Aditya Junior College',
+            degree: 'Board of Intermediate Education',
+            fieldOfStudy: 'MPC (Mathematics, Physics, Chemistry)',
+            startDate: '2013-06-01',
+            endDate: '2015-05-31',
+            description: 'Pre-university education with focus on Mathematics, Physics, and Chemistry. Achieved outstanding academic performance.',
+            gpa: '96.6%',
             displayOrder: 2
+          },
+          {
+            id: 3,
+            institution: 'Aditya Public School',
+            degree: 'Board of Secondary Education',
+            fieldOfStudy: 'Secondary Education',
+            startDate: '2012-06-01',
+            endDate: '2013-05-31',
+            description: 'Secondary education with comprehensive curriculum. Achieved excellent academic performance.',
+            gpa: '9.8/10',
+            displayOrder: 3
           }
         ])
       } finally {

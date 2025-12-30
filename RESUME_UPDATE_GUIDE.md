@@ -17,7 +17,7 @@ const profile = await prisma.profile.upsert({
   create: {
     name: 'Your Full Name',                    // From resume header
     title: 'Your Professional Title',         // From resume header
-    yearsExperience: 6,                       // Calculate from resume
+    yearsExperience: 6.5,                       // Calculate from resume
     tagline: 'Your professional tagline',     // From resume summary
     aboutText: `Your detailed bio...`,        // From resume summary/objective
     profileImageUrl: '/images/profile.jpg',   // Your photo

@@ -39,33 +39,25 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
       'javascript': '🟨',
       'node.js': '🟢',
       'nodejs': '🟢',
-      'python': '🐍',
-      'java': '☕',
-      'postgresql': '🐘',
       'mysql': '🐬',
-      'mongodb': '🍃',
-      'redis': '🔴',
       'docker': '🐳',
-      'kubernetes': '☸️',
-      'aws': '☁️',
-      'azure': '🔵',
       'git': '📝',
       'github': '🐙',
-      'next.js': '▲',
-      'nextjs': '▲',
-      'vue': '💚',
-      'angular': '🅰️',
       'express': '🚂',
-      'nestjs': '🦅',
-      'graphql': '💜',
       'tailwind': '🎨',
-      'sass': '💅',
-      'webpack': '📦',
-      'vite': '⚡',
-      'jest': '🃏',
-      'cypress': '🌲',
-      'figma': '🎨',
-      'photoshop': '🖼️'
+      'css': '💅',
+      'html': '📄',
+      'xamarin': '📱',
+      'reactnative': '📱',
+      'googlecloud': '☁️',
+      'gcp': '☁️',
+      'azuredevops': '🔵',
+      'azure': '🔵',
+      'jira': '📋',
+      'confluence': '📚',
+      'agile': '🔄',
+      'csharp': '🔷',
+      'c#': '🔷'
     }
     
     const key = name.toLowerCase().replace(/[.\s]/g, '')
@@ -190,7 +182,6 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
                   className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
                 >
                   {categoryTechs
-                    .sort((a, b) => b.proficiency - a.proficiency)
                     .map((tech, techIndex) => (
                       <motion.div
                         key={tech.id}
@@ -221,33 +212,6 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
                           {tech.name}
                         </h4>
 
-                        {/* Enhanced Proficiency Bar */}
-                        <div className="space-y-2 relative z-10">
-                          <div className="flex justify-between items-center text-xs">
-                            <span className="text-neutral-400">
-                              Proficiency
-                            </span>
-                            <span className="font-medium text-white">
-                              {tech.proficiency}%
-                            </span>
-                          </div>
-                          <div className="w-full bg-neutral-700 rounded-full h-2">
-                            <motion.div
-                              initial={{ width: 0 }}
-                              whileInView={{ width: `${tech.proficiency}%` }}
-                              transition={{ duration: 1, delay: categoryIndex * 0.1 + techIndex * 0.05 }}
-                              className={`h-2 bg-gradient-to-r ${getProficiencyColor(tech.proficiency)} rounded-full`}
-                            />
-                          </div>
-                        </div>
-
-                        {/* Years of Experience */}
-                        {tech.yearsUsed && (
-                          <div className="mt-3 text-xs text-neutral-400 relative z-10">
-                            {tech.yearsUsed} year{tech.yearsUsed !== 1 ? 's' : ''} experience
-                          </div>
-                        )}
-
                         {/* Code symbol decoration */}
                         <div className="absolute top-2 right-2 text-primary-400/20 font-mono text-sm">
                           {categoryName === 'frontend' && '</>'}
@@ -269,7 +233,7 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
           {/* Enhanced Summary Stats */}
           <motion.div
             variants={itemVariants}
-            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="mt-20 grid grid-cols-2 md:grid-cols-2 gap-6"
           >
             <div className="text-center card-modern p-6 relative overflow-hidden">
               <div className="absolute top-2 right-2 text-primary-400/20 font-mono text-xs">
@@ -292,30 +256,6 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
               </div>
               <div className="text-sm text-neutral-400 relative z-10">
                 Categories
-              </div>
-            </div>
-            
-            <div className="text-center card-modern p-6 relative overflow-hidden">
-              <div className="absolute top-2 right-2 text-accent-400/20 font-mono text-xs">
-                %
-              </div>
-              <div className="text-3xl font-bold gradient-text mb-2 relative z-10">
-                {Math.round(technologies.reduce((sum, tech) => sum + tech.proficiency, 0) / technologies.length)}%
-              </div>
-              <div className="text-sm text-neutral-400 relative z-10">
-                Avg Proficiency
-              </div>
-            </div>
-            
-            <div className="text-center card-modern p-6 relative overflow-hidden">
-              <div className="absolute top-2 right-2 text-green-400/20 font-mono text-xs">
-                ★
-              </div>
-              <div className="text-3xl font-bold gradient-text mb-2 relative z-10">
-                {technologies.filter(tech => tech.proficiency >= 80).length}
-              </div>
-              <div className="text-sm text-neutral-400 relative z-10">
-                Expert Level
               </div>
             </div>
           </motion.div>
