@@ -9,8 +9,9 @@ import Expertise from '@/components/sections/Expertise'
 import JourneyTimeline from '@/components/sections/JourneyTimeline'
 import Academic from '@/components/sections/Academic'
 import Recommendations from '@/components/sections/Recommendations'
+import Achievements from '@/components/sections/Achievements'
 import { apiClient } from '@/lib/api'
-import { PersonalInfo, SocialLink, Technology, TechCategory, Experience, Education, Recommendation } from '@/types/api'
+import { PersonalInfo, SocialLink, Technology, TechCategory, Experience, Education, Recommendation, Certification, Award, ProjectHighlight } from '@/types/api'
 
 export default function Home() {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null)
@@ -20,6 +21,9 @@ export default function Home() {
   const [experiences, setExperiences] = useState<Experience[]>([])
   const [education, setEducation] = useState<Education[]>([])
   const [recommendations, setRecommendations] = useState<Recommendation[]>([])
+  const [certifications, setCertifications] = useState<Certification[]>([])
+  const [awards, setAwards] = useState<Award[]>([])
+  const [projects, setProjects] = useState<ProjectHighlight[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -53,6 +57,13 @@ export default function Home() {
         const recommendationsData = await apiClient.getRecommendations()
         console.log('Recommendations data received:', recommendationsData)
         setRecommendations(recommendationsData.recommendations)
+        
+        // Fetch achievements data
+        const achievementsData = await apiClient.getAchievements()
+        console.log('Achievements data received:', achievementsData)
+        setCertifications(achievementsData.certifications)
+        setAwards(achievementsData.awards)
+        setProjects(achievementsData.projects)
         
       } catch (err) {
         console.error('Failed to fetch data:', err)
@@ -210,6 +221,139 @@ export default function Home() {
           }
         ])
         
+        // Mock certifications data
+        setCertifications([
+          {
+            id: 1,
+            name: 'AWS Certified Solutions Architect - Professional',
+            issuer: 'Amazon Web Services',
+            issueDate: '2023-03-15',
+            expiryDate: '2026-03-15',
+            credentialId: 'AWS-SAP-2023-001234',
+            verificationUrl: 'https://aws.amazon.com/verification/AWS-SAP-2023-001234',
+            category: 'Cloud'
+          },
+          {
+            id: 2,
+            name: 'Certified Kubernetes Administrator (CKA)',
+            issuer: 'Cloud Native Computing Foundation',
+            issueDate: '2023-01-20',
+            expiryDate: '2026-01-20',
+            credentialId: 'CKA-2023-567890',
+            verificationUrl: 'https://training.linuxfoundation.org/certification/verify',
+            category: 'DevOps'
+          },
+          {
+            id: 3,
+            name: 'Google Cloud Professional Developer',
+            issuer: 'Google Cloud',
+            issueDate: '2022-11-10',
+            expiryDate: '2024-11-10',
+            credentialId: 'GCP-PD-2022-112233',
+            category: 'Cloud'
+          },
+          {
+            id: 4,
+            name: 'MongoDB Certified Developer Associate',
+            issuer: 'MongoDB Inc.',
+            issueDate: '2023-06-05',
+            credentialId: 'MDB-DEV-2023-445566',
+            verificationUrl: 'https://university.mongodb.com/certification/verify',
+            category: 'Database'
+          },
+          {
+            id: 5,
+            name: 'React Developer Certification',
+            issuer: 'Meta (Facebook)',
+            issueDate: '2023-08-12',
+            credentialId: 'META-REACT-2023-778899',
+            category: 'Frontend'
+          }
+        ])
+        
+        // Mock awards data
+        setAwards([
+          {
+            id: 1,
+            title: 'Employee of the Year 2023',
+            issuer: 'Tech Solutions Inc.',
+            dateAwarded: '2023-12-15',
+            description: 'Recognized for outstanding performance, leadership, and contribution to multiple successful projects throughout the year.',
+            category: 'Performance'
+          },
+          {
+            id: 2,
+            title: 'Innovation Award - Best Technical Solution',
+            issuer: 'Digital Innovations Ltd.',
+            dateAwarded: '2022-09-20',
+            description: 'Awarded for developing an innovative microservices architecture that improved system performance by 40%.',
+            category: 'Innovation'
+          },
+          {
+            id: 3,
+            title: 'Hackathon Winner - Best Full-Stack Application',
+            issuer: 'TechCorp Annual Hackathon',
+            dateAwarded: '2023-04-08',
+            description: 'First place winner for developing a complete e-commerce platform in 48 hours using React, Node.js, and MongoDB.',
+            category: 'Competition'
+          },
+          {
+            id: 4,
+            title: 'Mentor of the Year',
+            issuer: 'StartupCo',
+            dateAwarded: '2021-11-30',
+            description: 'Recognized for exceptional mentoring of junior developers and contributing to team growth and knowledge sharing.',
+            category: 'Leadership'
+          }
+        ])
+        
+        // Mock projects data
+        setProjects([
+          {
+            id: 1,
+            title: 'E-Commerce Platform with Microservices',
+            description: 'Built a scalable e-commerce platform using microservices architecture with React frontend, Node.js backend, and MongoDB. Implemented features like user authentication, product catalog, shopping cart, payment processing, and order management.',
+            technologies: ['React', 'Node.js', 'MongoDB', 'Docker', 'Kubernetes', 'Redis', 'Stripe API'],
+            projectUrl: 'https://ecommerce-demo.sahita.dev',
+            githubUrl: 'https://github.com/SahitaPersonal/ecommerce-platform',
+            startDate: '2023-01-15',
+            endDate: '2023-06-30',
+            isFeatured: true
+          },
+          {
+            id: 2,
+            title: 'Real-Time Chat Application',
+            description: 'Developed a real-time chat application with WebSocket support, featuring multiple chat rooms, file sharing, emoji reactions, and user presence indicators. Built with modern web technologies and deployed on AWS.',
+            technologies: ['Next.js', 'Socket.io', 'PostgreSQL', 'Prisma', 'AWS', 'TypeScript'],
+            projectUrl: 'https://chat-app.sahita.dev',
+            githubUrl: 'https://github.com/SahitaPersonal/realtime-chat',
+            startDate: '2022-08-01',
+            endDate: '2022-11-15',
+            isFeatured: true
+          },
+          {
+            id: 3,
+            title: 'Task Management Dashboard',
+            description: 'Created a comprehensive task management dashboard with drag-and-drop functionality, team collaboration features, time tracking, and detailed analytics. Includes mobile-responsive design and offline capabilities.',
+            technologies: ['Vue.js', 'Express.js', 'MySQL', 'Chart.js', 'PWA', 'WebSockets'],
+            projectUrl: 'https://taskmanager.sahita.dev',
+            githubUrl: 'https://github.com/SahitaPersonal/task-dashboard',
+            startDate: '2022-03-10',
+            endDate: '2022-07-20',
+            isFeatured: false
+          },
+          {
+            id: 4,
+            title: 'AI-Powered Code Review Tool',
+            description: 'Developed an AI-powered code review tool that analyzes code quality, suggests improvements, and detects potential bugs. Integrated with popular version control systems and CI/CD pipelines.',
+            technologies: ['Python', 'FastAPI', 'TensorFlow', 'React', 'PostgreSQL', 'Docker', 'GitHub API'],
+            githubUrl: 'https://github.com/SahitaPersonal/ai-code-review',
+            startDate: '2023-07-01',
+            endDate: '2023-10-15',
+            isFeatured: true
+          }
+        ])
+        
         // Mock education data
         setEducation([
           {
@@ -282,6 +426,11 @@ export default function Home() {
           <JourneyTimeline experiences={experiences} />
           <Academic education={education} />
           <Recommendations recommendations={recommendations} />
+          <Achievements 
+            certifications={certifications}
+            awards={awards}
+            projects={projects}
+          />
         </>
       )}
     </Layout>

@@ -1,0 +1,457 @@
+'use client'
+
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { ExternalLinkIcon, CalendarIcon, AwardIcon, FileTextIcon, FolderIcon, GithubIcon, LinkIcon } from 'lucide-react'
+import { Certification, Award, ProjectHighlight } from '@/types/api'
+
+interface AchievementsProps {
+  certifications: Certification[]
+  awards: Award[]
+  projects: ProjectHighlight[]
+}
+
+export default function Achievements({ certifications, awards, projects }: AchievementsProps) {
+  const [activeTab, setActiveTab] = useState<'certifications' | 'awards' | 'projects'>('certifications')
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0
+    }
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1
+    }
+  }
+
+  // Format date
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short'
+    })
+  }
+
+  // Check if certification is active (not expired)
+  const isCertificationActive = (cert: Certification) => {
+    if (!cert.expiryDate) return true
+    return new Date(cert.expiryDate) > new Date()
+  }
+
+  // Get category color
+  const getCategoryColor = (category?: string) => {
+    const colors: Record<string, string> = {
+      'cloud': 'from-blue-500 to-cyan-500',
+      'development': 'from-green-500 to-emerald-500',
+      'security': 'from-red-500 to-pink-500',
+      'data': 'from-purple-500 to-violet-500',
+      'design': 'from-orange-500 to-yellow-500',
+      'management': 'from-indigo-500 to-blue-500',
+      'frontend': 'from-cyan-500 to-blue-500',
+      'backend': 'from-green-500 to-teal-500',
+      'fullstack': 'from-purple-500 to-pink-500'
+    }
+    
+    return colors[category?.toLowerCase() || ''] || 'from-gray-500 to-slate-500'
+  }
+
+  const tabs = [
+    { id: 'certifications', label: 'Certifications', icon: FileTextIcon, count: certifications.length },
+    { id: 'awards', label: 'Awards', icon: AwardIcon, count: awards.length },
+    { id: 'projects', label: 'Projects', icon: FolderIcon, count: projects.length }
+  ] as const
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900">
+      <div className="container mx-auto px-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-6xl mx-auto"
+        >
+          {/* Section Header */}
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium mb-4">
+              Professional Achievements
+            </span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+              Certifications &
+              <span className="block text-transparent bg-clip-text bg-gradient-primary">
+                Accomplishments
+              </span>
+            </h2>
+            <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+              A showcase of my professional certifications, awards, and notable projects that demonstrate my expertise and commitment to excellence.
+            </p>
+          </motion.div>
+
+          {/* Tab Navigation */}
+          <motion.div variants={itemVariants} className="flex justify-center mb-12">
+            <div className="flex bg-neutral-200 dark:bg-neutral-800 rounded-xl p-1">
+              {tabs.map((tab) => {
+                const Icon = tab.icon
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                      activeTab === tab.id
+                        ? 'bg-white dark:bg-neutral-700 text-primary-600 dark:text-primary-400 shadow-md'
+                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {tab.label}
+                    <span className={`text-xs px-2 py-1 rounded-full ${
+                      activeTab === tab.id
+                        ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400'
+                        : 'bg-neutral-300 dark:bg-neutral-600 text-neutral-600 dark:text-neutral-400'
+                    }`}>
+                      {tab.count}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          </motion.div>
+
+          {/* Content Sections */}
+          <motion.div variants={containerVariants} className="min-h-[400px]">
+            {/* Certifications Tab */}
+            {activeTab === 'certifications' && (
+              <motion.div
+                key="certifications"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
+                {certifications.map((cert, index) => (
+                  <motion.div
+                    key={cert.id}
+                    variants={cardVariants}
+                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                    className="group relative bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300"
+                  >
+                    {/* Status Badge */}
+                    <div className="absolute top-4 right-4">
+                      <span className={`text-xs px-2 py-1 rounded-full ${
+                        isCertificationActive(cert)
+                          ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
+                          : 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
+                      }`}>
+                        {isCertificationActive(cert) ? 'Active' : 'Expired'}
+                      </span>
+                    </div>
+
+                    {/* Logo/Icon */}
+                    <div className="mb-4">
+                      {cert.logoUrl ? (
+                        <img 
+                          src={cert.logoUrl} 
+                          alt={cert.issuer}
+                          className="w-12 h-12 object-contain"
+                        />
+                      ) : (
+                        <div className={`w-12 h-12 bg-gradient-to-r ${getCategoryColor(cert.category)} rounded-lg flex items-center justify-center`}>
+                          <FileTextIcon className="w-6 h-6 text-white" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <h4 className="font-semibold text-neutral-900 dark:text-white mb-2 text-sm leading-tight">
+                      {cert.name}
+                    </h4>
+                    
+                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+                      {cert.issuer}
+                    </p>
+
+                    {/* Category */}
+                    {cert.category && (
+                      <div className="mb-3">
+                        <span className={`inline-block px-2 py-1 bg-gradient-to-r ${getCategoryColor(cert.category)} text-white text-xs rounded-full`}>
+                          {cert.category}
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Dates */}
+                    <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 mb-4">
+                      <CalendarIcon className="w-3 h-3" />
+                      <span>Issued {formatDate(cert.issueDate)}</span>
+                      {cert.expiryDate && (
+                        <span>• Expires {formatDate(cert.expiryDate)}</span>
+                      )}
+                    </div>
+
+                    {/* Credential ID */}
+                    {cert.credentialId && (
+                      <div className="text-xs text-neutral-500 dark:text-neutral-400 mb-4">
+                        ID: {cert.credentialId}
+                      </div>
+                    )}
+
+                    {/* Verification Link */}
+                    {cert.verificationUrl && (
+                      <a
+                        href={cert.verificationUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                      >
+                        <ExternalLinkIcon className="w-3 h-3" />
+                        Verify Certificate
+                      </a>
+                    )}
+
+                    {/* Hover Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+
+            {/* Awards Tab */}
+            {activeTab === 'awards' && (
+              <motion.div
+                key="awards"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
+                {awards.map((award, index) => (
+                  <motion.div
+                    key={award.id}
+                    variants={cardVariants}
+                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                    className="group relative bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300"
+                  >
+                    {/* Logo/Icon */}
+                    <div className="mb-4">
+                      {award.logoUrl ? (
+                        <img 
+                          src={award.logoUrl} 
+                          alt={award.issuer}
+                          className="w-12 h-12 object-contain"
+                        />
+                      ) : (
+                        <div className={`w-12 h-12 bg-gradient-to-r ${getCategoryColor(award.category)} rounded-lg flex items-center justify-center`}>
+                          <AwardIcon className="w-6 h-6 text-white" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <h4 className="font-semibold text-neutral-900 dark:text-white mb-2 text-sm leading-tight">
+                      {award.title}
+                    </h4>
+                    
+                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+                      {award.issuer}
+                    </p>
+
+                    {/* Category */}
+                    {award.category && (
+                      <div className="mb-3">
+                        <span className={`inline-block px-2 py-1 bg-gradient-to-r ${getCategoryColor(award.category)} text-white text-xs rounded-full`}>
+                          {award.category}
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Description */}
+                    {award.description && (
+                      <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-3 line-clamp-3">
+                        {award.description}
+                      </p>
+                    )}
+
+                    {/* Date */}
+                    <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
+                      <CalendarIcon className="w-3 h-3" />
+                      <span>Awarded {formatDate(award.dateAwarded)}</span>
+                    </div>
+
+                    {/* Hover Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+
+            {/* Projects Tab */}
+            {activeTab === 'projects' && (
+              <motion.div
+                key="projects"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="grid md:grid-cols-2 gap-8"
+              >
+                {projects.map((project, index) => (
+                  <motion.div
+                    key={project.id}
+                    variants={cardVariants}
+                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                    className="group relative bg-white dark:bg-neutral-800 rounded-xl overflow-hidden shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300"
+                  >
+                    {/* Project Image */}
+                    {project.imageUrl && (
+                      <div className="aspect-video overflow-hidden">
+                        <img 
+                          src={project.imageUrl} 
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="p-6">
+                      {/* Featured Badge */}
+                      {project.isFeatured && (
+                        <div className="absolute top-4 right-4">
+                          <div className="w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs">★</span>
+                          </div>
+                        </div>
+                      )}
+
+                      <h4 className="font-semibold text-neutral-900 dark:text-white mb-3 text-lg">
+                        {project.title}
+                      </h4>
+                      
+                      <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4 line-clamp-3">
+                        {project.description}
+                      </p>
+
+                      {/* Technologies */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-2 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 text-xs rounded-md"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 4 && (
+                          <span className="px-2 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-500 dark:text-neutral-400 text-xs rounded-md">
+                            +{project.technologies.length - 4} more
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Project Duration */}
+                      <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 mb-4">
+                        <CalendarIcon className="w-3 h-3" />
+                        <span>
+                          {formatDate(project.startDate)}
+                          {project.endDate && ` - ${formatDate(project.endDate)}`}
+                        </span>
+                      </div>
+
+                      {/* Links */}
+                      <div className="flex items-center gap-4">
+                        {project.projectUrl && (
+                          <a
+                            href={project.projectUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                          >
+                            <LinkIcon className="w-3 h-3" />
+                            Live Demo
+                          </a>
+                        )}
+                        
+                        {project.githubUrl && (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors"
+                          >
+                            <GithubIcon className="w-3 h-3" />
+                            Source Code
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Hover Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </motion.div>
+
+          {/* Summary Stats */}
+          <motion.div
+            variants={itemVariants}
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+          >
+            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
+              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                {certifications.filter(cert => isCertificationActive(cert)).length}
+              </div>
+              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                Active Certifications
+              </div>
+            </div>
+            
+            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
+              <div className="text-3xl font-bold text-secondary-600 dark:text-secondary-400 mb-2">
+                {awards.length}
+              </div>
+              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                Awards Received
+              </div>
+            </div>
+            
+            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
+              <div className="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-2">
+                {projects.filter(p => p.isFeatured).length}
+              </div>
+              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                Featured Projects
+              </div>
+            </div>
+            
+            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
+              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
+                {new Set(certifications.map(c => c.category)).size + new Set(awards.map(a => a.category)).size}
+              </div>
+              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                Categories
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
