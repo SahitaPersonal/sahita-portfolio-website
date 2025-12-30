@@ -97,7 +97,7 @@ export default function Home() {
 My journey spans from mobile app development with React Native and Xamarin to leading critical financial services initiatives. I'm passionate about delivering high-quality solutions, mentoring teams, and driving technical excellence in fast-paced, regulated environments.
 
 Based in Dublin, Ireland, I bring a unique combination of technical leadership, hands-on development skills, and experience across diverse industries including fintech, edtech, and hospitality.`,
-          profileImageUrl: '/images/profile.svg'
+          profileImageUrl: '/images/profile_main.jpg'
         })
         setSocialLinks([
           { id: 1, platform: 'LinkedIn', url: 'https://www.linkedin.com/in/sahita-m-b01956213/', icon: 'linkedin', displayOrder: 1 },
@@ -112,26 +112,26 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
         
         // Mock technologies data with actual proficiency
         setTechnologies([
-          { id: 1, name: 'React', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/react.svg', displayOrder: 1 },
-          { id: 2, name: 'JavaScript', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: '/images/tech/javascript.svg', displayOrder: 2 },
-          { id: 3, name: 'TypeScript', category: 'Frontend', proficiency: 90, yearsUsed: 3, logoUrl: '/images/tech/typescript.svg', displayOrder: 3 },
-          { id: 4, name: 'HTML5', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: '/images/tech/html5.svg', displayOrder: 4 },
-          { id: 5, name: 'CSS3', category: 'Frontend', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/css3.svg', displayOrder: 5 },
-          { id: 6, name: 'Redux', category: 'Frontend', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/redux.svg', displayOrder: 6 },
-          { id: 7, name: 'Node.js', category: 'Backend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/nodejs.svg', displayOrder: 7 },
-          { id: 8, name: 'Express.js', category: 'Backend', proficiency: 90, yearsUsed: 4, logoUrl: '/images/tech/express.svg', displayOrder: 8 },
-          { id: 9, name: 'C#', category: 'Backend', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/csharp.svg', displayOrder: 9 },
-          { id: 10, name: 'React Native', category: 'Mobile', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/react-native.svg', displayOrder: 10 },
-          { id: 11, name: 'Xamarin', category: 'Mobile', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/xamarin.svg', displayOrder: 11 },
-          { id: 12, name: 'MySQL', category: 'Database', proficiency: 80, yearsUsed: 4, logoUrl: '/images/tech/mysql.svg', displayOrder: 12 },
-          { id: 13, name: 'Google Cloud', category: 'DevOps', proficiency: 80, yearsUsed: 2, logoUrl: '/images/tech/gcp.svg', displayOrder: 13 },
-          { id: 14, name: 'Docker', category: 'DevOps', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/docker.svg', displayOrder: 14 },
-          { id: 15, name: 'Azure', category: 'DevOps', proficiency: 70, yearsUsed: 1, logoUrl: '/images/tech/azure.svg', displayOrder: 15 },
-          { id: 16, name: 'Jest', category: 'Testing', proficiency: 85, yearsUsed: 3, logoUrl: '/images/tech/jest.svg', displayOrder: 16 },
-          { id: 17, name: 'NUnit', category: 'Testing', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/nunit.svg', displayOrder: 17 },
-          { id: 18, name: 'Git', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/git.svg', displayOrder: 18 },
-          { id: 19, name: 'GitHub', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/github.svg', displayOrder: 19 },
-          { id: 20, name: 'Jira', category: 'Tools', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/jira.svg', displayOrder: 20 },
+          { id: 1, name: 'React', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', displayOrder: 1 },
+          { id: 2, name: 'JavaScript', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', displayOrder: 2 },
+          { id: 3, name: 'TypeScript', category: 'Frontend', proficiency: 90, yearsUsed: 3, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg', displayOrder: 3 },
+          { id: 4, name: 'HTML5', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', displayOrder: 4 },
+          { id: 5, name: 'CSS3', category: 'Frontend', proficiency: 90, yearsUsed: 6, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', displayOrder: 5 },
+          { id: 6, name: 'Redux', category: 'Frontend', proficiency: 85, yearsUsed: 4, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg', displayOrder: 6 },
+          { id: 7, name: 'Node.js', category: 'Backend', proficiency: 95, yearsUsed: 5, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', displayOrder: 7 },
+          { id: 8, name: 'Express.js', category: 'Backend', proficiency: 90, yearsUsed: 4, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', displayOrder: 8 },
+          { id: 9, name: 'C#', category: 'Backend', proficiency: 80, yearsUsed: 3, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg', displayOrder: 9 },
+          { id: 10, name: 'React Native', category: 'Mobile', proficiency: 85, yearsUsed: 4, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', displayOrder: 10 },
+          { id: 11, name: 'Xamarin', category: 'Mobile', proficiency: 75, yearsUsed: 2, logoUrl: undefined, displayOrder: 11 },
+          { id: 12, name: 'MySQL', category: 'Database', proficiency: 80, yearsUsed: 4, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', displayOrder: 12 },
+          { id: 13, name: 'Google Cloud', category: 'DevOps', proficiency: 80, yearsUsed: 2, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg', displayOrder: 13 },
+          { id: 14, name: 'Docker', category: 'DevOps', proficiency: 75, yearsUsed: 2, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', displayOrder: 14 },
+          { id: 15, name: 'Azure', category: 'DevOps', proficiency: 70, yearsUsed: 1, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg', displayOrder: 15 },
+          { id: 16, name: 'Jest', category: 'Testing', proficiency: 85, yearsUsed: 3, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg', displayOrder: 16 },
+          { id: 17, name: 'NUnit', category: 'Testing', proficiency: 70, yearsUsed: 2, logoUrl: undefined, displayOrder: 17 },
+          { id: 18, name: 'Git', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', displayOrder: 18 },
+          { id: 19, name: 'GitHub', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', displayOrder: 19 },
+          { id: 20, name: 'Jira', category: 'Tools', proficiency: 85, yearsUsed: 4, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg', displayOrder: 20 },
         ])
         
         setTechCategories([
@@ -336,6 +336,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
             expiryDate: undefined,
             credentialId: undefined,
             verificationUrl: undefined,
+            logoUrl: 'https://placehold.co/100x100/4285F4/FFFFFF/png?text=GCP',
             category: 'Cloud'
           },
           {
@@ -346,6 +347,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
             expiryDate: undefined,
             credentialId: undefined,
             verificationUrl: undefined,
+            logoUrl: 'https://placehold.co/100x100/0078D4/FFFFFF/png?text=Azure',
             category: 'Cloud'
           },
           {
@@ -356,6 +358,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
             expiryDate: undefined,
             credentialId: undefined,
             verificationUrl: undefined,
+            logoUrl: 'https://placehold.co/100x100/FF6B35/FFFFFF/png?text=Pega',
             category: 'Pega'
           },
           {
@@ -366,6 +369,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
             expiryDate: undefined,
             credentialId: undefined,
             verificationUrl: undefined,
+            logoUrl: 'https://placehold.co/100x100/FF6B35/FFFFFF/png?text=Pega',
             category: 'Pega'
           },
           {
@@ -376,6 +380,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
             expiryDate: undefined,
             credentialId: undefined,
             verificationUrl: undefined,
+            logoUrl: 'https://placehold.co/100x100/3776AB/FFFFFF/png?text=NPTEL',
             category: 'NPTEL'
           },
           {
@@ -386,6 +391,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
             expiryDate: undefined,
             credentialId: undefined,
             verificationUrl: undefined,
+            logoUrl: 'https://placehold.co/100x100/003366/FFFFFF/png?text=BC',
             category: 'British Council'
           }
         ])
@@ -398,7 +404,8 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
             issuer: 'ValueLabs Solutions',
             dateAwarded: '2022-12-01',
             description: 'Recognized as STAR performer for outstanding contributions to development, issue resolution, and process improvements in mobile and web application development.',
-            category: 'Professional'
+            category: 'Professional',
+            logoUrl: 'https://placehold.co/100x100/FFD700/000000/png?text=STAR'
           },
           {
             id: 2,
@@ -406,7 +413,8 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
             issuer: 'ValueLabs Solutions',
             dateAwarded: '2020-12-01',
             description: 'Awarded STAR performer recognition for exceptional performance in software development and team collaboration.',
-            category: 'Professional'
+            category: 'Professional',
+            logoUrl: 'https://placehold.co/100x100/FFD700/000000/png?text=STAR'
           },
           {
             id: 3,
@@ -414,7 +422,8 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
             issuer: 'Lloyds Technology Centre',
             dateAwarded: '2024-06-01',
             description: 'Received recognition twice within six months from both manager and product owner for outstanding contributions to development, issue resolution, and process improvements.',
-            category: 'Professional'
+            category: 'Professional',
+            logoUrl: 'https://placehold.co/100x100/006341/FFFFFF/png?text=LTC'
           },
           {
             id: 4,
@@ -422,56 +431,13 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
             issuer: 'Lloyds Technology Centre',
             dateAwarded: '2024-09-01',
             description: 'Promoted from Engineer to Team Lead within one year, leading a team of 8 engineers and successfully delivering critical initiatives.',
-            category: 'Leadership'
+            category: 'Leadership',
+            logoUrl: 'https://placehold.co/100x100/006341/FFFFFF/png?text=LEAD'
           }
         ])
         
-        // Mock projects data
-        setProjects([
-          {
-            id: 1,
-            title: 'E-Commerce Platform with Microservices',
-            description: 'Built a scalable e-commerce platform using microservices architecture with React frontend, Node.js backend, and MongoDB. Implemented features like user authentication, product catalog, shopping cart, payment processing, and order management.',
-            technologies: ['React', 'Node.js', 'MongoDB', 'Docker', 'Kubernetes', 'Redis', 'Stripe API'],
-            projectUrl: 'https://ecommerce-demo.sahita.dev',
-            githubUrl: 'https://github.com/SahitaPersonal/ecommerce-platform',
-            startDate: '2023-01-15',
-            endDate: '2023-06-30',
-            isFeatured: true
-          },
-          {
-            id: 2,
-            title: 'Real-Time Chat Application',
-            description: 'Developed a real-time chat application with WebSocket support, featuring multiple chat rooms, file sharing, emoji reactions, and user presence indicators. Built with modern web technologies and deployed on AWS.',
-            technologies: ['Next.js', 'Socket.io', 'PostgreSQL', 'Prisma', 'AWS', 'TypeScript'],
-            projectUrl: 'https://chat-app.sahita.dev',
-            githubUrl: 'https://github.com/SahitaPersonal/realtime-chat',
-            startDate: '2022-08-01',
-            endDate: '2022-11-15',
-            isFeatured: true
-          },
-          {
-            id: 3,
-            title: 'Task Management Dashboard',
-            description: 'Created a comprehensive task management dashboard with drag-and-drop functionality, team collaboration features, time tracking, and detailed analytics. Includes mobile-responsive design and offline capabilities.',
-            technologies: ['Vue.js', 'Express.js', 'MySQL', 'Chart.js', 'PWA', 'WebSockets'],
-            projectUrl: 'https://taskmanager.sahita.dev',
-            githubUrl: 'https://github.com/SahitaPersonal/task-dashboard',
-            startDate: '2022-03-10',
-            endDate: '2022-07-20',
-            isFeatured: false
-          },
-          {
-            id: 4,
-            title: 'AI-Powered Code Review Tool',
-            description: 'Developed an AI-powered code review tool that analyzes code quality, suggests improvements, and detects potential bugs. Integrated with popular version control systems and CI/CD pipelines.',
-            technologies: ['Python', 'FastAPI', 'TensorFlow', 'React', 'PostgreSQL', 'Docker', 'GitHub API'],
-            githubUrl: 'https://github.com/SahitaPersonal/ai-code-review',
-            startDate: '2023-07-01',
-            endDate: '2023-10-15',
-            isFeatured: true
-          }
-        ])
+        // Mock projects data - Empty array
+        setProjects([])
         
         // Mock education data with actual education
         setEducation([

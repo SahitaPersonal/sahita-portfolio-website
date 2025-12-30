@@ -176,24 +176,24 @@ export default function Hero({ personalInfo }: HeroProps) {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             className="flex justify-center lg:justify-end relative"
           >
-            {/* Code Block Background */}
-            <div className="absolute -top-20 -left-20 hidden lg:block">
-              <CodeBlock className="w-80 opacity-80" />
+            {/* Code Block Background - More prominent */}
+            <div className="absolute -top-32 -left-32 hidden lg:block z-0">
+              <CodeBlock className="w-72 opacity-95 drop-shadow-2xl" />
             </div>
             
-            {/* Terminal Window */}
-            <div className="absolute -bottom-16 -right-16 hidden lg:block">
-              <TerminalWindow className="w-72 opacity-90" />
+            {/* Terminal Window - More prominent */}
+            <div className="absolute -bottom-24 -right-24 hidden lg:block z-0">
+              <TerminalWindow className="w-64 opacity-95 drop-shadow-2xl" />
             </div>
             
             <div className="relative z-10">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-30 scale-110 animate-pulse-slow" />
               
-              {/* Main image container */}
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96">
-                <div className="card-modern w-full h-full rounded-full overflow-hidden p-2">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-gradient-dark">
+              {/* Main image container - Original size with reduced opacity */}
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96 opacity-75">
+                <div className="card-modern w-full h-full rounded-full overflow-hidden p-2 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm border-2 border-white/20">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-gradient-dark shadow-2xl">
                     {personalInfo.profileImageUrl ? (
                       <Image
                         src={personalInfo.profileImageUrl}

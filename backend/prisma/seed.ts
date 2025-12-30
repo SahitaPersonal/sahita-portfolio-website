@@ -18,7 +18,7 @@ async function main() {
 My journey spans from mobile app development with React Native and Xamarin to leading critical financial services initiatives. I'm passionate about delivering high-quality solutions, mentoring teams, and driving technical excellence in fast-paced, regulated environments.
 
 Based in Dublin, Ireland, I bring a unique combination of technical leadership, hands-on development skills, and experience across diverse industries including fintech, edtech, and hospitality.`,
-      profileImageUrl: '/images/profile.jpg',
+      profileImageUrl: '/images/profile_main.jpg',
       resumeUrl: '/files/resume.pdf',
     },
     create: {
@@ -31,7 +31,7 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
 My journey spans from mobile app development with React Native and Xamarin to leading critical financial services initiatives. I'm passionate about delivering high-quality solutions, mentoring teams, and driving technical excellence in fast-paced, regulated environments.
 
 Based in Dublin, Ireland, I bring a unique combination of technical leadership, hands-on development skills, and experience across diverse industries including fintech, edtech, and hospitality.`,
-      profileImageUrl: '/images/profile.jpg',
+      profileImageUrl: '/images/profile_main.jpg',
       resumeUrl: '/files/resume.pdf',
     },
   })
@@ -72,38 +72,38 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
   // Create technologies with actual proficiency and experience
   const technologies = [
     // Frontend
-    { name: 'React', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/react.svg', displayOrder: 1 },
-    { name: 'JavaScript', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: '/images/tech/javascript.svg', displayOrder: 2 },
-    { name: 'TypeScript', category: 'Frontend', proficiency: 90, yearsUsed: 3, logoUrl: '/images/tech/typescript.svg', displayOrder: 3 },
-    { name: 'HTML5', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: '/images/tech/html5.svg', displayOrder: 4 },
-    { name: 'CSS3', category: 'Frontend', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/css3.svg', displayOrder: 5 },
-    { name: 'Redux', category: 'Frontend', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/redux.svg', displayOrder: 6 },
+    { name: 'React', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', displayOrder: 1 },
+    { name: 'JavaScript', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', displayOrder: 2 },
+    { name: 'TypeScript', category: 'Frontend', proficiency: 90, yearsUsed: 3, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg', displayOrder: 3 },
+    { name: 'HTML5', category: 'Frontend', proficiency: 95, yearsUsed: 6, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', displayOrder: 4 },
+    { name: 'CSS3', category: 'Frontend', proficiency: 90, yearsUsed: 6, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', displayOrder: 5 },
+    { name: 'Redux', category: 'Frontend', proficiency: 85, yearsUsed: 4, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg', displayOrder: 6 },
     
     // Backend
-    { name: 'Node.js', category: 'Backend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/nodejs.svg', displayOrder: 7 },
-    { name: 'Express.js', category: 'Backend', proficiency: 90, yearsUsed: 4, logoUrl: '/images/tech/express.svg', displayOrder: 8 },
-    { name: 'C#', category: 'Backend', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/csharp.svg', displayOrder: 9 },
+    { name: 'Node.js', category: 'Backend', proficiency: 95, yearsUsed: 5, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', displayOrder: 7 },
+    { name: 'Express.js', category: 'Backend', proficiency: 90, yearsUsed: 4, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', displayOrder: 8 },
+    { name: 'C#', category: 'Backend', proficiency: 80, yearsUsed: 3, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg', displayOrder: 9 },
     
     // Mobile
-    { name: 'React Native', category: 'Mobile', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/react-native.svg', displayOrder: 10 },
-    { name: 'Xamarin', category: 'Mobile', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/xamarin.svg', displayOrder: 11 },
+    { name: 'React Native', category: 'Mobile', proficiency: 85, yearsUsed: 4, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', displayOrder: 10 },
+    { name: 'Xamarin', category: 'Mobile', proficiency: 75, yearsUsed: 2, logoUrl: undefined, displayOrder: 11 },
     
     // Database
-    { name: 'MySQL', category: 'Database', proficiency: 80, yearsUsed: 4, logoUrl: '/images/tech/mysql.svg', displayOrder: 12 },
+    { name: 'MySQL', category: 'Database', proficiency: 80, yearsUsed: 4, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', displayOrder: 12 },
     
     // DevOps & Cloud
-    { name: 'Google Cloud', category: 'DevOps', proficiency: 80, yearsUsed: 2, logoUrl: '/images/tech/gcp.svg', displayOrder: 13 },
-    { name: 'Docker', category: 'DevOps', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/docker.svg', displayOrder: 14 },
-    { name: 'Azure', category: 'DevOps', proficiency: 70, yearsUsed: 1, logoUrl: '/images/tech/azure.svg', displayOrder: 15 },
+    { name: 'Google Cloud', category: 'DevOps', proficiency: 80, yearsUsed: 2, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg', displayOrder: 13 },
+    { name: 'Docker', category: 'DevOps', proficiency: 75, yearsUsed: 2, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', displayOrder: 14 },
+    { name: 'Azure', category: 'DevOps', proficiency: 70, yearsUsed: 1, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg', displayOrder: 15 },
     
     // Testing
-    { name: 'Jest', category: 'Testing', proficiency: 85, yearsUsed: 3, logoUrl: '/images/tech/jest.svg', displayOrder: 16 },
-    { name: 'NUnit', category: 'Testing', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/nunit.svg', displayOrder: 17 },
+    { name: 'Jest', category: 'Testing', proficiency: 85, yearsUsed: 3, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg', displayOrder: 16 },
+    { name: 'NUnit', category: 'Testing', proficiency: 70, yearsUsed: 2, logoUrl: undefined, displayOrder: 17 },
     
     // Tools
-    { name: 'Git', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/git.svg', displayOrder: 18 },
-    { name: 'GitHub', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: '/images/tech/github.svg', displayOrder: 19 },
-    { name: 'Jira', category: 'Tools', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/jira.svg', displayOrder: 20 },
+    { name: 'Git', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', displayOrder: 18 },
+    { name: 'GitHub', category: 'Tools', proficiency: 90, yearsUsed: 6, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', displayOrder: 19 },
+    { name: 'Jira', category: 'Tools', proficiency: 85, yearsUsed: 4, logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg', displayOrder: 20 },
   ]
 
   for (const tech of technologies) {
@@ -342,60 +342,60 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
       name: 'Google Cloud Associate',
       issuer: 'Google',
       issueDate: new Date('2024-12-01'),
-      expiryDate: null,
-      credentialId: null,
-      verificationUrl: null,
-      logoUrl: '/images/certs/gcp-ace.png',
+      expiryDate: undefined,
+      credentialId: undefined,
+      verificationUrl: undefined,
+      logoUrl: 'https://placehold.co/100x100/4285F4/FFFFFF/png?text=GCP',
       category: 'Cloud',
     },
     {
       name: 'Azure AZ-900',
       issuer: 'Microsoft',
       issueDate: new Date('2021-05-01'),
-      expiryDate: null,
-      credentialId: null,
-      verificationUrl: null,
-      logoUrl: '/images/certs/azure-fundamentals.png',
+      expiryDate: undefined,
+      credentialId: undefined,
+      verificationUrl: undefined,
+      logoUrl: 'https://placehold.co/100x100/0078D4/FFFFFF/png?text=Azure',
       category: 'Cloud',
     },
     {
       name: 'Certified Senior System Architect',
       issuer: 'Pega',
       issueDate: new Date('2019-06-01'),
-      expiryDate: null,
-      credentialId: null,
-      verificationUrl: null,
-      logoUrl: '/images/certs/pega-senior.png',
+      expiryDate: undefined,
+      credentialId: undefined,
+      verificationUrl: undefined,
+      logoUrl: 'https://placehold.co/100x100/FF6B35/FFFFFF/png?text=Pega',
       category: 'Pega',
     },
     {
       name: 'Certified System Architect',
       issuer: 'Pega',
       issueDate: new Date('2018-11-01'),
-      expiryDate: null,
-      credentialId: null,
-      verificationUrl: null,
-      logoUrl: '/images/certs/pega-architect.png',
+      expiryDate: undefined,
+      credentialId: undefined,
+      verificationUrl: undefined,
+      logoUrl: 'https://placehold.co/100x100/FF6B35/FFFFFF/png?text=Pega',
       category: 'Pega',
     },
     {
       name: 'Data Structures using Python',
       issuer: 'NPTEL',
       issueDate: new Date('2017-12-01'),
-      expiryDate: null,
-      credentialId: null,
-      verificationUrl: null,
-      logoUrl: '/images/certs/nptel-python.png',
+      expiryDate: undefined,
+      credentialId: undefined,
+      verificationUrl: undefined,
+      logoUrl: 'https://placehold.co/100x100/3776AB/FFFFFF/png?text=NPTEL',
       category: 'NPTEL',
     },
     {
       name: 'British Council certification for English',
       issuer: 'British Council',
       issueDate: new Date('2017-09-01'),
-      expiryDate: null,
-      credentialId: null,
-      verificationUrl: null,
-      logoUrl: '/images/certs/british-council.png',
+      expiryDate: undefined,
+      credentialId: undefined,
+      verificationUrl: undefined,
+      logoUrl: 'https://placehold.co/100x100/003366/FFFFFF/png?text=BC',
       category: 'British Council',
     },
   ]
@@ -414,7 +414,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
       dateAwarded: new Date('2022-12-01'),
       description: 'Recognized as STAR performer for outstanding contributions to development, issue resolution, and process improvements in mobile and web application development.',
       category: 'Professional',
-      logoUrl: '/images/awards/star-performer.png',
+      logoUrl: 'https://placehold.co/100x100/FFD700/000000/png?text=STAR',
     },
     {
       title: 'STAR Performer of the Quarter - 2020',
@@ -422,7 +422,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
       dateAwarded: new Date('2020-12-01'),
       description: 'Awarded STAR performer recognition for exceptional performance in software development and team collaboration.',
       category: 'Professional',
-      logoUrl: '/images/awards/star-performer.png',
+      logoUrl: 'https://placehold.co/100x100/FFD700/000000/png?text=STAR',
     },
     {
       title: 'Outstanding Contribution Award',
@@ -430,7 +430,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
       dateAwarded: new Date('2024-06-01'),
       description: 'Received recognition twice within six months from both manager and product owner for outstanding contributions to development, issue resolution, and process improvements.',
       category: 'Professional',
-      logoUrl: '/images/awards/outstanding-contribution.png',
+      logoUrl: 'https://placehold.co/100x100/006341/FFFFFF/png?text=LTC',
     },
     {
       title: 'Leadership Excellence - Promotion to Team Lead',
@@ -438,7 +438,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
       dateAwarded: new Date('2024-09-01'),
       description: 'Promoted from Engineer to Team Lead within one year, leading a team of 8 engineers and successfully delivering critical initiatives.',
       category: 'Leadership',
-      logoUrl: '/images/awards/leadership.png',
+      logoUrl: 'https://placehold.co/100x100/006341/FFFFFF/png?text=LEAD',
     },
   ]
 
@@ -449,52 +449,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
   }
 
   // Create project highlights
-  const projects = [
-    {
-      title: 'Open Banking Payment Initiation Service',
-      description: 'Led development of secure, scalable Payment Initiation Services for Open Banking compliance. Built with microservices architecture serving 1M+ users with 99.9% uptime and real-time transaction processing.',
-      technologies: JSON.stringify(['React', 'Node.js', 'TypeScript', 'Oracle', 'Docker', 'Open Banking APIs']),
-      projectUrl: null,
-      githubUrl: null,
-      imageUrl: '/images/projects/open-banking.jpg',
-      startDate: new Date('2022-01-01'),
-      endDate: new Date('2023-12-31'),
-      isFeatured: true,
-    },
-    {
-      title: 'Educational Technology Platform',
-      description: 'Full-stack web application for educational technology with real-time collaboration features, interactive learning modules, and comprehensive analytics dashboard for educators and students.',
-      technologies: JSON.stringify(['React', 'Node.js', 'Express.js', 'JavaScript']),
-      projectUrl: null,
-      githubUrl: 'https://github.com/SahitaPersonal/edtech-platform',
-      imageUrl: '/images/projects/edtech.jpg',
-      startDate: new Date('2020-06-01'),
-      endDate: new Date('2021-12-31'),
-      isFeatured: true,
-    },
-    {
-      title: 'Hospitality Management System',
-      description: 'Comprehensive hospitality management solution with mobile applications (React Native, Xamarin) and web dashboard. Features include booking system, payment processing, and real-time notifications.',
-      technologies: JSON.stringify(['React Native', 'Xamarin', 'React', 'C#', '.NET', 'SQL Server']),
-      projectUrl: null,
-      githubUrl: 'https://github.com/SahitaPersonal/hospitality-management',
-      imageUrl: '/images/projects/hospitality.jpg',
-      startDate: new Date('2019-03-01'),
-      endDate: new Date('2020-05-31'),
-      isFeatured: true,
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'Modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features include dark mode, animations, and a comprehensive showcase of skills and projects.',
-      technologies: JSON.stringify(['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Prisma', 'PostgreSQL']),
-      projectUrl: 'https://sahita-portfolio.vercel.app',
-      githubUrl: 'https://github.com/SahitaPersonal/sahita-portfolio-website',
-      imageUrl: '/images/projects/portfolio.jpg',
-      startDate: new Date('2024-01-01'),
-      endDate: new Date('2024-02-15'),
-      isFeatured: false,
-    },
-  ]
+  const projects: any[] = []
 
   for (const project of projects) {
     await prisma.projectHighlight.create({
