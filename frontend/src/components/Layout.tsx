@@ -3,6 +3,7 @@
 import { ReactNode } from 'react'
 import Navigation from './Navigation'
 import Footer from './Footer'
+import ScrollToTop from './ui/ScrollToTop'
 import { SocialLink } from '@/types/api'
 
 interface LayoutProps {
@@ -41,6 +42,9 @@ export default function Layout({ children, socialLinks }: LayoutProps) {
 
       {/* Footer */}
       <Footer socialLinks={socialLinks} />
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   )
 }
