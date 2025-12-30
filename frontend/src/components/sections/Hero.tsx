@@ -106,6 +106,7 @@ export default function Hero({ personalInfo }: HeroProps) {
                     fill
                     className="object-cover"
                     priority
+                    unoptimized
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-primary flex items-center justify-center">

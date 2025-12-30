@@ -84,6 +84,7 @@ export default function Home() {
           yearsExperience: 6,
           tagline: 'Passionate about building scalable web applications with modern technologies.',
           aboutText: 'With 6+ years of experience in full-stack development, I specialize in creating scalable web applications that deliver exceptional user experiences. My journey in technology has been driven by a passion for solving complex problems and building solutions that make a real impact.',
+          profileImageUrl: '/images/profile.svg'
         })
         setSocialLinks([
           { id: 1, platform: 'LinkedIn', url: 'https://linkedin.com/in/sahita', icon: 'linkedin', displayOrder: 1 },
