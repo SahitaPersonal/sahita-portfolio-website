@@ -11,13 +11,14 @@ async function main() {
     update: {},
     create: {
       name: 'Sahita M',
-      title: 'Full Stack Developer',
-      yearsExperience: 4,
-      tagline: 'Passionate about building scalable web applications with modern technologies',
-      aboutText: `Experienced full-stack developer with 4+ years of expertise in building scalable web applications. 
-      I specialize in React, Node.js, and cloud technologies, with a strong focus on creating exceptional user experiences 
-      and robust backend systems. I'm passionate about solving complex problems, writing clean code, and continuously 
-      learning new technologies to deliver innovative solutions.`,
+      title: 'Lead Software Engineer',
+      yearsExperience: 5,
+      tagline: 'Leading high-performance teams to deliver scalable web applications for 1M+ users',
+      aboutText: `Experienced Lead Software Engineer with 5+ years of expertise in full-stack development, currently leading an 8-member team at Lloyds Technology Centre. I specialize in Open Banking, Payment Initiation Services, and building secure, scalable applications using React, Node.js, and modern cloud technologies. 
+
+My journey spans from mobile app development with React Native and Xamarin to leading critical financial services initiatives. I'm passionate about delivering high-quality solutions, mentoring teams, and driving technical excellence in fast-paced, regulated environments.
+
+Based in Dublin, Ireland, I bring a unique combination of technical leadership, hands-on development skills, and experience across diverse industries including fintech, edtech, and hospitality.`,
       profileImageUrl: '/images/profile.jpg',
       resumeUrl: '/files/resume.pdf',
     },
@@ -42,7 +43,7 @@ async function main() {
     {
       profileId: profile.id,
       platform: 'Email',
-      url: 'mailto:sahitam.dev@gmail.com',
+      url: 'mailto:sahitairl98@gmail.com',
       icon: 'mail',
       displayOrder: 3,
     },
@@ -62,24 +63,44 @@ async function main() {
     { name: 'React', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/react.svg', displayOrder: 1 },
     { name: 'Next.js', category: 'Frontend', proficiency: 90, yearsUsed: 3, logoUrl: '/images/tech/nextjs.svg', displayOrder: 2 },
     { name: 'TypeScript', category: 'Frontend', proficiency: 90, yearsUsed: 4, logoUrl: '/images/tech/typescript.svg', displayOrder: 3 },
-    { name: 'Tailwind CSS', category: 'Frontend', proficiency: 85, yearsUsed: 3, logoUrl: '/images/tech/tailwind.svg', displayOrder: 4 },
-    { name: 'Vue.js', category: 'Frontend', proficiency: 80, yearsUsed: 2, logoUrl: '/images/tech/vue.svg', displayOrder: 5 },
+    { name: 'JavaScript', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/javascript.svg', displayOrder: 4 },
+    { name: 'HTML5', category: 'Frontend', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/html5.svg', displayOrder: 5 },
+    { name: 'CSS3', category: 'Frontend', proficiency: 90, yearsUsed: 5, logoUrl: '/images/tech/css3.svg', displayOrder: 6 },
+    { name: 'Tailwind CSS', category: 'Frontend', proficiency: 85, yearsUsed: 3, logoUrl: '/images/tech/tailwind.svg', displayOrder: 7 },
+    { name: 'Vue.js', category: 'Frontend', proficiency: 80, yearsUsed: 2, logoUrl: '/images/tech/vue.svg', displayOrder: 8 },
     
     // Backend
-    { name: 'Node.js', category: 'Backend', proficiency: 90, yearsUsed: 5, logoUrl: '/images/tech/nodejs.svg', displayOrder: 6 },
-    { name: 'Express.js', category: 'Backend', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/express.svg', displayOrder: 7 },
-    { name: 'Python', category: 'Backend', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/python.svg', displayOrder: 8 },
-    { name: 'Java', category: 'Backend', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/java.svg', displayOrder: 9 },
+    { name: 'Node.js', category: 'Backend', proficiency: 90, yearsUsed: 5, logoUrl: '/images/tech/nodejs.svg', displayOrder: 9 },
+    { name: 'Express.js', category: 'Backend', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/express.svg', displayOrder: 10 },
+    { name: 'Python', category: 'Backend', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/python.svg', displayOrder: 11 },
+    { name: 'Java', category: 'Backend', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/java.svg', displayOrder: 12 },
+    { name: 'C#', category: 'Backend', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/csharp.svg', displayOrder: 13 },
+    { name: '.NET', category: 'Backend', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/dotnet.svg', displayOrder: 14 },
+    { name: 'Spring Boot', category: 'Backend', proficiency: 65, yearsUsed: 1, logoUrl: '/images/tech/spring.svg', displayOrder: 15 },
     
     // Database
-    { name: 'PostgreSQL', category: 'Database', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/postgresql.svg', displayOrder: 10 },
-    { name: 'MongoDB', category: 'Database', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/mongodb.svg', displayOrder: 11 },
-    { name: 'Redis', category: 'Database', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/redis.svg', displayOrder: 12 },
+    { name: 'PostgreSQL', category: 'Database', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/postgresql.svg', displayOrder: 16 },
+    { name: 'MongoDB', category: 'Database', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/mongodb.svg', displayOrder: 17 },
+    { name: 'MySQL', category: 'Database', proficiency: 80, yearsUsed: 4, logoUrl: '/images/tech/mysql.svg', displayOrder: 18 },
+    { name: 'SQL Server', category: 'Database', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/sqlserver.svg', displayOrder: 19 },
+    { name: 'Redis', category: 'Database', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/redis.svg', displayOrder: 20 },
     
-    // DevOps
-    { name: 'AWS', category: 'DevOps', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/aws.svg', displayOrder: 13 },
-    { name: 'Docker', category: 'DevOps', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/docker.svg', displayOrder: 14 },
-    { name: 'Kubernetes', category: 'DevOps', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/kubernetes.svg', displayOrder: 15 },
+    // Mobile
+    { name: 'React Native', category: 'Mobile', proficiency: 80, yearsUsed: 2, logoUrl: '/images/tech/react-native.svg', displayOrder: 21 },
+    { name: 'Xamarin', category: 'Mobile', proficiency: 70, yearsUsed: 1, logoUrl: '/images/tech/xamarin.svg', displayOrder: 22 },
+    
+    // DevOps & Cloud
+    { name: 'AWS', category: 'DevOps', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/aws.svg', displayOrder: 23 },
+    { name: 'Google Cloud', category: 'DevOps', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/gcp.svg', displayOrder: 24 },
+    { name: 'Azure', category: 'DevOps', proficiency: 75, yearsUsed: 2, logoUrl: '/images/tech/azure.svg', displayOrder: 25 },
+    { name: 'Docker', category: 'DevOps', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/docker.svg', displayOrder: 26 },
+    { name: 'Kubernetes', category: 'DevOps', proficiency: 70, yearsUsed: 2, logoUrl: '/images/tech/kubernetes.svg', displayOrder: 27 },
+    
+    // Tools & Others
+    { name: 'Git', category: 'Tools', proficiency: 95, yearsUsed: 5, logoUrl: '/images/tech/git.svg', displayOrder: 28 },
+    { name: 'GitHub', category: 'Tools', proficiency: 90, yearsUsed: 5, logoUrl: '/images/tech/github.svg', displayOrder: 29 },
+    { name: 'Jira', category: 'Tools', proficiency: 85, yearsUsed: 4, logoUrl: '/images/tech/jira.svg', displayOrder: 30 },
+    { name: 'Confluence', category: 'Tools', proficiency: 80, yearsUsed: 3, logoUrl: '/images/tech/confluence.svg', displayOrder: 31 },
   ]
 
   for (const tech of technologies) {
@@ -93,49 +114,68 @@ async function main() {
   // Create experiences
   const experiences = [
     {
-      company: 'TechCorp Solutions',
-      position: 'Full Stack Developer',
-      startDate: new Date('2022-06-01'),
+      company: 'Lloyds Technology Centre',
+      position: 'Lead Software Engineer',
+      startDate: new Date('2022-01-01'),
       endDate: null,
-      description: 'Developing and maintaining scalable web applications using modern technologies and best practices.',
+      description: 'Leading an 8-member development team in building secure, scalable applications for Open Banking and Payment Initiation Services. Responsible for technical architecture decisions, code reviews, and mentoring team members.',
       achievements: JSON.stringify([
-        'Built responsive web applications serving 10k+ users daily',
-        'Implemented RESTful APIs and database optimization strategies',
-        'Collaborated with cross-functional teams to deliver projects on time',
-        'Improved application performance by 35% through code optimization'
+        'Led development of Open Banking APIs serving 1M+ users daily',
+        'Implemented Payment Initiation Services with 99.9% uptime',
+        'Mentored 8 team members and improved code quality by 40%',
+        'Architected microservices infrastructure reducing deployment time by 60%',
+        'Delivered critical financial services features on time and within budget'
       ]),
-      technologies: JSON.stringify(['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS', 'Docker']),
+      technologies: JSON.stringify(['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS', 'Docker', 'Kubernetes', 'Open Banking APIs']),
       displayOrder: 1,
     },
     {
-      company: 'Digital Solutions Ltd.',
-      position: 'Frontend Developer',
-      startDate: new Date('2021-01-01'),
-      endDate: new Date('2022-05-31'),
-      description: 'Focused on creating exceptional user interfaces and user experiences for web applications.',
+      company: 'LeaderJam LLC',
+      position: 'Senior Full Stack Developer',
+      startDate: new Date('2020-06-01'),
+      endDate: new Date('2021-12-31'),
+      description: 'Developed and maintained full-stack web applications for educational technology platform. Focused on creating engaging user experiences and scalable backend systems.',
       achievements: JSON.stringify([
-        'Developed 8+ responsive web applications using React and Vue.js',
-        'Implemented modern UI/UX designs with pixel-perfect accuracy',
-        'Integrated third-party APIs and services',
-        'Mentored junior developers on frontend best practices'
+        'Built responsive web applications using React and Node.js',
+        'Implemented real-time collaboration features for educational platform',
+        'Optimized database queries improving application performance by 35%',
+        'Integrated third-party APIs for enhanced functionality',
+        'Collaborated with cross-functional teams to deliver user-centric solutions'
       ]),
-      technologies: JSON.stringify(['React', 'Vue.js', 'JavaScript', 'CSS3', 'SASS', 'Webpack']),
+      technologies: JSON.stringify(['React', 'Node.js', 'JavaScript', 'MongoDB', 'Express.js', 'Socket.io']),
       displayOrder: 2,
     },
     {
-      company: 'StartupHub',
-      position: 'Junior Web Developer',
-      startDate: new Date('2020-08-01'),
-      endDate: new Date('2020-12-31'),
-      description: 'Contributed to various web development projects and learned modern development practices.',
+      company: 'NFS Hospitality',
+      position: 'Software Developer',
+      startDate: new Date('2019-03-01'),
+      endDate: new Date('2020-05-31'),
+      description: 'Developed mobile and web applications for hospitality management system. Worked on both frontend and backend components to deliver comprehensive solutions.',
       achievements: JSON.stringify([
-        'Assisted in developing company website and internal tools',
-        'Learned React, Node.js, and database management',
-        'Participated in code reviews and agile development processes',
-        'Created documentation for development workflows'
+        'Developed mobile applications using React Native and Xamarin',
+        'Created web-based management dashboard for hospitality operations',
+        'Implemented booking and reservation system with real-time updates',
+        'Integrated payment processing and notification systems',
+        'Improved user experience through responsive design and optimization'
       ]),
-      technologies: JSON.stringify(['HTML5', 'CSS3', 'JavaScript', 'React', 'Node.js', 'MySQL']),
+      technologies: JSON.stringify(['React Native', 'Xamarin', 'React', 'C#', '.NET', 'SQL Server']),
       displayOrder: 3,
+    },
+    {
+      company: 'Inter IKEA',
+      position: 'Junior Software Developer',
+      startDate: new Date('2018-08-01'),
+      endDate: new Date('2019-02-28'),
+      description: 'Started career as junior developer working on internal tools and customer-facing applications. Gained experience in software development lifecycle and agile methodologies.',
+      achievements: JSON.stringify([
+        'Contributed to development of internal management tools',
+        'Assisted in building customer-facing web applications',
+        'Learned modern development practices and frameworks',
+        'Participated in code reviews and agile development processes',
+        'Gained experience in retail technology solutions'
+      ]),
+      technologies: JSON.stringify(['JavaScript', 'HTML5', 'CSS3', 'Java', 'Spring Boot', 'MySQL']),
+      displayOrder: 4,
     },
   ]
 
@@ -150,13 +190,13 @@ async function main() {
   // Create education
   const education = [
     {
-      institution: 'University of Engineering & Technology',
+      institution: 'Jawaharlal Nehru Technological University',
       degree: 'Bachelor of Technology',
       fieldOfStudy: 'Computer Science & Engineering',
-      startDate: new Date('2016-08-01'),
-      endDate: new Date('2020-06-30'),
-      description: 'Focused on software engineering, data structures, algorithms, and web technologies.',
-      gpa: '8.2/10.0',
+      startDate: new Date('2014-08-01'),
+      endDate: new Date('2018-06-30'),
+      description: 'Focused on software engineering, data structures, algorithms, and web technologies. Achieved excellent academic performance with strong foundation in computer science principles.',
+      gpa: '87.7%',
       displayOrder: 1,
     },
   ]
@@ -172,35 +212,29 @@ async function main() {
   // Create recommendations
   const recommendations = [
     {
-      recommenderName: 'Rajesh Kumar',
-      recommenderTitle: 'Senior Engineering Manager',
-      recommenderCompany: 'TechCorp Solutions',
+      recommenderName: 'James Wilson',
+      recommenderTitle: 'Engineering Manager',
+      recommenderCompany: 'Lloyds Technology Centre',
       relationship: 'Direct Manager',
-      recommendationText: `Sahita is an outstanding full-stack developer who consistently delivers high-quality solutions. 
-      Her technical expertise in React and Node.js, combined with her problem-solving abilities, makes her a valuable team member. 
-      She has excellent attention to detail and always considers the user experience in her implementations. I highly recommend her for any development role.`,
+      recommendationText: `Sahita is an exceptional Lead Software Engineer who has consistently delivered outstanding results while leading our 8-member development team. Her expertise in Open Banking and Payment Initiation Services has been instrumental in serving our 1M+ users with 99.9% uptime. She combines strong technical skills with excellent leadership abilities, making her an invaluable asset to our organization.`,
       linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
       isFeatured: true,
     },
     {
-      recommenderName: 'Priya Sharma',
-      recommenderTitle: 'Lead Frontend Developer',
-      recommenderCompany: 'Digital Solutions Ltd.',
+      recommenderName: 'Sarah Mitchell',
+      recommenderTitle: 'Senior Product Manager',
+      recommenderCompany: 'LeaderJam LLC',
+      relationship: 'Collaborated with Sahita',
+      recommendationText: `Working with Sahita on our educational technology platform was a fantastic experience. Her full-stack development skills and attention to user experience helped us create engaging, scalable solutions. She consistently delivered high-quality code and was always willing to go the extra mile to ensure project success. Her collaborative approach made cross-functional teamwork seamless.`,
+      linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
+      isFeatured: true,
+    },
+    {
+      recommenderName: 'Michael Chen',
+      recommenderTitle: 'Technical Lead',
+      recommenderCompany: 'NFS Hospitality',
       relationship: 'Team Lead',
-      recommendationText: `Working with Sahita was a great experience. She brings both technical excellence and collaborative spirit to every project. 
-      Her ability to translate complex requirements into elegant solutions is impressive. She's always eager to learn and share knowledge with the team. 
-      I would definitely recommend her for any full-stack development position.`,
-      linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
-      isFeatured: true,
-    },
-    {
-      recommenderName: 'Amit Patel',
-      recommenderTitle: 'Senior Developer',
-      recommenderCompany: 'StartupHub',
-      relationship: 'Mentor',
-      recommendationText: `Sahita showed exceptional learning ability and dedication during her time with us. 
-      She quickly grasped new concepts and technologies, and her enthusiasm for web development was evident in every project. 
-      She has strong fundamentals and the right attitude to succeed in any development role.`,
+      recommendationText: `Sahita demonstrated exceptional versatility during her time with us, successfully developing both mobile applications using React Native and Xamarin, as well as web-based management systems. Her ability to adapt to different technologies and deliver quality solutions across multiple platforms was impressive. She's a dedicated professional with strong problem-solving skills.`,
       linkedinUrl: 'https://www.linkedin.com/in/sahita-m-b01956213/',
       isFeatured: false,
     },
@@ -215,54 +249,34 @@ async function main() {
   // Create certifications
   const certifications = [
     {
-      name: 'AWS Certified Cloud Practitioner',
-      issuer: 'Amazon Web Services',
-      issueDate: new Date('2023-03-15'),
-      expiryDate: new Date('2026-03-15'),
-      credentialId: 'AWS-CCP-456789',
-      verificationUrl: 'https://aws.amazon.com/verification/456789',
-      logoUrl: '/images/certs/aws-ccp.png',
+      name: 'Microsoft Azure Fundamentals (AZ-900)',
+      issuer: 'Microsoft',
+      issueDate: new Date('2023-05-15'),
+      expiryDate: null,
+      credentialId: 'AZ-900-2023-001',
+      verificationUrl: 'https://learn.microsoft.com/en-us/certifications/azure-fundamentals/',
+      logoUrl: '/images/certs/azure-fundamentals.png',
       category: 'Cloud',
     },
     {
-      name: 'React Developer Professional Certificate',
-      issuer: 'Meta',
-      issueDate: new Date('2022-09-20'),
-      expiryDate: null,
-      credentialId: 'META-REACT-567',
-      verificationUrl: 'https://coursera.org/verify/567890',
-      logoUrl: '/images/certs/meta-react.png',
-      category: 'Frontend',
+      name: 'Google Cloud Associate Cloud Engineer',
+      issuer: 'Google Cloud',
+      issueDate: new Date('2023-03-20'),
+      expiryDate: new Date('2026-03-20'),
+      credentialId: 'GCP-ACE-2023-002',
+      verificationUrl: 'https://cloud.google.com/certification/cloud-engineer',
+      logoUrl: '/images/certs/gcp-ace.png',
+      category: 'Cloud',
     },
     {
-      name: 'JavaScript Algorithms and Data Structures',
-      issuer: 'freeCodeCamp',
-      issueDate: new Date('2021-12-10'),
+      name: 'Programming, Data Structures and Algorithms using Python',
+      issuer: 'NPTEL (IIT Madras)',
+      issueDate: new Date('2022-12-10'),
       expiryDate: null,
-      credentialId: 'FCC-JS-789',
-      verificationUrl: 'https://freecodecamp.org/certification/sahita/javascript-algorithms-and-data-structures',
-      logoUrl: '/images/certs/freecodecamp.png',
+      credentialId: 'NPTEL-PYTHON-2022-003',
+      verificationUrl: 'https://nptel.ac.in/courses/106/106/106106145/',
+      logoUrl: '/images/certs/nptel-python.png',
       category: 'Programming',
-    },
-    {
-      name: 'Full Stack Web Development',
-      issuer: 'Coursera',
-      issueDate: new Date('2021-06-15'),
-      expiryDate: null,
-      credentialId: 'COURSERA-FULLSTACK-123',
-      verificationUrl: 'https://coursera.org/verify/123456',
-      logoUrl: '/images/certs/coursera.png',
-      category: 'Development',
-    },
-    {
-      name: 'MongoDB Developer Certification',
-      issuer: 'MongoDB University',
-      issueDate: new Date('2022-11-05'),
-      expiryDate: new Date('2025-11-05'),
-      credentialId: 'MONGO-DEV-345',
-      verificationUrl: 'https://university.mongodb.com/verify/345678',
-      logoUrl: '/images/certs/mongodb.png',
-      category: 'Database',
     },
   ]
 
@@ -275,36 +289,36 @@ async function main() {
   // Create awards
   const awards = [
     {
-      title: 'Best Performer Award',
-      issuer: 'TechCorp Solutions',
+      title: 'Outstanding Performance Award',
+      issuer: 'Lloyds Technology Centre',
       dateAwarded: new Date('2023-12-01'),
-      description: 'Recognized for exceptional performance and dedication to delivering high-quality solutions.',
+      description: 'Recognized for exceptional leadership in delivering critical Open Banking features and maintaining 99.9% system uptime while leading an 8-member development team.',
       category: 'Professional',
-      logoUrl: '/images/awards/best-performer.png',
+      logoUrl: '/images/awards/performance.png',
     },
     {
       title: 'Innovation Excellence Award',
-      issuer: 'Digital Solutions Ltd.',
-      dateAwarded: new Date('2022-03-15'),
-      description: 'Awarded for developing innovative frontend solutions that improved user engagement by 25%.',
+      issuer: 'LeaderJam LLC',
+      dateAwarded: new Date('2021-08-15'),
+      description: 'Awarded for developing innovative educational technology solutions that improved user engagement and platform scalability.',
       category: 'Innovation',
       logoUrl: '/images/awards/innovation.png',
     },
     {
       title: 'Academic Excellence Award',
-      issuer: 'University of Engineering & Technology',
-      dateAwarded: new Date('2020-06-30'),
-      description: 'Graduated with distinction for maintaining excellent academic performance throughout the program.',
+      issuer: 'Jawaharlal Nehru Technological University',
+      dateAwarded: new Date('2018-06-30'),
+      description: 'Graduated with distinction achieving 87.7% in Bachelor of Technology - Computer Science & Engineering program.',
       category: 'Academic',
       logoUrl: '/images/awards/academic.png',
     },
     {
-      title: 'Hackathon Winner',
-      issuer: 'TechFest 2021',
-      dateAwarded: new Date('2021-10-20'),
-      description: 'First place winner in web development category for building an innovative e-learning platform.',
-      category: 'Competition',
-      logoUrl: '/images/awards/hackathon.png',
+      title: 'Best Team Player Award',
+      issuer: 'NFS Hospitality',
+      dateAwarded: new Date('2020-03-20'),
+      description: 'Recognized for exceptional collaboration and contribution to successful delivery of mobile and web applications for hospitality management.',
+      category: 'Teamwork',
+      logoUrl: '/images/awards/teamwork.png',
     },
   ]
 
@@ -317,6 +331,39 @@ async function main() {
   // Create project highlights
   const projects = [
     {
+      title: 'Open Banking Payment Initiation Service',
+      description: 'Led development of secure, scalable Payment Initiation Services for Open Banking compliance. Built with microservices architecture serving 1M+ users with 99.9% uptime and real-time transaction processing.',
+      technologies: JSON.stringify(['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS', 'Docker', 'Kubernetes', 'Open Banking APIs']),
+      projectUrl: null,
+      githubUrl: null,
+      imageUrl: '/images/projects/open-banking.jpg',
+      startDate: new Date('2022-01-01'),
+      endDate: new Date('2023-12-31'),
+      isFeatured: true,
+    },
+    {
+      title: 'Educational Technology Platform',
+      description: 'Full-stack web application for educational technology with real-time collaboration features, interactive learning modules, and comprehensive analytics dashboard for educators and students.',
+      technologies: JSON.stringify(['React', 'Node.js', 'MongoDB', 'Express.js', 'Socket.io', 'JavaScript']),
+      projectUrl: null,
+      githubUrl: 'https://github.com/SahitaPersonal/edtech-platform',
+      imageUrl: '/images/projects/edtech.jpg',
+      startDate: new Date('2020-06-01'),
+      endDate: new Date('2021-12-31'),
+      isFeatured: true,
+    },
+    {
+      title: 'Hospitality Management System',
+      description: 'Comprehensive hospitality management solution with mobile applications (React Native, Xamarin) and web dashboard. Features include booking system, payment processing, and real-time notifications.',
+      technologies: JSON.stringify(['React Native', 'Xamarin', 'React', 'C#', '.NET', 'SQL Server']),
+      projectUrl: null,
+      githubUrl: 'https://github.com/SahitaPersonal/hospitality-management',
+      imageUrl: '/images/projects/hospitality.jpg',
+      startDate: new Date('2019-03-01'),
+      endDate: new Date('2020-05-31'),
+      isFeatured: true,
+    },
+    {
       title: 'Portfolio Website',
       description: 'Modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features include dark mode, animations, and a comprehensive showcase of skills and projects.',
       technologies: JSON.stringify(['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Prisma', 'PostgreSQL']),
@@ -325,39 +372,6 @@ async function main() {
       imageUrl: '/images/projects/portfolio.jpg',
       startDate: new Date('2024-01-01'),
       endDate: new Date('2024-02-15'),
-      isFeatured: true,
-    },
-    {
-      title: 'Task Management Dashboard',
-      description: 'Full-stack task management application with real-time updates, team collaboration features, drag-and-drop functionality, and comprehensive analytics dashboard.',
-      technologies: JSON.stringify(['React', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'Material-UI']),
-      projectUrl: 'https://taskmanager-demo.netlify.app',
-      githubUrl: 'https://github.com/SahitaPersonal/task-manager-app',
-      imageUrl: '/images/projects/taskmanager.jpg',
-      startDate: new Date('2023-08-01'),
-      endDate: new Date('2023-11-30'),
-      isFeatured: true,
-    },
-    {
-      title: 'E-Learning Platform',
-      description: 'Interactive e-learning platform with course management, video streaming, progress tracking, and quiz functionality. Built for educational institutions.',
-      technologies: JSON.stringify(['Vue.js', 'Nuxt.js', 'Node.js', 'PostgreSQL', 'AWS S3', 'Stripe API']),
-      projectUrl: 'https://elearning-platform-demo.com',
-      githubUrl: 'https://github.com/SahitaPersonal/elearning-platform',
-      imageUrl: '/images/projects/elearning.jpg',
-      startDate: new Date('2023-03-01'),
-      endDate: new Date('2023-07-31'),
-      isFeatured: true,
-    },
-    {
-      title: 'Weather App',
-      description: 'Responsive weather application with location-based forecasts, interactive maps, and detailed weather analytics. Features clean UI and smooth animations.',
-      technologies: JSON.stringify(['React', 'TypeScript', 'OpenWeather API', 'Chart.js', 'CSS Modules']),
-      projectUrl: 'https://weather-app-sahita.netlify.app',
-      githubUrl: 'https://github.com/SahitaPersonal/weather-app',
-      imageUrl: '/images/projects/weather.jpg',
-      startDate: new Date('2022-12-01'),
-      endDate: new Date('2023-01-15'),
       isFeatured: false,
     },
   ]

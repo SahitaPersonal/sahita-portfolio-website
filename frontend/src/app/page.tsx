@@ -98,7 +98,7 @@ export default function Home() {
         setSocialLinks([
           { id: 1, platform: 'LinkedIn', url: 'https://www.linkedin.com/in/sahita-m-b01956213/', icon: 'linkedin', displayOrder: 1 },
           { id: 2, platform: 'GitHub', url: 'https://github.com/SahitaPersonal', icon: 'github', displayOrder: 2 },
-          { id: 3, platform: 'Email', url: 'mailto:contact@sahita.dev', icon: 'email', displayOrder: 3 },
+          { id: 3, platform: 'Email', url: 'mailto:sahitairl98@gmail.com', icon: 'email', displayOrder: 3 },
         ])
         
         // Mock resume data - Fixed URL
@@ -457,7 +457,7 @@ export default function Home() {
           />
           <Connect 
             linkedinUrl="https://www.linkedin.com/in/sahita-m-b01956213/"
-            email="contact@sahita.dev"
+            email="sahitairl98@gmail.com"
           />
         </>
       )}
