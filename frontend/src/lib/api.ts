@@ -12,14 +12,23 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'
 class ApiClient {
   private async request<T>(endpoint: string): Promise<T> {
     try {
-      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      // Ensure endpoint starts with /
+      const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`
+      const url = `${API_BASE_URL}${normalizedEndpoint}`
+      
+      console.log(`Making API request to: ${url}`)
+      
+      const response = await fetch(url, {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
+        cache: 'no-store',
       })
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+        throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`)
       }
 
       const data: ApiResponse<T> = await response.json()
@@ -31,6 +40,10 @@ class ApiClient {
       return data.data as T
     } catch (error) {
       console.error(`API request failed for ${endpoint}:`, error)
+      // Re-throw with more context
+      if (error instanceof TypeError) {
+        throw new Error(`Network error: Failed to fetch from ${API_BASE_URL}${endpoint}. ${error.message}`)
+      }
       throw error
     }
   }

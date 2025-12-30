@@ -26,18 +26,24 @@ export default function Home() {
       try {
         setLoading(true)
         
+        // Test API connectivity first
+        console.log('Testing API connectivity...')
+        
         // Fetch profile data
         const profileData = await apiClient.getProfile()
+        console.log('Profile data received:', profileData)
         setPersonalInfo(profileData.personalInfo)
         setSocialLinks(profileData.socialLinks)
         
         // Fetch technologies data
         const technologiesData = await apiClient.getTechnologies()
+        console.log('Technologies data received:', technologiesData)
         setTechnologies(technologiesData.technologies)
         setTechCategories(technologiesData.categories)
         
         // Fetch experience data
         const experienceData = await apiClient.getExperience()
+        console.log('Experience data received:', experienceData)
         setExperiences(experienceData.experiences)
         setEducation(experienceData.education)
         
@@ -47,6 +53,7 @@ export default function Home() {
         setError(errorMessage)
         
         // Fallback data for development
+        console.log('Using fallback data due to API error')
         setPersonalInfo({
           id: 1,
           name: 'Sahita',
