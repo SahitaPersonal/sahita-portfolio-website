@@ -50,7 +50,7 @@ export default function Home() {
         if (resumeUrl) {
           const fullResumeUrl = resumeUrl.startsWith('http') 
             ? resumeUrl 
-            : `http://localhost:3001${resumeUrl}`
+            : resumeUrl // Use relative URL directly for Vercel
           setResumeUrl(fullResumeUrl)
         }
         setResumeAvailable(profileData.resume?.available || false)
@@ -105,9 +105,8 @@ Based in Dublin, Ireland, I bring a unique combination of technical leadership, 
           { id: 3, platform: 'Email', url: 'mailto:sahitairl98@gmail.com', icon: 'email', displayOrder: 3 },
         ])
         
-        // Mock resume data - Fixed URL
-        const backendUrl = 'http://localhost:3001'
-        setResumeUrl(`${backendUrl}/files/resume.pdf`)
+        // Mock resume data - Using your actual resume
+        setResumeUrl('/files/resume.pdf')
         setResumeAvailable(true)
         
         // Mock technologies data with actual proficiency

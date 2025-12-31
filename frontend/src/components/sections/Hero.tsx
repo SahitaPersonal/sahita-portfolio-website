@@ -19,8 +19,8 @@ export default function Hero({ personalInfo }: HeroProps) {
   }
 
   const handleDownloadResume = () => {
-    // Download resume from the backend
-    const resumeUrl = 'http://localhost:3001/files/resume.pdf'
+    // Download resume from local file
+    const resumeUrl = '/files/resume.pdf'
     window.open(resumeUrl, '_blank')
   }
 

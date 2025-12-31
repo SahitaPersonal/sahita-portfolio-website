@@ -7,7 +7,7 @@ import {
   ApiResponse 
 } from '@/types/api'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || ''
 
 class ApiClient {
   private async request<T>(endpoint: string): Promise<T> {
@@ -18,7 +18,7 @@ class ApiClient {
       }
       
       if (!API_BASE_URL) {
-        throw new Error('API_BASE_URL is not configured')
+        throw new Error('No backend API configured - using fallback data')
       }
 
       // Ensure endpoint starts with /
@@ -52,7 +52,7 @@ class ApiClient {
       // Re-throw with more context
       if (error instanceof TypeError) {
         const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`
-        throw new Error(`Network error: Failed to fetch from ${API_BASE_URL}${normalizedEndpoint}. ${error.message}`)
+        throw new Error(`Network error: No backend API available. Using fallback data.`)
       }
       throw error
     }
