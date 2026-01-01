@@ -25,9 +25,9 @@ export default function Hero({ personalInfo }: HeroProps) {
   }
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-labelledby="hero-heading">
       {/* Enhanced Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         {/* Floating Icons Background */}
         <FloatingIcons />
         
@@ -101,7 +101,7 @@ export default function Hero({ personalInfo }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="space-y-4"
             >
-              <h1 className="text-responsive-xl font-bold text-white leading-tight">
+              <h1 id="hero-heading" className="text-responsive-xl font-bold text-white leading-tight">
                 Hi, I'm{' '}
                 <span className="gradient-text">
                   {personalInfo.name}
@@ -133,6 +133,7 @@ export default function Hero({ personalInfo }: HeroProps) {
               <button 
                 onClick={handleViewWork}
                 className="group btn-modern flex items-center gap-2 justify-center"
+                aria-label="View my work and achievements"
               >
                 <EyeIcon className="w-5 h-5" />
                 View My Work
@@ -141,6 +142,7 @@ export default function Hero({ personalInfo }: HeroProps) {
               <button 
                 onClick={handleDownloadResume}
                 className="glass-button px-8 py-4 text-white rounded-xl font-semibold flex items-center gap-2 justify-center"
+                aria-label="Download my resume PDF"
               >
                 <DownloadIcon className="w-5 h-5" />
                 Download Resume
@@ -152,19 +154,19 @@ export default function Hero({ personalInfo }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-md mx-auto lg:mx-0"
             >
-              <div className="glass-card p-4 text-center lg:text-left rounded-2xl">
-                <div className="text-3xl font-bold gradient-text">{personalInfo.yearsExperience}+</div>
-                <div className="text-sm text-neutral-400 mt-1">Years Experience</div>
+              <div className="glass-card p-3 sm:p-4 text-center lg:text-left rounded-2xl">
+                <div className="text-2xl sm:text-3xl font-bold gradient-text">{personalInfo.yearsExperience}+</div>
+                <div className="text-xs sm:text-sm text-neutral-400 mt-1">Years Experience</div>
               </div>
-              <div className="glass-card p-4 text-center lg:text-left rounded-2xl">
-                <div className="text-3xl font-bold gradient-text">10+</div>
-                <div className="text-sm text-neutral-400 mt-1">Projects</div>
+              <div className="glass-card p-3 sm:p-4 text-center lg:text-left rounded-2xl">
+                <div className="text-2xl sm:text-3xl font-bold gradient-text">10+</div>
+                <div className="text-xs sm:text-sm text-neutral-400 mt-1">Projects</div>
               </div>
-              <div className="glass-card p-4 text-center lg:text-left rounded-2xl">
-                <div className="text-3xl font-bold gradient-text">15+</div>
-                <div className="text-sm text-neutral-400 mt-1">Technologies</div>
+              <div className="glass-card p-3 sm:p-4 text-center lg:text-left rounded-2xl">
+                <div className="text-2xl sm:text-3xl font-bold gradient-text">15+</div>
+                <div className="text-xs sm:text-sm text-neutral-400 mt-1">Technologies</div>
               </div>
             </motion.div>
           </motion.div>
@@ -190,8 +192,8 @@ export default function Hero({ personalInfo }: HeroProps) {
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-30 scale-110 animate-pulse-slow" />
               
-              {/* Main image container - Original size with reduced opacity */}
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96 opacity-75">
+              {/* Main image container - Responsive size with reduced opacity */}
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 opacity-75">
                 <div className="card-modern w-full h-full rounded-full overflow-hidden p-2 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm border-2 border-white/20">
                   <div className="w-full h-full rounded-full overflow-hidden bg-gradient-dark shadow-2xl">
                     {personalInfo.profileImageUrl ? (

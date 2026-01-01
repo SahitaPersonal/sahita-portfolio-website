@@ -30,9 +30,10 @@ export default function Home() {
   const [resumeAvailable, setResumeAvailable] = useState(false)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [retryCount, setRetryCount] = useState(0)
+  const maxRetries = 3
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = async (attempt: number = 1) => {
       try {
         setLoading(true)
         
@@ -82,6 +83,15 @@ export default function Home() {
       } catch (err) {
         console.error('Failed to fetch data:', err)
         const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred'
+        
+        // Retry logic
+        if (attempt < maxRetries) {
+          console.log(`Retrying... Attempt ${attempt + 1}/${maxRetries}`)
+          setRetryCount(attempt)
+          setTimeout(() => fetchData(attempt + 1), 1000 * attempt) // Exponential backoff
+          return
+        }
+        
         setError(errorMessage)
         
         // Fallback data for development
@@ -479,8 +489,15 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
       }
     }
 
-    fetchData()
-  }, [])
+    const handleRetry = () => {
+      setError(null)
+      setRetryCount(0)
+      fetchData()
+    }
+
+    useEffect(() => {
+      fetchData()
+    }, [])
 
   if (loading) {
     return (
@@ -488,6 +505,11 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-neutral-300">Loading portfolio...</p>
+          {retryCount > 0 && (
+            <p className="text-neutral-500 text-sm mt-2">
+              Retrying... Attempt {retryCount + 1}/{maxRetries}
+            </p>
+          )}
         </div>
       </div>
     )
@@ -501,7 +523,7 @@ Even though she joined as a frontend developer, she quickly learned NodeJS and p
           <h1 className="text-2xl font-bold text-white mb-4">Unable to Load Portfolio</h1>
           <p className="text-neutral-400 mb-6">{error}</p>
           <button 
-            onClick={() => window.location.reload()} 
+            onClick={handleRetry} 
             className="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
           >
             Try Again

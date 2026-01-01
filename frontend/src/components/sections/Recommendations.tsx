@@ -75,7 +75,7 @@ export default function Recommendations({ recommendations = [] }: Recommendation
   }
 
   return (
-    <section id="recommendations" className="py-20 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900">
+    <section id="recommendations" className="py-20 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900" aria-labelledby="recommendations-heading">
       <div className="container mx-auto px-6">
         <motion.div
           variants={containerVariants}
@@ -89,7 +89,7 @@ export default function Recommendations({ recommendations = [] }: Recommendation
             <span className="inline-block px-4 py-2 bg-primary-500/20 text-primary-300 rounded-full text-sm font-medium mb-4">
               Professional Network
             </span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 id="recommendations-heading" className="text-4xl lg:text-5xl font-bold text-white mb-6">
               What Others
               <span className="block text-transparent bg-clip-text bg-gradient-primary">
                 Say About Me
@@ -103,7 +103,7 @@ export default function Recommendations({ recommendations = [] }: Recommendation
           {/* Recommendations Grid */}
           <div
             key={`recommendations-page-${currentPage}`}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
           >
             {currentRecommendations.map((recommendation, index) => (
               <motion.div
@@ -111,10 +111,24 @@ export default function Recommendations({ recommendations = [] }: Recommendation
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative bg-neutral-800/50 backdrop-blur-sm rounded-xl p-6 border border-neutral-700/50 hover:border-primary-500/30 transition-all duration-300"
+                className="group relative bg-neutral-800/50 backdrop-blur-sm rounded-xl p-6 border border-neutral-700/50 hover:border-primary-500/30 transition-all duration-300 overflow-hidden"
               >
+                {/* LinkedIn Verification Badge */}
+                <div className="absolute -top-2 -right-2 z-10">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-white text-xs font-bold">in</span>
+                  </div>
+                </div>
+
+                {/* Authenticity Ribbon */}
+                <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
+                  <div className="absolute top-3 right-[-32px] w-20 h-6 bg-gradient-to-r from-green-500 to-emerald-600 transform rotate-45 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">REAL</span>
+                  </div>
+                </div>
+
                 {/* Quote Icon */}
-                <div className="absolute top-4 right-4 text-primary-500/30 text-2xl">
+                <div className="absolute top-4 left-4 text-primary-500/30 text-2xl">
                   "
                 </div>
 
@@ -198,6 +212,7 @@ export default function Recommendations({ recommendations = [] }: Recommendation
                 onClick={() => goToPage(currentPage - 1)}
                 disabled={currentPage === 1}
                 className="flex items-center gap-2 px-4 py-2 bg-neutral-800 text-neutral-300 rounded-lg hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                aria-label="Go to previous page"
               >
                 <ChevronLeftIcon className="w-4 h-4" />
                 Previous
@@ -223,6 +238,7 @@ export default function Recommendations({ recommendations = [] }: Recommendation
                 onClick={() => goToPage(currentPage + 1)}
                 disabled={currentPage === totalPages}
                 className="flex items-center gap-2 px-4 py-2 bg-neutral-800 text-neutral-300 rounded-lg hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                aria-label="Go to next page"
               >
                 Next
                 <ChevronRightIcon className="w-4 h-4" />

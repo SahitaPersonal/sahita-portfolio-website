@@ -80,7 +80,7 @@ export default function Achievements({ certifications = [], awards = [], project
   ] as const
 
   return (
-    <section id="achievements" className="section-padding relative overflow-hidden">
+    <section id="achievements" className="section-padding relative overflow-hidden" aria-labelledby="achievements-heading">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <BinaryRain className="opacity-20" />
@@ -127,7 +127,7 @@ export default function Achievements({ certifications = [], awards = [], project
               <div className="w-2 h-2 bg-primary-400 rounded-full animate-pulse" />
               Professional Achievements
             </span>
-            <h2 className="text-responsive-lg font-bold text-white mb-6">
+            <h2 id="achievements-heading" className="text-responsive-lg font-bold text-white mb-6">
               Certifications &
               <span className="block gradient-text">
                 Accomplishments
@@ -188,11 +188,25 @@ export default function Achievements({ certifications = [], awards = [], project
                     key={cert.id}
                     variants={cardVariants}
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    className="group relative bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300"
+                    className="group relative bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300 overflow-hidden"
                   >
+                    {/* Achievement Badge */}
+                    <div className="absolute -top-2 -right-2 z-10">
+                      <div className="w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                        <span className="text-white text-xs font-bold">✓</span>
+                      </div>
+                    </div>
+
+                    {/* Authenticity Ribbon */}
+                    <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
+                      <div className="absolute top-3 right-[-32px] w-20 h-6 bg-gradient-to-r from-blue-500 to-purple-600 transform rotate-45 flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">CERT</span>
+                      </div>
+                    </div>
+
                     {/* Status Badge */}
-                    <div className="absolute top-4 right-4">
-                      <span className={`text-xs px-2 py-1 rounded-full ${
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className={`text-xs px-2 py-1 rounded-full font-medium ${
                         isCertificationActive(cert)
                           ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
                           : 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
@@ -206,8 +220,9 @@ export default function Achievements({ certifications = [], awards = [], project
                       {cert.logoUrl ? (
                         <img 
                           src={cert.logoUrl} 
-                          alt={cert.issuer}
+                          alt={`${cert.issuer} logo`}
                           className="w-12 h-12 object-contain"
+                          loading="lazy"
                         />
                       ) : (
                         <div className={`w-12 h-12 bg-gradient-to-r ${getCategoryColor(cert.category)} rounded-lg flex items-center justify-center`}>
@@ -284,15 +299,29 @@ export default function Achievements({ certifications = [], awards = [], project
                     key={award.id}
                     variants={cardVariants}
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    className="group relative bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300"
+                    className="group relative bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300 overflow-hidden"
                   >
+                    {/* Award Trophy Badge */}
+                    <div className="absolute -top-2 -right-2 z-10">
+                      <div className="w-8 h-8 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 rounded-full flex items-center justify-center shadow-lg">
+                        <span className="text-white text-xs font-bold">🏆</span>
+                      </div>
+                    </div>
+
+                    {/* Excellence Ribbon */}
+                    <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
+                      <div className="absolute top-3 right-[-32px] w-20 h-6 bg-gradient-to-r from-purple-500 to-pink-600 transform rotate-45 flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">STAR</span>
+                      </div>
+                    </div>
                     {/* Logo/Icon */}
                     <div className="mb-4">
                       {award.logoUrl ? (
                         <img 
                           src={award.logoUrl} 
-                          alt={award.issuer}
+                          alt={`${award.issuer} logo`}
                           className="w-12 h-12 object-contain"
+                          loading="lazy"
                         />
                       ) : (
                         <div className={`w-12 h-12 bg-gradient-to-r ${getCategoryColor(award.category)} rounded-lg flex items-center justify-center`}>

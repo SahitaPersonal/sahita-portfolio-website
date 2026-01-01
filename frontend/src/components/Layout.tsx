@@ -14,6 +14,11 @@ interface LayoutProps {
 export default function Layout({ children, socialLinks }: LayoutProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 relative overflow-hidden">
+      {/* Skip to main content link */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+      
       {/* Enhanced Background Pattern */}
       <div className="fixed inset-0 opacity-30">
         {/* Animated mesh gradient background */}
@@ -36,7 +41,7 @@ export default function Layout({ children, socialLinks }: LayoutProps) {
       <Navigation socialLinks={socialLinks} />
 
       {/* Main Content */}
-      <main className="relative z-10">
+      <main id="main-content" className="relative z-10" role="main" aria-label="Main content">
         {children}
       </main>
 

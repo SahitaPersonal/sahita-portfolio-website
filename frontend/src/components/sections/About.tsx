@@ -26,7 +26,7 @@ export default function About({ personalInfo }: AboutProps) {
   }
 
   return (
-    <section id="about" className="section-padding relative overflow-hidden">
+    <section id="about" className="section-padding relative overflow-hidden" aria-labelledby="about-heading">
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Floating code symbols */}
@@ -72,7 +72,7 @@ export default function About({ personalInfo }: AboutProps) {
               <div className="w-2 h-2 bg-primary-400 rounded-full animate-pulse" />
               About Me
             </span>
-            <h2 className="text-responsive-lg font-bold text-white mb-6">
+            <h2 id="about-heading" className="text-responsive-lg font-bold text-white mb-6">
               Passionate About Building
               <span className="block gradient-text">
                 Digital Experiences
@@ -106,7 +106,7 @@ export default function About({ personalInfo }: AboutProps) {
               </div>
 
               {/* Enhanced Key Highlights */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <motion.div 
                   whileHover={{ scale: 1.05 }}
                   className="card-modern p-6 text-center relative overflow-hidden"

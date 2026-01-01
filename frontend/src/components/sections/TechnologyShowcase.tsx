@@ -99,7 +99,7 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
   }, {} as Record<string, Technology[]>)
 
   return (
-    <section id="technologies" className="section-padding relative overflow-hidden">
+    <section id="technologies" className="section-padding relative overflow-hidden" aria-labelledby="technologies-heading">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <BinaryRain className="opacity-30" />
@@ -146,7 +146,7 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
               <div className="w-2 h-2 bg-primary-400 rounded-full animate-pulse" />
               Technologies & Skills
             </span>
-            <h2 className="text-responsive-lg font-bold text-white mb-6">
+            <h2 id="technologies-heading" className="text-responsive-lg font-bold text-white mb-6">
               My Technical
               <span className="block gradient-text">
                 Arsenal
@@ -179,7 +179,7 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
                 {/* Technology Cards */}
                 <motion.div
                   variants={containerVariants}
-                  className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
                 >
                   {categoryTechs
                     .map((tech, techIndex) => (
@@ -199,8 +199,9 @@ export default function TechnologyShowcase({ technologies = [], categories = [] 
                           {tech.logoUrl ? (
                             <img 
                               src={tech.logoUrl} 
-                              alt={tech.name}
+                              alt={`${tech.name} logo`}
                               className="w-8 h-8 object-contain"
+                              loading="lazy"
                             />
                           ) : (
                             <span>{getTechIcon(tech.name)}</span>
