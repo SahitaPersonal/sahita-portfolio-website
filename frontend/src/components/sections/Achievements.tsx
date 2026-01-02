@@ -153,16 +153,16 @@ export default function Achievements({ certifications = [], awards = [], project
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                       activeTab === tab.id
-                        ? 'bg-white dark:bg-neutral-700 text-primary-600 dark:text-primary-400 shadow-md'
-                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
+                        ? 'bg-neutral-700 text-primary-400 shadow-md'
+                        : 'text-neutral-400 hover:text-neutral-200'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
                     {tab.label}
                     <span className={`text-xs px-2 py-1 rounded-full ${
                       activeTab === tab.id
-                        ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400'
-                        : 'bg-neutral-300 dark:bg-neutral-600 text-neutral-600 dark:text-neutral-400'
+                        ? 'bg-primary-900/30 text-primary-400'
+                        : 'bg-neutral-600 text-neutral-400'
                     }`}>
                       {tab.count}
                     </span>
@@ -188,7 +188,7 @@ export default function Achievements({ certifications = [], awards = [], project
                     key={cert.id}
                     variants={cardVariants}
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    className="group relative bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300 overflow-hidden"
+                    className="group relative bg-neutral-800 rounded-xl p-6 shadow-card hover:shadow-card-hover border border-neutral-700 transition-all duration-300 overflow-hidden"
                   >
                     {/* Achievement Badge */}
                     <div className="absolute -top-2 -right-2 z-10">
@@ -208,8 +208,8 @@ export default function Achievements({ certifications = [], awards = [], project
                     <div className="absolute top-4 left-4 z-10">
                       <span className={`text-xs px-2 py-1 rounded-full font-medium ${
                         isCertificationActive(cert)
-                          ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
-                          : 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
+                          ? 'bg-green-900/30 text-green-400'
+                          : 'bg-orange-900/30 text-orange-400'
                       }`}>
                         {isCertificationActive(cert) ? 'Active' : 'Expired'}
                       </span>
@@ -232,11 +232,11 @@ export default function Achievements({ certifications = [], awards = [], project
                     </div>
 
                     {/* Content */}
-                    <h4 className="font-semibold text-neutral-900 dark:text-white mb-2 text-sm leading-tight">
+                    <h4 className="font-semibold text-white mb-2 text-sm leading-tight">
                       {cert.name}
                     </h4>
                     
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+                    <p className="text-sm text-neutral-400 mb-3">
                       {cert.issuer}
                     </p>
 
@@ -250,7 +250,7 @@ export default function Achievements({ certifications = [], awards = [], project
                     )}
 
                     {/* Dates */}
-                    <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 mb-4">
+                    <div className="flex items-center gap-2 text-xs text-neutral-400 mb-4">
                       <CalendarIcon className="w-3 h-3" />
                       <span>Issued {formatDate(cert.issueDate)}</span>
                       {cert.expiryDate && (
@@ -260,7 +260,7 @@ export default function Achievements({ certifications = [], awards = [], project
 
                     {/* Credential ID */}
                     {cert.credentialId && (
-                      <div className="text-xs text-neutral-500 dark:text-neutral-400 mb-4">
+                      <div className="text-xs text-neutral-400 mb-4">
                         ID: {cert.credentialId}
                       </div>
                     )}
@@ -271,7 +271,7 @@ export default function Achievements({ certifications = [], awards = [], project
                         href={cert.verificationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                        className="inline-flex items-center gap-1 text-xs text-primary-400 hover:text-primary-300 transition-colors"
                       >
                         <ExternalLinkIcon className="w-3 h-3" />
                         Verify Certificate
@@ -299,7 +299,7 @@ export default function Achievements({ certifications = [], awards = [], project
                     key={award.id}
                     variants={cardVariants}
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    className="group relative bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300 overflow-hidden"
+                    className="group relative bg-neutral-800 rounded-xl p-6 shadow-card hover:shadow-card-hover border border-neutral-700 transition-all duration-300 overflow-hidden"
                   >
                     {/* Award Trophy Badge */}
                     <div className="absolute -top-2 -right-2 z-10">
@@ -331,11 +331,11 @@ export default function Achievements({ certifications = [], awards = [], project
                     </div>
 
                     {/* Content */}
-                    <h4 className="font-semibold text-neutral-900 dark:text-white mb-2 text-sm leading-tight">
+                    <h4 className="font-semibold text-white mb-2 text-sm leading-tight">
                       {award.title}
                     </h4>
                     
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+                    <p className="text-sm text-neutral-400 mb-3">
                       {award.issuer}
                     </p>
 
@@ -350,13 +350,13 @@ export default function Achievements({ certifications = [], awards = [], project
 
                     {/* Description */}
                     {award.description && (
-                      <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-3 line-clamp-3">
+                      <p className="text-xs text-neutral-400 mb-3 line-clamp-3">
                         {award.description}
                       </p>
                     )}
 
                     {/* Date */}
-                    <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
+                    <div className="flex items-center gap-2 text-xs text-neutral-400">
                       <CalendarIcon className="w-3 h-3" />
                       <span>Awarded {formatDate(award.dateAwarded)}</span>
                     </div>
@@ -382,7 +382,7 @@ export default function Achievements({ certifications = [], awards = [], project
                     key={project.id}
                     variants={cardVariants}
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    className="group relative bg-white dark:bg-neutral-800 rounded-xl overflow-hidden shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-700 transition-all duration-300"
+                    className="group relative bg-neutral-800 rounded-xl overflow-hidden shadow-card hover:shadow-card-hover border border-neutral-700 transition-all duration-300"
                   >
                     {/* Project Image */}
                     {project.imageUrl && (
@@ -406,11 +406,11 @@ export default function Achievements({ certifications = [], awards = [], project
                         </div>
                       )}
 
-                      <h4 className="font-semibold text-neutral-900 dark:text-white mb-3 text-lg">
+                      <h4 className="font-semibold text-white mb-3 text-lg">
                         {project.title}
                       </h4>
                       
-                      <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4 line-clamp-3">
+                      <p className="text-sm text-neutral-400 mb-4 line-clamp-3">
                         {project.description}
                       </p>
 
@@ -419,20 +419,20 @@ export default function Achievements({ certifications = [], awards = [], project
                         {project.technologies.slice(0, 4).map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="px-2 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 text-xs rounded-md"
+                            className="px-2 py-1 bg-neutral-700 text-neutral-300 text-xs rounded-md"
                           >
                             {tech}
                           </span>
                         ))}
                         {project.technologies.length > 4 && (
-                          <span className="px-2 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-500 dark:text-neutral-400 text-xs rounded-md">
+                          <span className="px-2 py-1 bg-neutral-700 text-neutral-400 text-xs rounded-md">
                             +{project.technologies.length - 4} more
                           </span>
                         )}
                       </div>
 
                       {/* Project Duration */}
-                      <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 mb-4">
+                      <div className="flex items-center gap-2 text-xs text-neutral-400 mb-4">
                         <CalendarIcon className="w-3 h-3" />
                         <span>
                           {formatDate(project.startDate)}
@@ -447,7 +447,7 @@ export default function Achievements({ certifications = [], awards = [], project
                             href={project.projectUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                            className="inline-flex items-center gap-1 text-xs text-primary-400 hover:text-primary-300 transition-colors"
                           >
                             <LinkIcon className="w-3 h-3" />
                             Live Demo
@@ -459,7 +459,7 @@ export default function Achievements({ certifications = [], awards = [], project
                             href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors"
+                            className="inline-flex items-center gap-1 text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
                           >
                             <GithubIcon className="w-3 h-3" />
                             Source Code
@@ -481,38 +481,38 @@ export default function Achievements({ certifications = [], awards = [], project
             variants={itemVariants}
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
           >
-            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+            <div className="text-center p-6 bg-neutral-800 rounded-xl shadow-card border border-neutral-700">
+              <div className="text-3xl font-bold text-primary-400 mb-2">
                 {certifications.filter(cert => isCertificationActive(cert)).length}
               </div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="text-sm text-neutral-400">
                 Active Certifications
               </div>
             </div>
             
-            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
-              <div className="text-3xl font-bold text-secondary-600 dark:text-secondary-400 mb-2">
+            <div className="text-center p-6 bg-neutral-800 rounded-xl shadow-card border border-neutral-700">
+              <div className="text-3xl font-bold text-secondary-400 mb-2">
                 {awards.length}
               </div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="text-sm text-neutral-400">
                 Awards Received
               </div>
             </div>
             
-            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
-              <div className="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-2">
+            <div className="text-center p-6 bg-neutral-800 rounded-xl shadow-card border border-neutral-700">
+              <div className="text-3xl font-bold text-accent-400 mb-2">
                 {projects.filter(p => p.isFeatured).length}
               </div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="text-sm text-neutral-400">
                 Featured Projects
               </div>
             </div>
             
-            <div className="text-center p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-card border border-neutral-200 dark:border-neutral-700">
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
+            <div className="text-center p-6 bg-neutral-800 rounded-xl shadow-card border border-neutral-700">
+              <div className="text-3xl font-bold text-green-400 mb-2">
                 {new Set(certifications.map(c => c.category)).size + new Set(awards.map(a => a.category)).size}
               </div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="text-sm text-neutral-400">
                 Categories
               </div>
             </div>
