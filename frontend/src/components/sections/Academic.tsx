@@ -73,7 +73,7 @@ export default function Academic({ education = [] }: AcademicProps) {
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-neutral-900">
+    <section className="py-20 bg-neutral-900">
       <div className="container mx-auto px-6">
         <motion.div
           variants={containerVariants}
@@ -84,16 +84,16 @@ export default function Academic({ education = [] }: AcademicProps) {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-green-900/30 text-green-400 rounded-full text-sm font-medium mb-4">
               Academic Background
             </span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Educational
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-600">
                 Foundation
               </span>
             </h2>
-            <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+            <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
               The academic journey that laid the groundwork for my technical expertise and professional development.
             </p>
           </motion.div>
@@ -106,7 +106,7 @@ export default function Academic({ education = [] }: AcademicProps) {
                 variants={cardVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="group relative bg-gradient-to-br from-neutral-50 to-white dark:from-neutral-800 dark:to-neutral-700 rounded-2xl p-8 shadow-card hover:shadow-card-hover border border-neutral-200 dark:border-neutral-600 transition-all duration-300"
+                className="group relative bg-gradient-to-br from-neutral-800 to-neutral-700 rounded-2xl p-8 shadow-card hover:shadow-card-hover border border-neutral-600 transition-all duration-300"
               >
                 {/* Degree Level Badge */}
                 <div className="absolute top-6 right-6">
@@ -121,10 +121,10 @@ export default function Academic({ education = [] }: AcademicProps) {
                     {getDegreeIcon(edu.degree)}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-1">
+                    <h3 className="text-xl font-bold text-white mb-1">
                       {edu.institution}
                     </h3>
-                    <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                    <div className="text-sm text-neutral-400">
                       {formatDate(edu.startDate)} - {edu.endDate ? formatDate(edu.endDate) : 'Present'}
                     </div>
                   </div>
@@ -133,11 +133,11 @@ export default function Academic({ education = [] }: AcademicProps) {
                 {/* Degree Information */}
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-lg font-semibold text-neutral-900 dark:text-white mb-1">
+                    <h4 className="text-lg font-semibold text-white mb-1">
                       {edu.degree}
                     </h4>
                     {edu.fieldOfStudy && (
-                      <p className="text-neutral-600 dark:text-neutral-300 font-medium">
+                      <p className="text-neutral-300 font-medium">
                         {edu.fieldOfStudy}
                       </p>
                     )}
@@ -145,7 +145,7 @@ export default function Academic({ education = [] }: AcademicProps) {
 
                   {/* Description */}
                   {edu.description && (
-                    <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
+                    <p className="text-neutral-300 text-sm leading-relaxed">
                       {edu.description}
                     </p>
                   )}
@@ -153,17 +153,17 @@ export default function Academic({ education = [] }: AcademicProps) {
                   {/* GPA */}
                   {edu.gpa && (
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                      <span className="text-sm font-medium text-neutral-300">
                         GPA:
                       </span>
-                      <span className="text-sm font-bold text-primary-600 dark:text-primary-400">
+                      <span className="text-sm font-bold text-primary-400">
                         {edu.gpa}
                       </span>
                     </div>
                   )}
 
                   {/* Duration */}
-                  <div className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400">
+                  <div className="flex items-center gap-2 text-sm text-neutral-400">
                     <span>📅</span>
                     <span>{getYearsDuration(edu.startDate, edu.endDate)} year{getYearsDuration(edu.startDate, edu.endDate) !== 1 ? 's' : ''}</span>
                   </div>
@@ -179,52 +179,52 @@ export default function Academic({ education = [] }: AcademicProps) {
           <motion.div
             variants={itemVariants}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800"
+            className="bg-gradient-to-br from-blue-900/20 to-green-900/20 rounded-2xl p-8 border border-blue-800"
           >
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 Academic Highlights
               </h3>
-              <p className="text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+              <p className="text-neutral-300 max-w-2xl mx-auto">
                 Key academic achievements and qualifications that contribute to my professional expertise.
               </p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                <div className="text-3xl font-bold text-blue-400 mb-2">
                   {education.length}
                 </div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                <div className="text-sm text-neutral-400">
                   Qualifications
                 </div>
               </div>
               
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
+                <div className="text-3xl font-bold text-green-400 mb-2">
                   {new Set(education.map(edu => edu.institution)).size}
                 </div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                <div className="text-sm text-neutral-400">
                   Institutions
                 </div>
               </div>
               
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
+                <div className="text-3xl font-bold text-purple-400 mb-2">
                   {education.reduce((total, edu) => total + getYearsDuration(edu.startDate, edu.endDate), 0)}
                 </div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                <div className="text-sm text-neutral-400">
                   Years Studied
                 </div>
               </div>
               
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">
+                <div className="text-3xl font-bold text-orange-400 mb-2">
                   {education.filter(edu => edu.gpa).length > 0 ? 
                     (education.filter(edu => edu.gpa).reduce((sum, edu) => sum + parseFloat(edu.gpa!), 0) / education.filter(edu => edu.gpa).length).toFixed(1) 
                     : 'N/A'}
                 </div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                <div className="text-sm text-neutral-400">
                   Avg GPA
                 </div>
               </div>
@@ -237,7 +237,7 @@ export default function Academic({ education = [] }: AcademicProps) {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mt-12 text-center"
           >
-            <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-6">
+            <h3 className="text-xl font-bold text-white mb-6">
               Core Skills Developed
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
@@ -258,7 +258,7 @@ export default function Academic({ education = [] }: AcademicProps) {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="px-4 py-2 bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-full border border-neutral-200 dark:border-neutral-600 text-sm font-medium hover:shadow-md transition-shadow duration-200"
+                  className="px-4 py-2 bg-neutral-800 text-neutral-300 rounded-full border border-neutral-600 text-sm font-medium hover:shadow-md transition-shadow duration-200"
                 >
                   {skill}
                 </motion.span>
