@@ -2,7 +2,6 @@ import {
   ProfileResponse, 
   TechnologiesResponse, 
   ExperienceResponse, 
-  RecommendationsResponse, 
   AchievementsResponse,
   ApiResponse 
 } from '@/types/api'
@@ -79,10 +78,16 @@ class ApiClient {
       return data.data as T
     } catch (error) {
       console.error(`API request failed for ${endpoint}:`, error)
+      console.error('Error details:', {
+        message: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined,
+        url: `${API_BASE_URL}${endpoint}`,
+        timestamp: new Date().toISOString()
+      })
+      
       // Re-throw with more context
-      if (error instanceof TypeError) {
-        const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`
-        throw new Error(`Network error: No backend API available. Using fallback data.`)
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        throw new Error(`Network error: Cannot connect to backend API at ${API_BASE_URL}. Please ensure the backend server is running.`)
       }
       throw error
     }
