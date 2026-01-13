@@ -72,6 +72,36 @@ export default function Academic({ education = [] }: AcademicProps) {
     return Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365))
   }
 
+  // Function to normalize GPA to percentage scale (0-100)
+  const normalizeGPA = (gpaString: string): number => {
+    if (gpaString.includes('%')) {
+      // Already a percentage, just parse the number
+      return parseFloat(gpaString.replace('%', ''))
+    } else if (gpaString.includes('/10')) {
+      // Out of 10 scale, convert to percentage
+      const value = parseFloat(gpaString.replace('/10', ''))
+      return value * 10 // Convert 9.8/10 to 98%
+    } else if (gpaString.includes('/')) {
+      // Generic fraction, calculate percentage
+      const [numerator, denominator] = gpaString.split('/').map(parseFloat)
+      return (numerator / denominator) * 100
+    } else {
+      // Assume it's already a number, treat as percentage if > 10, otherwise scale up
+      const value = parseFloat(gpaString)
+      return value > 10 ? value : value * 10
+    }
+  }
+
+  // Calculate average GPA properly
+  const calculateAverageGPA = (): string => {
+    const educationWithGPA = education.filter(edu => edu.gpa)
+    if (educationWithGPA.length === 0) return 'N/A'
+    
+    const totalGPA = educationWithGPA.reduce((sum, edu) => sum + normalizeGPA(edu.gpa!), 0)
+    const averageGPA = totalGPA / educationWithGPA.length
+    return averageGPA.toFixed(1) + '%'
+  }
+
   return (
     <section className="py-20 bg-neutral-900">
       <div className="container mx-auto px-6">
@@ -220,9 +250,7 @@ export default function Academic({ education = [] }: AcademicProps) {
               
               <div className="text-center">
                 <div className="text-3xl font-bold text-orange-400 mb-2">
-                  {education.filter(edu => edu.gpa).length > 0 ? 
-                    (education.filter(edu => edu.gpa).reduce((sum, edu) => sum + parseFloat(edu.gpa!), 0) / education.filter(edu => edu.gpa).length).toFixed(1) 
-                    : 'N/A'}
+                  {calculateAverageGPA()}
                 </div>
                 <div className="text-sm text-neutral-400">
                   Avg GPA
